@@ -13,14 +13,21 @@ class CreateSintechsErrorsTable extends Migration
      */
     public function up()
     {
+        Schema::enableForeignKeyConstraints();
         Schema::create('sintechs_errors', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('type');
             $table->string('title');
             $table->text('description')->nullable();
             $table->string('module');
             $table->string('level');
             $table->boolean('reported')->false();
+            
+            $table->unsignedBigInteger('sensor_id')->nullable();
+            $table->foreign('sensor_id')->references('id')->on('sintechs_sensors');
+
+            $table->unsignedBigInteger('actuator_id')->nullable();
+            $table->foreign('actuator_id')->references('id')->on('sintechs_actuators');
+            
             $table->timestamps();
         });
     }

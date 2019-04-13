@@ -24,7 +24,7 @@ class CreateSintechsSupportTable extends Migration
             $table->string('solution_title');
             $table->text('solution_description');
             $table->boolean('solved')->default(false);
-            $table->timestamp('sintechs_instalation_date');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
