@@ -7,8 +7,7 @@
 @endsection
 @section('breadcrumbs')
 <li><a href="#">Dashboard</a></li>
-<li><a href="#">Charts</a></li>
-<li class="active">Chartjs</li>
+<li class="active">Dashboard</li>
 @endsection
 
 
@@ -120,11 +119,11 @@
 @endsection
 
 @section('final-includes')
-    <script src="vendors/jquery/dist/jquery.min.js"></script>
-    <script src="vendors/popper.js/dist/umd/popper.min.js"></script>
-    <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="/vendors/jquery/dist/jquery.min.js"></script>
+    <script src="/vendors/popper.js/dist/umd/popper.min.js"></script>
+    <script src="/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/assets/js/main.js"></script>
     <!--  Chart js -->
-    <script src="vendors/chart.js/dist/Chart.bundle.min.js"></script>
-    <script src="assets/js/init-scripts/chart-js/chartjs-init.js"></script>
+    <script src="/vendors/chart.js/dist/Chart.bundle.min.js"></script>
+    <script src="/assets/js/init-scripts/chart-js/chartjs-init.js"></script>
 @endsection

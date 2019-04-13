@@ -16,3 +16,9 @@ Route::view('/dashboard', 'dashboard');
 Route::view('/login', 'login');
 Route::view('/register', 'register');
 
+Route::prefix('reports')->group(function () {
+    Route::get('humidity_temperature', "ReportsController@humidity_temperature");
+    Route::get('actuators', "ReportsController@actuators");
+    Route::get('resources', "ReportsController@resources");
+});
+

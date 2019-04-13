@@ -13,24 +13,23 @@
     <meta name="description" content="Sufee Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="apple-touch-icon" href="favicon.ico">
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="/favicon.ico">
+    <link rel="shortcut icon" href="/favicon.ico">
 
-    <link rel="stylesheet" href="vendors/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="vendors/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="vendors/themify-icons/css/themify-icons.css">
-    <link rel="stylesheet" href="vendors/flag-icon-css/css/flag-icon.min.css">
-    <link rel="stylesheet" href="vendors/selectFX/css/cs-skin-elastic.css">
-<!--     <link rel="stylesheet" href="vendors/jqvmap/dist/jqvmap.min.css"> -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="/vendors/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/vendors/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/vendors/themify-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="/vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="/vendors/selectFX/css/cs-skin-elastic.css">
+    <link rel="stylesheet" href="/vendors/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="/vendors/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css">
+    
+    <link rel="stylesheet" href="/assets/css/style.css">
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
-
 </head>
 
 <body>
-
-
     <!-- Left Panel -->
 
     <aside id="left-panel" class="left-panel">
@@ -53,9 +52,9 @@
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Climatização</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-table"></i><a href="tables-basic.html">Humidade & Temperatura</a></li>
-                            <li><i class="fa fa-table"></i><a href="tables-data.html">Atuadores</a></li>
-                            <li><i class="fa fa-table"></i><a href="tables-data.html">Uso de Recursos</a></li>
+                            <li><i class="fa fa-table"></i><a href="/reports/humidity_temperature">Humidade & Temperatura</a></li>
+                            <li><i class="fa fa-table"></i><a href="/reports/actuators">Atuadores</a></li>
+                            <li><i class="fa fa-table"></i><a href="/reports/resources">Uso de Recursos</a></li>
                         </ul>
                     </li>
 
@@ -96,7 +95,7 @@
                 <div class="col-sm-7">
                     <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
                     <div class="header-left">
-                        <button class="search-trigger"><i class="fa fa-search"></i></button>
+                        
                         <div class="form-inline">
                             <form class="search-form">
                                 <input class="form-control mr-sm-2" type="text" placeholder="Search ..." aria-label="Search">
@@ -222,7 +221,6 @@
            
 		<!-- .content -->
         <div class="content mt-3">
-
 			@yield('content')
         </div> <!-- .content -->
     </div><!-- /#right-panel -->
