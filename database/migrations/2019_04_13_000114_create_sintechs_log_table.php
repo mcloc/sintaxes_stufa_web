@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSintechsConfigTable extends Migration
+class CreateSintechsLogTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,13 +14,12 @@ class CreateSintechsConfigTable extends Migration
     public function up()
     {
         Schema::enableForeignKeyConstraints();
-        Schema::create('sintechs_config', function (Blueprint $table) {
+        Schema::create('sintechs_log', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->enum('type', ['module', 'sensors', 'actuators', 'sampling', 'software']);
+            $table->enum('type', ['module', 'sensors', 'actuators', 'sampling', 'software', 'rules']);
             $table->string('name');
             $table->string('description')->nullable();
             $table->string('value');
-            $table->boolean('active')->default(false);
             
             $table->unsignedBigInteger('sensor_id')->nullable();
             $table->foreign('sensor_id')->references('id')->on('sintechs_sensors');
@@ -28,6 +27,8 @@ class CreateSintechsConfigTable extends Migration
             $table->unsignedBigInteger('actuator_id')->nullable();
             $table->foreign('actuator_id')->references('id')->on('sintechs_actuators');
             
+            $table->unsignedBigInteger('trigged_by_rule')->nullable();
+            $table->foreign('trigged_by_rule')->references('id')->on('sintechs_rules');
             
             $table->timestamps();
         });
@@ -40,6 +41,6 @@ class CreateSintechsConfigTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sintechs_config');
+        Schema::dropIfExists('sintechs_log');
     }
 }
