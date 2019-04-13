@@ -22,3 +22,8 @@ Route::prefix('reports')->group(function () {
     Route::get('resources', "ReportsController@resources");
 });
 
+
+Route::prefix('settings')->group(function () {
+    Route::get('actuators', "SettingsController@actuators");
+    Route::get('sample_rate', "SettingsController@sample_rate");
+});
