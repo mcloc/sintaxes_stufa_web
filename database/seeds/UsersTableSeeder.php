@@ -17,6 +17,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'suport@sintechs.com.br',
             'email_verified_at' => now(),
             'password' => bcrypt('123456'),
+            'is_admin' => true,
         ]);
     }
 }
