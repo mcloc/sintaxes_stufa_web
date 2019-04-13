@@ -28,6 +28,9 @@ class CreateSintechsErrorsTable extends Migration
             $table->unsignedBigInteger('actuator_id')->nullable();
             $table->foreign('actuator_id')->references('id')->on('sintechs_actuators');
             
+            $table->unsignedBigInteger('rule_id')->nullable();
+            $table->foreign('rule_id')->references('id')->on('sintechs_rules');
+            
             $table->timestamps();
         });
     }

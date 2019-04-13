@@ -16,11 +16,14 @@ class CreateSintechsConfigTable extends Migration
         Schema::enableForeignKeyConstraints();
         Schema::create('sintechs_config', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->enum('type', ['module', 'sensors', 'actuators', 'sampling', 'software']);
+//             $table->enum('type', ['module', 'sensors', 'actuators', 'sampling', 'software','rule']);
             $table->string('name');
             $table->string('description')->nullable();
             $table->string('value');
             $table->boolean('active')->default(false);
+            
+            $table->unsignedBigInteger('type_id');
+            $table->foreign('type_id')->references('id')->on('sintechs_types');
             
             $table->unsignedBigInteger('sensor_id')->nullable();
             $table->foreign('sensor_id')->references('id')->on('sintechs_sensors');
