@@ -22,8 +22,11 @@ Route::prefix('reports')->group(function () {
     Route::get('resources', "ReportsController@resources");
 });
 
-
-Route::prefix('settings')->group(function () {
-    Route::get('actuators', "SettingsController@actuators");
-    Route::get('sample_rate', "SettingsController@sample_rate");
+Route::group(['middleware' => ['role:sintechsadmin']], function () {
+    Route::prefix('settings')->group(function () {
+        Route::get('sensors', "SettingsController@sensors");
+        Route::get('actuators', "SettingsController@actuators");
+        Route::get('sample_rate', "SettingsController@sample_rate");
+        Route::get('rules', "SettingsController@rules");
+    });
 });
