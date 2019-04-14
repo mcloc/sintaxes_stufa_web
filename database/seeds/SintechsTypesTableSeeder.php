@@ -34,28 +34,28 @@ class SintechsTypesTableSeeder extends Seeder
         ]);
         
         DB::table('sintechs_types')->insert([
-            'id' => '3',
+            'id' => '4',
             'name' => 'sampling',
             'description' => 'References to Sampling Data from arduino boards',
             'active' => true,
         ]);
         
         DB::table('sintechs_types')->insert([
-            'id' => '4',
+            'id' => '5',
             'name' => 'software',
             'description' => 'References to Software, JavaSerialComm, REST_API, WEB_APP',
             'active' => true,
         ]);
         
         DB::table('sintechs_types')->insert([
-            'id' => '5',
+            'id' => '6',
             'name' => 'rules',
             'description' => 'References to one or more rules from Drools Expert System',
             'active' => true,
         ]);
         
         DB::table('sintechs_types')->insert([
-            'id' => '6',
+            'id' => '7',
             'name' => 'config',
             'description' => 'References to one or more config variable',
             'active' => true,

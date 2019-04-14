@@ -26,7 +26,7 @@ class CreateSintechsTable extends Migration
             $table->boolean('tests_software_done')->default(false);
             $table->boolean('tests_eletronics_done')->default(false);
             $table->boolean('tests_mechanical_done')->default(false);
-            $table->string('tests_responsable_signature')->nullable;
+            $table->string('tests_responsable_signature')->nullable();
             $table->timestamps();
         });
     }

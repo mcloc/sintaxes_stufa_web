@@ -21,6 +21,7 @@ class SintechsTableSeeder extends Seeder
             'instalation_description' => 'Development Install',
             'instalation_missing_requirements' => 'More Sensors and development facility',
             'instalation_total_days' => '3',
+            'sintechs_last_update' => now()
         ]);
     }
 }
