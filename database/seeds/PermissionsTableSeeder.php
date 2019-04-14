@@ -20,22 +20,35 @@ class PermissionsTableSeeder extends Seeder
         $Permissionitems = [
             [
                 'name'        => 'Chamge System Actuators Values',
-                'slug'        => 'view.users',
+                'slug'        => 'change.actuators',
                 'description' => 'Can Chamge System Actuators Config Values',
                 'model'       => 'Permission',
             ],
             [
                 'name'        => 'Chamge System Rules Values',
-                'slug'        => 'view.users',
+                'slug'        => 'change.rules',
                 'description' => 'Can Chamge System Rules Config Values',
                 'model'       => 'Permission',
             ],
             [
                 'name'        => 'Chamge System Values',
-                'slug'        => 'view.users',
+                'slug'        => 'change.system',
                 'description' => 'Can Chamge System Values',
                 'model'       => 'Permission',
             ],
+            [
+                'name'        => 'Backup Import Database',
+                'slug'        => 'back.import',
+                'description' => 'Can Import DAtabase',
+                'model'       => 'Permission',
+            ],
+            [
+                'name'        => 'Backup Export Database',
+                'slug'        => 'back.export',
+                'description' => 'Can Export DAtabase',
+                'model'       => 'Permission',
+            ],
+            
         ];
 
         /*
