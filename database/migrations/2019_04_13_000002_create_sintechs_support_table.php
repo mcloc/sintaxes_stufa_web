@@ -15,7 +15,7 @@ class CreateSintechsSupportTable extends Migration
     {
         Schema::create('sintechs_support', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('employee_id')->default('system');
+            $table->string('employee_id')->default('sintechs_system');
             $table->string('svo_number')->nullable();
             $table->string('msg_title');
             $table->text('msg_description');

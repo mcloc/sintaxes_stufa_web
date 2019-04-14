@@ -14,8 +14,10 @@ class UsersTableSeeder extends Seeder
     {
         DB::table('users')->insert([
             'name' => 'sintechs',
+            'fullname' => 'Sintechs Development Company LTDA.',
             'email' => 'suport@sintechs.com.br',
             'email_verified_at' => now(),
+            'cpf_cnpj' => '11111111111',
             'password' => bcrypt('123456'),
             'is_admin' => true,
         ]);
