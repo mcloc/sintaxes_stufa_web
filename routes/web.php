@@ -14,11 +14,22 @@ use Illuminate\Support\Facades\Route;
 
 
 Auth::routes();
-Route::get('/login', 'LoginController@login')->name('login');
+Auth::routes(['register' => false]);
+Route::any('/logout', 'Auth\LoginController@logout');
+// Route::get('login', 'Auth\LoginController@showLoginForm');
+// Route::get('/login', 'LoginController@login')->name('login');
 
-Route::view('/', 'login');
+// Route::view('/', 'login');
 Route::view('/dashboard', 'dashboard');
 Route::view('/register', 'register');
+
+Route::redirect('/', "/dashboard");
+
+Route::group(['middleware' => ['auth']], function () {
+    Route::prefix('dashboard')->group(function () {
+    Route::get('/', "DashBoardController@home");
+    });
+});
 
 
 Route::group(['middleware' => ['auth']], function () {
@@ -37,3 +48,5 @@ Route::group(['middleware' => ['role:sintechsadmin']], function () {
         Route::get('rules', "SettingsController@rules");
     });
 });
+Auth::routes();
+

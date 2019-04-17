@@ -43,15 +43,15 @@
                     </a>
                 </div>
                 <div class="login-form">
-                    <form action="/login">
-                     @csrf
+                 <form method="POST" action="{{ route('login') }}">
+                        @csrf
                         <div class="form-group">
                             <label>Email address</label>
-                            <input type="email" class="form-control" placeholder="Email">
+                            <input type="email" class="form-control" placeholder="Email" name="email">
                         </div>
                             <div class="form-group">
                                 <label>Password</label>
-                                <input type="password" class="form-control" placeholder="Password">
+                                <input type="password" class="form-control" placeholder="Senha" name="password">
                         </div>
 
                                 </div>

@@ -184,7 +184,7 @@
 
                             <a class="nav-link" href="#"><i class="fa fa-cog"></i> Conta</a>
 
-                            <a class="nav-link" href="#"><i class="fa fa-power-off"></i> Sair</a>
+                            <a class="nav-link" href="/logout"><i class="fa fa-power-off"></i> Sair</a>
                         </div>
                     </div>
 
