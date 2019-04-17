@@ -7,7 +7,7 @@
 @endsection
 @section('breadcrumbs')
 <li><a href="#">Dashboard</a></li>
-<li class="active">Dashboard</li>
+<li class="active">home</li>
 @endsection
 
 
