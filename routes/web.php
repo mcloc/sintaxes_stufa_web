@@ -1,4 +1,5 @@
 <?php
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -11,15 +12,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+Auth::routes();
+Route::get('/login', 'LoginController@login')->name('login');
+
 Route::view('/', 'login');
 Route::view('/dashboard', 'dashboard');
-Route::view('/login', 'login');
 Route::view('/register', 'register');
 
-Route::prefix('reports')->group(function () {
-    Route::get('humidity_temperature', "ReportsController@humidity_temperature");
-    Route::get('actuators', "ReportsController@actuators");
-    Route::get('resources', "ReportsController@resources");
+
+Route::group(['middleware' => ['auth']], function () {
+    Route::prefix('reports')->group(function () {
+        Route::get('humidity_temperature', "ReportsController@humidity_temperature");
+        Route::get('actuators', "ReportsController@actuators");
+        Route::get('resources', "ReportsController@resources");
+    });
 });
 
 Route::group(['middleware' => ['role:sintechsadmin']], function () {

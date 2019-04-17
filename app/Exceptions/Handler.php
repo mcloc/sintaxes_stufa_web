@@ -2,8 +2,11 @@
 
 namespace App\Exceptions;
 
-use Exception;
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Http\Response;
+use function Illuminate\Http\Resources\Json\JsonResource\response;
+use Exception;
 
 class Handler extends ExceptionHandler
 {
@@ -46,6 +49,32 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        $userLevelCheck = $exception instanceof \jeremykenedy\LaravelRoles\Exceptions\RoleDeniedException ||
+        $exception instanceof \jeremykenedy\LaravelRoles\Exceptions\RoleDeniedException ||
+        $exception instanceof \jeremykenedy\LaravelRoles\Exceptions\PermissionDeniedException ||
+        $exception instanceof \jeremykenedy\LaravelRoles\Exceptions\LevelDeniedException;
+        
+        if ($userLevelCheck) {
+            if ($request->expectsJson()) {
+                return Response::json([
+                    'error'   => 403,
+                    'message' => 'Unauthorized.',
+                ], 403);
+            }
+            
+            abort(403);
+        }
+        
+        
         return parent::render($request, $exception);
+    }
+    
+    protected function unauthenticated($request, AuthenticationException $exception)
+    {
+        if ($request->expectsJson()) {
+            return response()->json(['error' => 'Unauthenticated.'], 401);
+        }
+        
+        return redirect()->guest(route('auth.login'));
     }
 }
