@@ -42,50 +42,50 @@ Route::group(['middleware' => ['auth']], function () {
 
 Route::group(['middleware' => ['role:sintechsadmin']], function () {
     Route::prefix('users_admin')->group(function () {
-        Route::get('client_data', "UsersController@client_data");
-        Route::get('roles', "UsersController@user_roles");
-        Route::get('permissions', "UsersController@user_permissions");
+        Route::get('client_data', "Sintechs\UsersController@client_data");
+        Route::get('roles', "Sintechs\UsersController@user_roles");
+        Route::get('permissions', "Sintechs\UsersController@user_permissions");
     });
     
     Route::prefix('modules_admin')->group(function () {
-        Route::get('modules', "ModulesController@modules");
-        Route::get('sensors', "ModulesController@sensors");
-        Route::get('actuators', "ModulesController@actuators");
+        Route::get('modules', "Sintechs\ModulesController@modules");
+        Route::get('sensors', "Sintechs\ModulesController@sensors");
+        Route::get('actuators', "Sintechs\ModulesController@actuators");
     });
     
     Route::prefix('expert_system_admin')->group(function () {
-        Route::get('rules', "ExpertSystemController@rules");
+        Route::get('rules', "Sintechs\ExpertSystemController@rules");
     });
     
     Route::prefix('sampling_admin')->group(function () {
-        Route::get('sampling', "SamplingController@sampling");
+        Route::get('sampling', "Sintechs\SamplingController@sampling");
     });
     
     Route::prefix('alerts_admin')->group(function () {
-        Route::get('types', "AlertsController@types");
-        Route::get('config', "AlertsController@config");
+        Route::get('types', "Sintechs\AlertsController@types");
+        Route::get('config', "Sintechs\AlertsController@config");
     });
     
     Route::prefix('logs_admin')->group(function () {
-        Route::get('audit', "LogsController@audit");
-        Route::get('support', "LogsController@support");
-        Route::get('errors', "LogsController@errors");
+        Route::get('audit', "Sintechs\LogsController@audit");
+        Route::get('support', "Sintechs\LogsController@support");
+        Route::get('errors', "Sintechs\LogsController@errors");
     });
     
     Route::prefix('communications_admin')->group(function () {
-        Route::get('messagesQueue', "CommunicationController@messagesQueue");
-        Route::get('commands', "CommunicationController@commands");
-        Route::get('realtime', "CommunicationController@realtime");
+        Route::get('messagesQueue', "Sintechs\CommunicationController@messagesQueue");
+        Route::get('commands', "Sintechs\CommunicationController@commands");
+        Route::get('realtime', "Sintechs\CommunicationController@realtime");
     });
     
     Route::prefix('server_admin')->group(function () {
-        Route::get('dns', "ServerConfigController@dns");
-        Route::get('crontab', "ServerConfigController@crontab");
-        Route::get('disk_usage', "ServerConfigController@disk_usage");
-        Route::get('log_rest_api', "ServerConfigController@log_rest_api");
-        Route::get('log_web_app', "ServerConfigController@log_web_app");
-        Route::get('log_serial_comm', "ServerConfigController@log_serial_comm");
-        Route::get('log_rotate', "ServerConfigController@log_rotate");
+        Route::get('dns', "Sintechs\ServerConfigController@dns");
+        Route::get('crontab', "Sintechs\ServerConfigController@crontab");
+        Route::get('disk_usage', "Sintechs\ServerConfigController@disk_usage");
+        Route::get('log_rest_api', "Sintechs\ServerConfigController@log_rest_api");
+        Route::get('log_web_app', "Sintechs\ServerConfigController@log_web_app");
+        Route::get('log_serial_comm', "Sintechs\ServerConfigController@log_serial_comm");
+        Route::get('log_rotate', "Sintechs\ServerConfigController@log_rotate");
     });
 });
 

@@ -1,6 +1,7 @@
 <?php
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Sintechs;
 
+use App\Http\Controllers\Controller;
 use function Illuminate\Routing\Router\redirect;
 use Illuminate\Support\Facades\Auth;
 

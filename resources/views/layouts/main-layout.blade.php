@@ -78,8 +78,8 @@
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon ti-save"></i>Backup</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon ti-upload"></i><a href="page-login.html">Importar Dados</a></li>
-                            <li><i class="menu-icon ti-download"></i><a href="page-register.html">Exportar Dados</a></li>
+                            <li><i class="menu-icon ti-upload"></i><a href="/users_admin/">Importar Dados</a></li>
+                            <li><i class="menu-icon ti-download"></i><a href="/users_admin/">Exportar Dados</a></li>
                         </ul>
                     </li>
                     
@@ -88,61 +88,61 @@
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-user"></i>Admin Usuários</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon ti-upload"></i><a href="page-login.html">Dados do Cliente</a></li>
-                            <li><i class="menu-icon ti-download"></i><a href="page-register.html">Papeis de Usuários</a></li>
-                            <li><i class="menu-icon ti-download"></i><a href="page-register.html">Permissões de Usuários</a></li>
+                            <li><i class="menu-icon ti-settings"></i><a href="/users_admin/client_data">Dados do Cliente</a></li>
+                            <li><i class="menu-icon ti-settings"></i><a href="/users_admin/roles">Papeis de Usuários</a></li>
+                            <li><i class="menu-icon ti-settings"></i><a href="/users_admin/permissions">Permissões de Usuários</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-sitemap"></i>Admin Modulos</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon ti-download"></i><a href="page-register.html">Modulos</a></li>
-                            <li><i class="menu-icon ti-download"></i><a href="page-register.html">Sensores</a></li>
-                            <li><i class="menu-icon ti-download"></i><a href="page-register.html">Atuadores</a></li>
+                            <li><i class="menu-icon ti-settings"></i><a href="/modules_admin/modules">Modulos</a></li>
+                            <li><i class="menu-icon ti-settings"></i><a href="/modules_admin/sensors">Sensores</a></li>
+                            <li><i class="menu-icon ti-settings"></i><a href="/modules_admin/actuators">Atuadores</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-gears"></i>Sistema Especialista</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon ti-download"></i><a href="page-register.html">Gerenciar Regras</a></li>
+                            <li><i class="menu-icon ti-settings"></i><a href="/expert_system_admin/rules">Gerenciar Regras</a></li>
                         </ul>
                     </li>                                           
                     <li>
-                        <a href="widgets.html"> <i class="menu-icon ti-alarm-clock"></i>Dados de Amostragem</a>
+                        <a href="/sampling_admin/sampling"> <i class="menu-icon ti-alarm-clock"></i>Dados de Amostragem</a>
                     </li>
 		            <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon ti-email"></i>Alertas</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon ti-download"></i><a href="page-register.html">Tipo de Alertas</a></li>
-                            <li><i class="menu-icon ti-download"></i><a href="page-register.html">Configuração de Alertas</a></li>
+                            <li><i class="menu-icon ti-settings"></i><a href="/alerts_admin/types">Tipo de Alertas</a></li>
+                            <li><i class="menu-icon ti-settings"></i><a href="/alerts_admin/config">Configuração de Alertas</a></li>
                         </ul>
                     </li>  
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-archive"></i>Logs</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon ti-download"></i><a href="page-register.html">Registros Auditoria</a></li>
-                            <li><i class="menu-icon ti-download"></i><a href="page-register.html">Registros de Suporte</a></li>
-                            <li><i class="menu-icon ti-download"></i><a href="page-register.html">Registros de Erros</a></li>
+                            <li><i class="menu-icon ti-settings"></i><a href="/logs_admin/audit">Registros Auditoria</a></li>
+                            <li><i class="menu-icon ti-settings"></i><a href="/logs_admin/support">Registros de Suporte</a></li>
+                            <li><i class="menu-icon ti-settings"></i><a href="/logs_admin/errors">Registros de Erros</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-exchange"></i>Comunicação</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon ti-download"></i><a href="page-register.html">Fila de Mensagens</a></li>
-                            <li><i class="menu-icon ti-download"></i><a href="page-register.html">Comandos</a></li>
-                            <li><i class="menu-icon ti-download"></i><a href="page-register.html">Tempo Real</a></li>
+                            <li><i class="menu-icon ti-settings"></i><a href="/communications_admin/messagesQueue">Fila de Mensagens</a></li>
+                            <li><i class="menu-icon ti-settings"></i><a href="/communications_admin/commands">Comandos</a></li>
+                            <li><i class="menu-icon ti-settings"></i><a href="/communications_admin/realtime">Tempo Real</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa  fa-briefcase"></i>Configuração Server</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon ti-download"></i><a href="page-register.html">DNS</a></li>
-                            <li><i class="menu-icon ti-download"></i><a href="page-register.html">Crontab</a></li>
-                            <li><i class="menu-icon ti-download"></i><a href="page-register.html">Espaço em Disco</a></li>
-                            <li><i class="menu-icon ti-download"></i><a href="page-register.html">Log REST_API</a></li>
-                            <li><i class="menu-icon ti-download"></i><a href="page-register.html">Log WEB_APP</a></li>
-                            <li><i class="menu-icon ti-download"></i><a href="page-register.html">Log JavaCommSerial</a></li>
-                            <li><i class="menu-icon ti-download"></i><a href="page-register.html">Log Rotate</a></li>
+                            <li><i class="menu-icon ti-settings"></i><a href="/server_admin/dns">DNS</a></li>
+                            <li><i class="menu-icon ti-settings"></i><a href="/server_admin/crontab">Crontab</a></li>
+                            <li><i class="menu-icon ti-settings"></i><a href="/server_admin/disk_usage">Espaço em Disco</a></li>
+                            <li><i class="menu-icon ti-settings"></i><a href="/server_admin/log_rest_api">Log REST_API</a></li>
+                            <li><i class="menu-icon ti-settings"></i><a href="/server_admin/log_web_app">Log WEB_APP</a></li>
+                            <li><i class="menu-icon ti-settings"></i><a href="/server_admin/log_serial_comm">Log JavaCommSerial</a></li>
+                            <li><i class="menu-icon ti-settings"></i><a href="/server_admin/log_rotate">Log Rotate</a></li>
                         </ul>
                     </li>       
                     @endrole
