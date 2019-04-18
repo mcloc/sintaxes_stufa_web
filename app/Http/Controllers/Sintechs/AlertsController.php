@@ -19,7 +19,7 @@ class AlertsController extends Controller {
         });
     }
     
-    public function type(){
+    public function types(){
         return view("sintechs.alerts_type");
     }
     

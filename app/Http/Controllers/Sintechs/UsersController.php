@@ -34,6 +34,11 @@ class UsersController extends Controller {
         return view("sintechs.users_permissions");
     }
     
+    public function create(){
+        die('not implemented');
+        return view("sintechs.users_permissions");
+    }
+    
     
     
 }

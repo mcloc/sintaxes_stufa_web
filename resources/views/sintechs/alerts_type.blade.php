@@ -29,7 +29,41 @@
 
 
 @section('content')
-Alerts Type
+<h3>Tipos de Alertas</h3><br><br>
+
+   <div class="col-lg-4 col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="stat-widget-four">
+                    <div class="stat-icon dib">
+                        <i class="fa fa-flag text-muted"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="text-left dib">
+                            <div class="stat-heading">Listar Tipos</div>
+                            <div class="stat-text">Total: 64</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   <div class="col-lg-4 col-md-6"> 
+           <div class="card">
+            <div class="card-body">
+                <div class="stat-widget-four">
+                    <div class="stat-icon dib">
+                        <i class="fa fa-plus text-muted"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="text-left dib">
+                            <div class="stat-heading">Adicionar Tipo</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+  </div>  
 @endsection
 
 

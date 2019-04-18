@@ -45,6 +45,7 @@ Route::group(['middleware' => ['role:sintechsadmin']], function () {
         Route::get('client_data', "Sintechs\UsersController@client_data");
         Route::get('roles', "Sintechs\UsersController@user_roles");
         Route::get('permissions', "Sintechs\UsersController@user_permissions");
+        Route::get('create', "Sintechs\UsersController@create");
     });
     
     Route::prefix('modules_admin')->group(function () {

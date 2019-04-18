@@ -91,6 +91,7 @@
                             <li><i class="menu-icon ti-settings"></i><a href="/users_admin/client_data">Dados do Cliente</a></li>
                             <li><i class="menu-icon ti-settings"></i><a href="/users_admin/roles">Papeis de Usuários</a></li>
                             <li><i class="menu-icon ti-settings"></i><a href="/users_admin/permissions">Permissões de Usuários</a></li>
+                             <li><i class="menu-icon fa fa-male"></i><a href="/users_admin/create">Criar Usuários</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
