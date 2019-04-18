@@ -43,8 +43,8 @@ Route::group(['middleware' => ['auth']], function () {
 Route::group(['middleware' => ['role:sintechsadmin']], function () {
     Route::prefix('users_admin')->group(function () {
         Route::get('client_data', "UsersController@client_data");
-        Route::get('user_roles', "UsersController@user_roles");
-        Route::get('user_permissions', "UsersController@user_permissions");
+        Route::get('roles', "UsersController@user_roles");
+        Route::get('permissions', "UsersController@user_permissions");
     });
     
     Route::prefix('modules_admin')->group(function () {

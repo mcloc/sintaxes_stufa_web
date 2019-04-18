@@ -15,5 +15,18 @@ class UsersController extends Controller {
         }
     }
     
+    public function client_data(){
+        return view("sintechs.users_client_data");
+    }
+    
+    public function user_roles(){
+        return view("sintechs.users_roles");
+    }
+    
+    public function user_permissions(){
+        return view("sintechs.users_permissions");
+    }
+    
+    
     
 }
