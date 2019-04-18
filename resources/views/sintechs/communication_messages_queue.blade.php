@@ -29,7 +29,60 @@
 
 
 @section('content')
-Comm Msg QUEUE
+<h3>Fila de Mensagens de Comunicação</h3><br><br>
+
+   <div class="col-lg-4 col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="stat-widget-four">
+                    <div class="stat-icon dib">
+                        <i class="fa fa-sort-numeric-desc text-muted"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="text-left dib">
+                            <div class="stat-heading">Listar Fila Leitura</div>
+                            <div class="stat-text">Total: 64</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   <div class="col-lg-4 col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="stat-widget-four">
+                    <div class="stat-icon dib">
+                        <i class="fa fa-sort-numeric-asc text-muted"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="text-left dib">
+                            <div class="stat-heading">Listar Fila Escrita</div>
+                            <div class="stat-text">Total: 23</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+   <div class="col-lg-4 col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="stat-widget-four">
+                    <div class="stat-icon dib">
+                        <i class="ti-server text-muted"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="text-left dib">
+                            <div class="stat-heading">Registro de Erros</div>
+                            <div class="stat-text">Total: 13</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+    
 @endsection
 
 

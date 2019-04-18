@@ -134,7 +134,7 @@
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa  fa-briefcase"></i>Configuração Server</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa  fa-wrench"></i>Configuração Server</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="menu-icon ti-settings"></i><a href="/server_admin/dns">DNS</a></li>
                             <li><i class="menu-icon ti-settings"></i><a href="/server_admin/crontab">Crontab</a></li>

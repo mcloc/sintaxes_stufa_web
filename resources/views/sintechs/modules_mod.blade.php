@@ -28,7 +28,58 @@
 
 
 @section('content')
-modules-mod
+<h3>Módulos</h3><br><br>
+
+   <div class="col-lg-4 col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="stat-widget-four">
+                    <div class="stat-icon dib">
+                        <i class="fa fa-sitemap text-muted"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="text-left dib">
+                            <div class="stat-heading">Listar Módulos</div>
+                            <div class="stat-text">Total: 64</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   <div class="col-lg-4 col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="stat-widget-four">
+                    <div class="stat-icon dib">
+                        <i class="ti-server text-muted"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="text-left dib">
+                            <div class="stat-heading">Registro de Erros</div>
+                            <div class="stat-text">Total: 13</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+   <div class="col-lg-4 col-md-6"> 
+           <div class="card">
+            <div class="card-body">
+                <div class="stat-widget-four">
+                    <div class="stat-icon dib">
+                        <i class="fa fa-plus text-muted"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="text-left dib">
+                            <div class="stat-heading">Adicionar Módulo</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+  </div>  
 @endsection
 
 
