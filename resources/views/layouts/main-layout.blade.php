@@ -70,6 +70,10 @@
                     <li>
                         <a href="widgets.html"> <i class="menu-icon ti-email"></i>Alertas</a>
                     </li>
+                    
+                    
+                    
+                    @role('sintechsadmin')
                     <h3 class="menu-title">Extras</h3><!-- /.menu-title -->
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon ti-save"></i>Backup</a>
@@ -140,7 +144,10 @@
                             <li><i class="menu-icon ti-download"></i><a href="page-register.html">Log JavaCommSerial</a></li>
                             <li><i class="menu-icon ti-download"></i><a href="page-register.html">Log Rotate</a></li>
                         </ul>
-                    </li>                    
+                    </li>       
+                    @endrole
+                    
+                                 
                 </ul>
             </div><!-- /.navbar-collapse -->
         </nav>

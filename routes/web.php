@@ -41,12 +41,52 @@ Route::group(['middleware' => ['auth']], function () {
 });
 
 Route::group(['middleware' => ['role:sintechsadmin']], function () {
-    Route::prefix('settings')->group(function () {
-        Route::get('sensors', "SettingsController@sensors");
-        Route::get('actuators', "SettingsController@actuators");
-        Route::get('sample_rate', "SettingsController@sample_rate");
-        Route::get('rules', "SettingsController@rules");
+    Route::prefix('users_admin')->group(function () {
+        Route::get('client_data', "UsersController@client_data");
+        Route::get('user_roles', "UsersController@user_roles");
+        Route::get('user_permissions', "UsersController@user_permissions");
+    });
+    
+    Route::prefix('modules_admin')->group(function () {
+        Route::get('modules', "ModulesController@modules");
+        Route::get('sensors', "ModulesController@sensors");
+        Route::get('actuators', "ModulesController@actuators");
+    });
+    
+    Route::prefix('expert_system_admin')->group(function () {
+        Route::get('rules', "ExpertSystemController@rules");
+    });
+    
+    Route::prefix('sampling_admin')->group(function () {
+        Route::get('sampling', "SamplingController@sampling");
+    });
+    
+    Route::prefix('alerts_admin')->group(function () {
+        Route::get('types', "AlertsController@types");
+        Route::get('config', "AlertsController@config");
+    });
+    
+    Route::prefix('logs_admin')->group(function () {
+        Route::get('audit', "LogsController@audit");
+        Route::get('support', "LogsController@support");
+        Route::get('errors', "LogsController@errors");
+    });
+    
+    Route::prefix('communications_admin')->group(function () {
+        Route::get('messagesQueue', "CommunicationController@messagesQueue");
+        Route::get('commands', "CommunicationController@commands");
+        Route::get('realtime', "CommunicationController@realtime");
+    });
+    
+    Route::prefix('server_admin')->group(function () {
+        Route::get('dns', "ServerConfigController@dns");
+        Route::get('crontab', "ServerConfigController@crontab");
+        Route::get('disk_usage', "ServerConfigController@disk_usage");
+        Route::get('log_rest_api', "ServerConfigController@log_rest_api");
+        Route::get('log_web_app', "ServerConfigController@log_web_app");
+        Route::get('log_serial_comm', "ServerConfigController@log_serial_comm");
+        Route::get('log_rotate', "ServerConfigController@log_rotate");
     });
 });
-Auth::routes();
+
 
