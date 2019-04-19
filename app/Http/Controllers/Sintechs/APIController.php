@@ -28,28 +28,28 @@ class APIController extends Controller {
      * 
      * JsonData should be like this example
      * 
-     * {
-     *      'module_name':'arduino_board1', 
-     *      'data':[
-     *          {'sensors':[
-     *              {'uuid':'DHT11#1', 
-     *               'value':[
-     *                  {'humidity':67.4},
-     *                  {'temperature':28.6}, 
-     *                  {'heat_index': 32.434}
-     *               ] 
-     *              }
-     *          ]},
-     *          {'actuators:[
-     *              {'uuid':'solenoid#1', 
-     *               'value':[
-     *                  {'status':'on'},
-     *                  {'status_time': 15}
-     *               ]
-     *              }
-     *          ]}'
-     *     ]
-     * } 
+        {
+            "module_name": "arduino_board#1",
+            "data": {
+                "sensors": [ {
+        			"uuid": "DHT11#1",
+                    "value": [
+                    	{"humidity": 66.5},
+                        {"temperature": 28.7},
+                        {"heat_index": 32.5234}
+                    ]
+        		}]
+                ,
+                "actuators": [ {
+                    "uuid": "solenoid#1",
+                    "value": {"active": "true","activated_time": 15}
+                }]
+            },
+            "status": "OK",
+            "uptime": 12,
+            "error_code": null,
+            "error_msg": null
+        }
      * 
      * 
      */
@@ -120,11 +120,8 @@ class APIController extends Controller {
             $sampling_actuator = new SintechsSamplingActuators();
             $sampling_actuator->sampling_id = $sampling->id;
             $sampling_actuator->actuator_id = $actuator->id;
-            
-            foreach($actuator_arr['value'] as $values) {
             $sampling_actuator->active = (bool) $actuator_arr['value']['active'];
             $sampling_actuator->activated_time = $actuator_arr['value']['activated_time'];
-            }
             $sampling_actuator->save();
         }
         
@@ -137,7 +134,7 @@ class APIController extends Controller {
             'error_code' => null,
             'error_msg' => null,
         );
-        $status = json_encode($status);
+//         $status = json_encode($status);
         
 //         return new JsonResponse($data, 200);
         return new JsonResponse($status, 201);
