@@ -10,6 +10,6 @@ class SintechsModules extends Model
     
     public function type()
     {
-        return $this->belongsToMany(SintechsModulesTypes::class);
+        return $this->belongsToMany(SintechsModulesType::class);
     }
 }

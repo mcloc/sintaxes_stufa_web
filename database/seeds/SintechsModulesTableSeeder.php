@@ -1,6 +1,6 @@
 <?php
 
-use App\SintechsModulesTypes;
+use App\SintechsModulesType;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -14,7 +14,7 @@ class SintechsModulesTableSeeder extends Seeder
     public function run()
     {
         
-        $pi_board = SintechsModulesTypes::where('name', 'pi_board')->first();
+        $pi_board = SintechsModulesType::where('name', 'pi_board')->first();
         if (! $pi_board)
             throw new Exception('Module Type "pi_board" not found... Cannot seed MODULES.');
      
@@ -28,7 +28,7 @@ class SintechsModulesTableSeeder extends Seeder
         ]);
         
         
-        $arduino_type = SintechsModulesTypes::where('name', 'arduino')->first();
+        $arduino_type = SintechsModulesType::where('name', 'arduino')->first();
         if (! $arduino_type)
             throw new Exception('Module Type "arduino" not found... Cannot seed MODULES.');
 
@@ -41,7 +41,7 @@ class SintechsModulesTableSeeder extends Seeder
         ]);
            
         
-        $software_type = SintechsModulesTypes::where('name', 'software')->first();
+        $software_type = SintechsModulesType::where('name', 'software')->first();
         if (! $software_type)
             throw new Exception('Module Type "arduino" not found... Cannot seed MODULES.');
         
