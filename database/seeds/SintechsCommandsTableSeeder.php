@@ -18,7 +18,7 @@ class SintechsCommandsTableSeeder extends Seeder
         if (! $cmd_type)
             throw new Exception('Command TYPE IO_COMMAND not found... Cannot seed COMMAND_IO');
 
-        $arduino_module = SintechsModules::where('name', 'arduino_board1')->first();
+        $arduino_module = SintechsModules::where('name', 'arduino_board#1')->first();
         if (! $arduino_module)
             throw new Exception('Command MODULE arduino_sensors1 not found... Cannot seed COMMAND_IO');
             
