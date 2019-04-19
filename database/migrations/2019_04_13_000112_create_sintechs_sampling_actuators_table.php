@@ -22,8 +22,9 @@ class CreateSintechsSamplingActuatorsTable extends Migration
             $table->foreign('actuator_id')->references('id')->on('sintechs_actuators');
             
             $table->boolean('status');
-            $table->float('actuation_time');
+            $table->float('actuation_time')->nullable();
             $table->timestamps();
+            
             $table->primary(['sampling_id', 'actuator_id']);
             
         });

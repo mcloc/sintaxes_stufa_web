@@ -17,12 +17,14 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(UsersTableSeeder::class);
         $this->call(SintechsTableSeeder::class);
-        $this->call(SintechsSensorsTableSeeder::class);
         $this->call(SintechsTypesTableSeeder::class);
         $this->call(SintechsModulesTypeTableSeeder::class);
         $this->call(SintechsModulesTableSeeder::class);
         $this->call(SintechsCommandsTypeTableSeeder::class);
         $this->call(SintechsCommandsTableSeeder::class);
+        $this->call(SintechsSensorsTableSeeder::class);
+        $this->call(SintechsActuatorsTableSeeder::class);
+        
         
         Model::unguard();
         $this->call(PermissionsTableSeeder::class);

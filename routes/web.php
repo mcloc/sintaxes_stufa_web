@@ -52,6 +52,7 @@ Route::group(['middleware' => ['role:sintechsadmin']], function () {
         Route::get('modules_type', "Sintechs\ModulesController@modules_type");
         Route::get('modules_type_list', "Sintechs\ModulesController@modules_type_list");
         Route::get('modules_type_form', "Sintechs\ModulesController@modules_type_form");
+        Route::post('modules_type_save', "Sintechs\ModulesController@modules_type_save");
         Route::get('modules', "Sintechs\ModulesController@modules");
         Route::get('sensors', "Sintechs\ModulesController@sensors");
         Route::get('actuators', "Sintechs\ModulesController@actuators");

@@ -3,6 +3,7 @@ namespace App\Http\Controllers\Sintechs;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use App\SintechsModules;
 
 
 class ModulesController extends Controller {
@@ -20,7 +21,8 @@ class ModulesController extends Controller {
     }
     
     public function modules_type_list(){
-        return view("sintechs.modules_type_list");
+        $mods = SintechsModules::all();
+        return view("sintechs.modules_type_list", array('modules' => $mods ));
     }
     
     public function modules_type_form(){

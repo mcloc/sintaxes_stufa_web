@@ -4,7 +4,7 @@ use App\SintechsModules;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class SintechsSensorsTableSeeder extends Seeder
+class SintechsActuatorsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,15 +15,15 @@ class SintechsSensorsTableSeeder extends Seeder
     {
         $arduino_module = SintechsModules::where('name', 'arduino_board1')->first();
         if (! $arduino_module)
-            throw new Exception('Command MODULE arduino_board1 not found... Cannot seed COMMAND_IO');
+            throw new Exception('Command MODULE arduino_sensors1 not found... Cannot seed COMMAND_IO');
             
         
-        DB::table('sintechs_sensors')->insert([
+        DB::table('sintechs_actuators')->insert([
             'id' => '1',
-            'uuid' => 'DHT11#1',
-            'type' => 'Humidity and Temperature',
-            'description' => 'Humidity and Temperature Sensors, 5Volts, on Serial wire',
-            'model' => 'DHT11',
+            'uuid' => 'solenoid#1',
+            'type' => 'Solenoid',
+            'description' => 'Solenoid 12V for Refreshing and Cooling the ambient',
+            'model' => 'XXXXX',
             'active' => true,
             'module_id' => $arduino_module->id
         ]);

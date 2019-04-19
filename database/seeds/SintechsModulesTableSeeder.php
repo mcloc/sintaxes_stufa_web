@@ -34,12 +34,11 @@ class SintechsModulesTableSeeder extends Seeder
 
         DB::table('sintechs_modules')->insert([
             'id' => 2,
-            'name' => 'arduino_sensors1',
+            'name' => 'arduino_board1',
             'description' => 'Arduino Sensors and Actuators #1',
             'enabled' => true,
             'type_id' => $arduino_type->id,
         ]);
-           
         
         $software_type = SintechsModulesType::where('name', 'software')->first();
         if (! $software_type)
