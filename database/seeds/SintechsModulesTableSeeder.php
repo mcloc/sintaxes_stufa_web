@@ -23,7 +23,7 @@ class SintechsModulesTableSeeder extends Seeder
             'id' => 1,
             'name' => 'pi_master_server',
             'description' => 'PI Master Server',
-            'enable' => true,
+            'enabled' => true,
             'type_id' => $pi_board->id,
         ]);
         
@@ -36,7 +36,7 @@ class SintechsModulesTableSeeder extends Seeder
             'id' => 2,
             'name' => 'arduino_sensors1',
             'description' => 'Arduino Sensors and Actuators #1',
-            'enable' => true,
+            'enabled' => true,
             'type_id' => $arduino_type->id,
         ]);
            
@@ -49,7 +49,7 @@ class SintechsModulesTableSeeder extends Seeder
             'id' => 3,
             'name' => 'serial_communication',
             'description' => 'Java Serial Communication Handler',
-            'enable' => true,
+            'enabled' => true,
             'type_id' => $software_type->id,
         ]);
         
@@ -57,7 +57,7 @@ class SintechsModulesTableSeeder extends Seeder
             'id' => 4,
             'name' => 'rest_api',
             'description' => 'PHP RESTfull API',
-            'enable' => true,
+            'enabled' => true,
             'type_id' => $software_type->id,
         ]);
         
@@ -65,7 +65,7 @@ class SintechsModulesTableSeeder extends Seeder
             'id' => 5,
             'name' => 'web_app',
             'description' => 'PHP Control and DashBoard WEB APP',
-            'enable' => true,
+            'enabled' => true,
             'type_id' => $software_type->id,
         ]);
     }

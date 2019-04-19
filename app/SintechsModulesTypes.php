@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class SintechsModulesTypes extends Model
 {
-    protected $table = 'sintechs_modules_types';
+    protected $table = 'sintechs_modules_type';
 }

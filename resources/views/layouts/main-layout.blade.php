@@ -97,6 +97,7 @@
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-sitemap"></i>Admin Modulos</a>
                         <ul class="sub-menu children dropdown-menu">
+                        	<li><i class="menu-icon ti-settings"></i><a href="/modules_admin/modules_type">Tipos de Modulos</a></li>
                             <li><i class="menu-icon ti-settings"></i><a href="/modules_admin/modules">Modulos</a></li>
                             <li><i class="menu-icon ti-settings"></i><a href="/modules_admin/sensors">Sensores</a></li>
                             <li><i class="menu-icon ti-settings"></i><a href="/modules_admin/actuators">Atuadores</a></li>

@@ -19,6 +19,18 @@ class ModulesController extends Controller {
         });
     }
     
+    public function modules_type_list(){
+        return view("sintechs.modules_type_list");
+    }
+    
+    public function modules_type_form(){
+        return view("sintechs.modules_type_form");
+    }
+    
+    public function modules_type(){
+        return view("sintechs.modules_type");
+    }
+    
     public function modules(){
         return view("sintechs.modules_mod");
     }
