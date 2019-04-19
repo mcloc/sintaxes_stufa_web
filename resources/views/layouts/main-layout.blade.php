@@ -130,6 +130,9 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-exchange"></i>Comunicação</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="menu-icon ti-settings"></i><a href="/communications_admin/messagesQueue">Fila de Mensagens</a></li>
+                            <li><i class="menu-icon ti-settings"></i><a href="/communications_admin/commandsQueue">Fila de Comandos</a></li>
+                            <li><i class="menu-icon ti-settings"></i><a href="/communications_admin/commands_types">Tipo Comandos</a></li>
+                            <li><i class="menu-icon ti-settings"></i><a href="/communications_admin/commands_args">Argumentoss</a></li>
                             <li><i class="menu-icon ti-settings"></i><a href="/communications_admin/commands">Comandos</a></li>
                             <li><i class="menu-icon ti-settings"></i><a href="/communications_admin/realtime">Tempo Real</a></li>
                         </ul>

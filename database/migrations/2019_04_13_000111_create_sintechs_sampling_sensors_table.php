@@ -23,8 +23,9 @@ class CreateSintechsSamplingSensorsTable extends Migration
             
             $table->string('measure_type')->index();
             $table->string('value');
-            
+            $table->timestamps();
             $table->primary(['sampling_id', 'sensor_id','measure_type']);
+            
         });
     }
 

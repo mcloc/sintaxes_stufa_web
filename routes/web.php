@@ -75,7 +75,13 @@ Route::group(['middleware' => ['role:sintechsadmin']], function () {
     
     Route::prefix('communications_admin')->group(function () {
         Route::get('messagesQueue', "Sintechs\CommunicationController@messagesQueue");
+        Route::get('commandsQueue', "Sintechs\CommunicationController@CommandsQueue");
         Route::get('commands', "Sintechs\CommunicationController@commands");
+        Route::get('commands_types', "Sintechs\CommunicationController@commands_types");
+        Route::get('list_commands_types', "Sintechs\CommunicationController@list_commands_types");
+        Route::get('form_commands_types', "Sintechs\CommunicationController@form_commands_types");
+        Route::post('form_commands_types', "Sintechs\CommunicationController@save_commands_types");
+        Route::get('commands_args', "Sintechs\CommunicationController@commands_args");
         Route::get('realtime', "Sintechs\CommunicationController@realtime");
     });
     

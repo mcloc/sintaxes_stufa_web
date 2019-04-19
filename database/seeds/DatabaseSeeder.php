@@ -19,6 +19,10 @@ class DatabaseSeeder extends Seeder
         $this->call(SintechsTableSeeder::class);
         $this->call(SintechsSensorsTableSeeder::class);
         $this->call(SintechsTypesTableSeeder::class);
+        $this->call(SintechsModulesTypeTableSeeder::class);
+        $this->call(SintechsModulesTableSeeder::class);
+        $this->call(SintechsCommandsTypeTableSeeder::class);
+//         $this->call(SintechsCommandsTableSeeder::class);
         
         Model::unguard();
         $this->call(PermissionsTableSeeder::class);

@@ -23,9 +23,9 @@ class CreateSintechsSamplingActuatorsTable extends Migration
             
             $table->boolean('status');
             $table->float('actuation_time');
-            
-            $table->primary(['sampling_id', 'actuator_id']);
             $table->timestamps();
+            $table->primary(['sampling_id', 'actuator_id']);
+            
         });
     }
 
