@@ -101,13 +101,17 @@ class APIController extends Controller {
         
         
         foreach($data['data']['sensors'] as $sensor_arr){
+            
             $sensor = SintechsSensors::where('uuid', $sensor_arr['uuid'])->first();
-            foreach($sensor_arr['value'] as $key_value => $value){
-                $sampling_sensor = new SintechsSamplingSensors();
-                $sampling_sensor->sampling_id = $sampling->id;
-                $sampling_sensor->sensor_id = $sensor->id;
-                $sampling_sensor->measure_type = $value;
-                $sampling_sensor->create();
+            foreach($sensor_arr['value'] as $values) {
+                foreach($values as $key_value => $value){
+                    $sampling_sensor = new SintechsSamplingSensors();
+                    $sampling_sensor->sampling_id = $sampling->id;
+                    $sampling_sensor->sensor_id = $sensor->id;
+                    $sampling_sensor->measure_type = $key_value;
+                    $sampling_sensor->value = $value;
+                    $sampling_sensor->save();
+                }
             }
         }
         
@@ -116,9 +120,12 @@ class APIController extends Controller {
             $sampling_actuator = new SintechsSamplingActuators();
             $sampling_actuator->sampling_id = $sampling->id;
             $sampling_actuator->actuator_id = $actuator->id;
+            
+            foreach($actuator_arr['value'] as $values) {
             $sampling_actuator->active = (bool) $actuator_arr['value']['active'];
             $sampling_actuator->activated_time = $actuator_arr['value']['activated_time'];
-            $sampling_actuator->create();
+            }
+            $sampling_actuator->save();
         }
         
         
