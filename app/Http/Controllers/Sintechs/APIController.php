@@ -88,35 +88,37 @@ class APIController extends Controller {
             return new JsonResponse(['error' => $e->getMessage()], 200);
         }
         
-        $module = SintechsModules::where('name', $data['module_name'])->get();
+        $module = SintechsModules::where('name', $data['module_name'])->first();
+
         $sampling = new SintechsSampling();
         $sampling->module_id = $module->id;
-        $sampling->status = $data['data']['status'];
-        $sampling->uptime = $data['data']['uptime'];
-        $sampling->error_code = $data['data']['error_code'];
-        $sampling->error_msg = $data['data']['error_msg'];
-        $sampling = $sampling->save();
+        $sampling->status = $data['status'];
+        $sampling->uptime = $data['uptime'];
+        $sampling->error_code = $data['error_code'];
+        $sampling->error_msg = $data['error_msg'];
+        $sampling->save();
+        
         
         
         foreach($data['data']['sensors'] as $sensor_arr){
-            $sensor = SintechsSensors::where('uuid', $sensor_arr['uuid'])->get();
+            $sensor = SintechsSensors::where('uuid', $sensor_arr['uuid'])->first();
             foreach($sensor_arr['value'] as $key_value => $value){
                 $sampling_sensor = new SintechsSamplingSensors();
                 $sampling_sensor->sampling_id = $sampling->id;
                 $sampling_sensor->sensor_id = $sensor->id;
                 $sampling_sensor->measure_type = $value;
-                $sampling_sensor = $sampling_sensor->save();
+                $sampling_sensor->create();
             }
         }
         
         foreach($data['data']['actuators'] as $actuator_arr){
-            $actuator = SintechsActuators::where('uuid', $actuator_arr['uuid'])->get();
+            $actuator = SintechsActuators::where('uuid', $actuator_arr['uuid'])->first();
             $sampling_actuator = new SintechsSamplingActuators();
             $sampling_actuator->sampling_id = $sampling->id;
             $sampling_actuator->actuator_id = $actuator->id;
             $sampling_actuator->active = (bool) $actuator_arr['value']['active'];
             $sampling_actuator->activated_time = $actuator_arr['value']['activated_time'];
-            $sampling_actuator->save();
+            $sampling_actuator->create();
         }
         
         
@@ -154,23 +156,22 @@ class APIController extends Controller {
             throw new Exception('no data on sensors or actuators');
         }
         
-        $module = SintechsModules::where('name', $data['module_name'])->get();
+        $module = SintechsModules::where('name', $data['module_name'])->first();
         
         if(!$module || $module == null){
             //TODO: Log ERROR
             throw new Exception('status not OK');
         }
-        
         foreach($data['data']['sensors'] as $sensor_arr){
-            $sensor = SintechsSensors::where('uuid', $sensor_arr['uuid'])->get();
+            $sensor = SintechsSensors::where('uuid', $sensor_arr['uuid'])->first();
             if(!$sensor || $sensor == null){
                 //TODO: Log ERROR
                 throw new JsonResponse('sensor '.$sensor_arr['uuid'].' not exists');
             }
         }
-        
+       
         foreach($data['data']['actuators'] as $actuator_arr){
-            $actuator = SintechsActuators::where('uuid', $actuator_arr['uuid'])->get();
+            $actuator = SintechsActuators::where('uuid', $actuator_arr['uuid'])->first();
             if(!$actuator || $actuator == null){
                 //TODO: Log ERROR
                 throw new Exception('actuator '.$actuator_arr['uuid'].' not exists');
