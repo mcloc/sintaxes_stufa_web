@@ -21,8 +21,8 @@ class CreateSintechsSamplingActuatorsTable extends Migration
             $table->unsignedBigInteger('actuator_id')->index();
             $table->foreign('actuator_id')->references('id')->on('sintechs_actuators');
             
-            $table->boolean('status');
-            $table->float('actuation_time')->nullable();
+            $table->boolean('active')->default(false);
+            $table->bigInteger('activated_time')->nullable();
             $table->timestamps();
             
             $table->primary(['sampling_id', 'actuator_id']);
