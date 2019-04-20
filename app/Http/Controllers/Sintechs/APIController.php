@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Exception;
 use App\SintechsSamplingSensors;
 use App\SintechsSamplingActuators;
+use Socket\Raw\Factory;
 
 
 class APIController extends Controller {
@@ -19,6 +20,25 @@ class APIController extends Controller {
     {
         $this->middleware('api');
     }
+    
+    
+    public function testSockets(){
+        $factory = new Factory();
+        $socket = $factory->createClient('tcp://localhost:1932');
+        
+        $data = '{"commandMethod":"wrtitePort", "commandArgs":[{"LED#1":"true"}]}';
+        
+        
+        $socket->write($data);
+        $socket->write("\u0004");
+//         $data = $socket->read(8192);
+        
+        
+        $socket->close();
+        die($data);
+    }
+    
+    
     
     
     /**
