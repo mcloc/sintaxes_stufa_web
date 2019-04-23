@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 
+use App\SintechsSampling;
+use App\SintechsSamplingSensors;
+
 class DashBoardController extends Controller
 {
     /**
@@ -22,6 +25,28 @@ class DashBoardController extends Controller
      */
     public function home()
     {
-        return view('dashboard');
+        $labels = array();
+        $sampling_sensors = array();
+        $sensors = array();
+        $samplings = SintechsSampling::all()->sortBy('created_at');
+        
+//         $samplings->each(function ($item, $key) {
+//             die($item);
+//             $labels[] = $item->created_at;
+//         });
+        
+        foreach($samplings as $sp){
+            $labels[] = $sp->created_at;
+            $sampling_sensors = SintechsSamplingSensors::where('sampling_id', $sp->id)->get()->sortBy('created_at');
+            foreach($sampling_sensors as $s){
+                $sensors[$sp->created_at][$s->measure_type] = $s->value;
+            }
+        }
+        
+//         echo '<pre>';
+//         print_r($sensors);
+//         die();
+        
+        return view('dashboard', array('labels' => $labels, 'sensors' => $sensors));
     }
 }

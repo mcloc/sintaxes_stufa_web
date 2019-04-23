@@ -113,9 +113,22 @@
                             </div>
                         </div>
                     </div><!-- /# column -->
-
                 </div>
             </div><!-- .animated -->
+                                <div class="col-lg-10">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="mb-3">Clima</h4>
+                                <canvas id="clima"></canvas>
+                            </div>
+                        </div>
+                    </div><!-- /# column -->
+            <div class="toolbar">
+			<button onclick="togglePropagate(this)">Propagate</button>
+			<button onclick="toggleSmooth(this)">Smooth</button>
+			<button onclick="randomize(this)">Randomize</button>
+		</div>
+		<div id="chart-analyser" class="analyser"></div>
 @endsection
 
 @section('final-includes')
@@ -124,6 +137,162 @@
     <script src="/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="/assets/js/main.js"></script>
     <!--  Chart js -->
-    <script src="/vendors/chart.js/dist/Chart.bundle.min.js"></script>
+    <script src="/vendors/chart.js/dist/Chart.min.js"></script>
+    <script src="/js/utils.js"></script>
+    <script src="/js/analyser.js"></script>
+    
+    <script>
+		var presets = window.chartColors;
+		var utils = Samples.utils;
+		var inputs = {
+			min: 1,
+			max: 32,
+			count: 8,
+			decimals: 2,
+			continuity: 1
+		};
+
+		function generateTemperatureData() {
+			var arr_temp = Array();
+			<?php foreach($sensors as $sensor_arr){
+			    foreach($sensor_arr as $key => $value) {
+			        if($key!= 'temperature')continue;
+			?>
+    			arr_temp.push('<?php echo $value;?>');
+    			console.log('<?php echo $key?>');
+			<?php } 
+            }?>
+			console.log(arr_temp);
+			return arr_temp;
+		}
+
+		function generateHumidityData() {
+			var arr_temp = Array();
+			<?php foreach($sensors as $sensor_arr){
+			    foreach($sensor_arr as $key => $value) {
+			        if($key != 'humidity')continue;
+			?>
+        			arr_temp.push('<?php echo $value;?>');
+        			console.log('<?php echo $key?>');
+			<?php } 
+            }?>
+			console.log(arr_temp);
+			return arr_temp;
+		}
+
+		function generateHeatIndexData() {
+			var arr_temp = Array();
+			<?php foreach($sensors as $sensor_arr){
+			    foreach($sensor_arr as $key => $value) {
+			        if($key != 'heat_index')continue;
+			?>
+        			arr_temp.push('<?php echo $value;?>');
+        			console.log('<?php echo $key?>');
+			<?php } 
+            }?>
+			console.log(arr_temp);
+			return arr_temp;
+		}
+
+		function generateLabels() {
+			var arr_labels = Array();
+			<?php foreach($labels as $label){?>
+			arr_labels.push('<?php echo $label;?>');
+			<?php }?>
+			console.log(arr_labels);
+			return arr_labels;
+		}
+
+		var data = {
+			labels: generateLabels(),
+			datasets: [{
+				backgroundColor: utils.transparentize(presets.blue),
+				borderColor: presets.blue,
+				data: generateTemperatureData(),
+				label: 'Temperatura',
+				fill: '-1'
+			}, {
+				backgroundColor: utils.transparentize(presets.grey),
+				borderColor: presets.grey,
+				data: generateHumidityData(),
+				label: 'Humidade',
+				fill: '+2'
+			}, {
+				backgroundColor: utils.transparentize(presets.purple),
+				borderColor: presets.purple,
+				data: generateHeatIndexData(),
+				label: 'Sensação Térmica',
+				fill: false
+			}, {
+				backgroundColor: utils.transparentize(presets.red),
+				borderColor: presets.red,
+				data: generateHeatIndexData(),
+				label: 'D7',
+				fill: 8
+			}, ]
+		};
+
+		var options = {
+			maintainAspectRatio: true,
+			spanGaps: false,
+			elements: {
+				line: {
+					tension: 0.000001
+				}
+			},
+			scales: {
+				yAxes: [{
+					stacked: true
+				}]
+			},
+			plugins: {
+				filler: {
+					propagate: false
+				},
+				'samples-filler-analyser': {
+					target: 'chart-analyser'
+				}
+			}
+		};
+
+		var chart = new Chart('clima', {
+			type: 'line',
+			data: data,
+			options: options
+		});
+
+		// eslint-disable-next-line no-unused-vars
+		function togglePropagate(btn) {
+			var value = btn.classList.toggle('btn-on');
+			chart.options.plugins.filler.propagate = value;
+			chart.update();
+		}
+
+		// eslint-disable-next-line no-unused-vars
+		function toggleSmooth(btn) {
+			var value = btn.classList.toggle('btn-on');
+			chart.options.elements.line.tension = value ? 0.4 : 0.000001;
+			chart.update();
+		}
+
+		// eslint-disable-next-line no-unused-vars
+		function randomize() {
+			chart.data.datasets.forEach(function(dataset) {
+				dataset.data = generateData();
+			});
+			chart.update();
+		}
+
+	    
+		
+	</script>
     <script src="/assets/js/init-scripts/chart-js/chartjs-init.js"></script>
+
+    
+    
+    
 @endsection
+
+
+
+
