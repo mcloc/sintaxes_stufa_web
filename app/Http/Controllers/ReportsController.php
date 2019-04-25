@@ -13,12 +13,7 @@ class ReportsController extends Controller {
     
     public function humidity_temperature() {
         $samps = SintechsSampling::getAllSampling();
-        echo '<pre>';
-        print_r($samps);
-        die();
-        
-        return view("sintechs.sampling", array('samps',$samps));
-        return view('reports.humidity_temperature');
+        return view("reports.humidity_temperature", array('samps' =>$samps));
     }
     
     public function actuators() {
