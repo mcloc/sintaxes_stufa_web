@@ -50,6 +50,9 @@
                                             <th>Sensor ID</th>
                                             <th>Measure Type</th>
                                             <th>Value</th>
+                                            <th>Actuator ID</th>
+                                            <th>Actuator Activated</th>
+                                            <th>Actuator Activated Time</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -66,9 +69,28 @@
                                             <td>{{$sensor->sensor_id}}</td>
                                             <td>{{$sensor->measure_type}}</td>
                                             <td>{{$sensor->value}}</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
                                             </tr>
                                             @endforeach
-                                        
+				                         	@foreach($samps[$key]['sampling_actuators'] as $actuators)
+                                        	<tr>
+                                            <td>{{$sp['sampling']->id}}</td>
+                                            <td>{{$sp['sampling']->module_id}}</td>
+                                            <td>{{$sp['sampling']->status}}</td>
+                                            <td>{{$sp['sampling']->uptime}}</td>
+                                            <td>{{$sp['sampling']->error_code}}</td>
+                                            <td>{{$sp['sampling']->error_message}}</td>
+                                            <td>{{$sp['sampling']->created_at}}</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>{{$actuators->actuator_id}}</td>
+                                            <td>{{$actuators->active}}</td>
+                                            <td>{{$actuators->activated_time}}</td>
+                                            </tr>
+                                            @endforeach
                                         @endforeach
                                     </tbody>
                                 </table>
