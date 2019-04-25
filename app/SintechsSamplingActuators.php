@@ -11,4 +11,12 @@ class SintechsSamplingActuators extends Model
     public function actuators() {
         return $this->hasMany('App\SintechsActuators');
     }
+    
+    public function sample(){
+        return $this->belongsToMany(SintechsSampling::class, 'sampling_id');
+    }
+    
+    public function getDates() {
+        return array();
+    }
 }

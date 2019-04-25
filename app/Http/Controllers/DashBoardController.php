@@ -30,11 +30,6 @@ class DashBoardController extends Controller
         $sensors = array();
         $samplings = SintechsSampling::all()->sortBy('created_at');
         
-//         $samplings->each(function ($item, $key) {
-//             die($item);
-//             $labels[] = $item->created_at;
-//         });
-        
         foreach($samplings as $sp){
             $labels[] = $sp->created_at;
             $sampling_sensors = SintechsSamplingSensors::where('sampling_id', $sp->id)->get()->sortBy('created_at');

@@ -10,7 +10,11 @@ class SintechsSamplingSensors extends Model
     protected $guarded = [];
     
     public function sensor() {
-        return $this->hasMany('App\SintechsSensors');
+        return $this->hasMany('SintechsSensors');
+    }
+    
+    public function sample(){
+        return $this->belongsToMany(SintechsSampling::class, 'sampling_id');
     }
     
     public function getDates() {

@@ -227,7 +227,7 @@
 				backgroundColor: utils.transparentize(presets.red),
 				borderColor: presets.red,
 				data: generateHeatIndexData(),
-				label: 'D7',
+				label: 'Sensação Térmica',
 				fill: 8
 			}, ]
 		};

@@ -1,6 +1,8 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\SintechsSampling;
+
 
 class ReportsController extends Controller {
     
@@ -10,6 +12,12 @@ class ReportsController extends Controller {
     }
     
     public function humidity_temperature() {
+        $samps = SintechsSampling::getAllSampling();
+        echo '<pre>';
+        print_r($samps);
+        die();
+        
+        return view("sintechs.sampling", array('samps',$samps));
         return view('reports.humidity_temperature');
     }
     
