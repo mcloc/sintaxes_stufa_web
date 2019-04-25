@@ -13,6 +13,7 @@ class ReportsController extends Controller {
     
     public function humidity_temperature() {
         $samps = SintechsSampling::getAllSampling();
+        
         return view("reports.humidity_temperature", array('samps' =>$samps));
     }
     

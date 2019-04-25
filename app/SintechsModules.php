@@ -12,4 +12,8 @@ class SintechsModules extends Model
     {
         return $this->belongsToMany(SintechsModulesType::class);
     }
+    
+    public function sample(){
+        return $this->belongsToMany(SintechsSampling::class, 'sampling_id');
+    }
 }
