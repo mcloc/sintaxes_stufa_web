@@ -213,19 +213,13 @@
 				borderColor: presets.grey,
 				data: generateHumidityData(),
 				label: 'Humidade',
-				fill: '+2'
-			}, {
-				backgroundColor: utils.transparentize(presets.purple),
-				borderColor: presets.purple,
-				data: generateHeatIndexData(),
-				label: 'Sensação Térmica',
-				fill: false
-			}, {
+				fill: '+8'
+			},  {
 				backgroundColor: utils.transparentize(presets.red),
 				borderColor: presets.red,
 				data: generateHeatIndexData(),
 				label: 'Sensação Térmica',
-				fill: 8
+				fill: '+2'
 			}, ]
 		};
 
