@@ -156,10 +156,9 @@
 			var arr_temp = Array();
 			<?php foreach($sensors as $sensor_arr){
 			    foreach($sensor_arr as $key => $value) {
-			        if($key!= 'temperature')continue;
+			        if($key != 'temperature') continue;
 			?>
     			arr_temp.push('<?php echo $value;?>');
-    			console.log('<?php echo $key?>');
 			<?php } 
             }?>
 			console.log(arr_temp);
@@ -173,7 +172,6 @@
 			        if($key != 'humidity')continue;
 			?>
         			arr_temp.push('<?php echo $value;?>');
-        			console.log('<?php echo $key?>');
 			<?php } 
             }?>
 			console.log(arr_temp);
@@ -187,7 +185,6 @@
 			        if($key != 'heat_index')continue;
 			?>
         			arr_temp.push('<?php echo $value;?>');
-        			console.log('<?php echo $key?>');
 			<?php } 
             }?>
 			console.log(arr_temp);
@@ -210,7 +207,7 @@
 				borderColor: presets.blue,
 				data: generateTemperatureData(),
 				label: 'Temperatura',
-				fill: '-1'
+				fill: '+1'
 			}, {
 				backgroundColor: utils.transparentize(presets.grey),
 				borderColor: presets.grey,

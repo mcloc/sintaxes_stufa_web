@@ -140,7 +140,7 @@ class APIController extends Controller {
             $sampling_actuator = new SintechsSamplingActuators();
             $sampling_actuator->sampling_id = $sampling->id;
             $sampling_actuator->actuator_id = $actuator->id;
-            $sampling_actuator->active = (bool) $actuator_arr['value']['active'];
+            $sampling_actuator->active = (bool) filter_var($actuator_arr['value']['active'], FILTER_VALIDATE_BOOLEAN);
             $sampling_actuator->activated_time = $actuator_arr['value']['activated_time'];
             $sampling_actuator->save();
         }

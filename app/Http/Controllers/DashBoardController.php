@@ -38,9 +38,9 @@ class DashBoardController extends Controller
             }
         }
         
-//         echo '<pre>';
-//         print_r($sensors);
-//         die();
+        echo '<pre>';
+        print_r($sensors);
+        die();
         
         return view('dashboard', array('labels' => $labels, 'sensors' => $sensors));
     }
