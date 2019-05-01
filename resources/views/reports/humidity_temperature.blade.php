@@ -65,7 +65,7 @@
                                             <td>{{$sp['sampling']->uptime}}</td>
                                             <td>{{$sp['sampling']->error_code}}</td>
                                             <td>{{$sp['sampling']->error_message}}</td>
-                                            <td>{{ Carbon\Carbon::parse($sp['sampling']->created_at)->format('d-m-Y H:i:s') }}</td>
+                                            <td>{{ Carbon\Carbon::parse($sp['sampling']->created_at)->format('d/m/Y H:i:s') }}</td>
                                             <td>{{$sp['sensor'][$sensor_key]->uuid}}</td>
                                             <td>{{$sensor->measure_type}}</td>
                                             <td>{{$sensor->value}}</td>
@@ -82,7 +82,7 @@
                                             <td>{{$sp['sampling']->uptime}}</td>
                                             <td>{{$sp['sampling']->error_code}}</td>
                                             <td>{{$sp['sampling']->error_message}}</td>
-                                            <td>{{ Carbon\Carbon::parse($sp['sampling']->created_at)->format('d-m-Y H:i:s')}}</td>
+                                            <td>{{ Carbon\Carbon::parse($sp['sampling']->created_at)->format('d/m/Y H:i:s')}}</td>
                                             <td></td>
                                             <td></td>
                                             <td></td>
