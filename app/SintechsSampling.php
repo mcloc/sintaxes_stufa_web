@@ -52,7 +52,7 @@ class SintechsSampling extends Model
         $labels = array();
         $sampling_sensors = array();
         $sensors = array();
-        $samplings = SintechsSampling::all()->sortByDesc('created_at')->limit(100);
+        $samplings = SintechsSampling::get()->sortByDesc('created_at')->limit(100);
         $samps = array();
         foreach($samplings as $key => $sp){
             $samp[$key]['sampling'] = $sp;
