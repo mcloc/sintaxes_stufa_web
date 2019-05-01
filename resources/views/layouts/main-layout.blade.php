@@ -15,7 +15,6 @@
 
     <link rel="apple-touch-icon" href="/favicon.ico">
     <link rel="shortcut icon" href="/favicon.ico">
-
     <link rel="stylesheet" href="/vendors/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/vendors/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="/vendors/themify-icons/css/themify-icons.css">

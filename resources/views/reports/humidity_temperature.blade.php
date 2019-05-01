@@ -65,7 +65,7 @@
                                             <td>{{$sp['sampling']->uptime}}</td>
                                             <td>{{$sp['sampling']->error_code}}</td>
                                             <td>{{$sp['sampling']->error_message}}</td>
-                                            <td>{{$sp['sampling']->created_at}}</td>
+                                            <td>{{ Carbon\Carbon::parse($sp['sampling']->created_at)->format('d-m-Y H:i:s') }}</td>
                                             <td>{{$sp['sensor'][$sensor_key]->uuid}}</td>
                                             <td>{{$sensor->measure_type}}</td>
                                             <td>{{$sensor->value}}</td>
@@ -82,7 +82,7 @@
                                             <td>{{$sp['sampling']->uptime}}</td>
                                             <td>{{$sp['sampling']->error_code}}</td>
                                             <td>{{$sp['sampling']->error_message}}</td>
-                                            <td>{{$sp['sampling']->created_at}}</td>
+                                            <td>{{ Carbon\Carbon::parse($sp['sampling']->created_at)->format('d-m-Y H:i:s')}}</td>
                                             <td></td>
                                             <td></td>
                                             <td></td>
@@ -120,6 +120,44 @@
     <script src="/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
     <script src="/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
     <script src="/vendors/datatables.net-buttons/js/buttons.colVis.min.js"></script>
-    <script src="/assets/js/init-scripts/data-table/datatables-init.js"></script>
+    <script src="/vendors/datatables.net/js/dataTables.rowGroup.min.js"></script>
+    
+    <link rel="stylesheet" href="/vendors/datatables.net/css/rowGroup.bootstrap4.min.css">
+    <script>
 
+    jQuery(document).ready(function() {
+    	jQuery('#bootstrap-data-table-export').DataTable( {
+            order: [[0, 'desc']],
+            displayLength: 20,
+            rowGroup: {
+                dataSrc: 6
+            }
+        } );
+
+//     	 var groupColumn = 0;
+//     	    var table = jQuery('#bootstrap-data-table-export').DataTable({
+//     	        "columnDefs": [
+//     	            { "targets": groupColumn }
+//     	        ],
+//     	        "order": [[ groupColumn, 'desc' ]],
+//     	        "displayLength": 20,
+//     	        "drawCallback": function ( settings ) {
+//     	            var api = this.api();
+//     	            var rows = api.rows( {page:'current'} ).nodes();
+//     	            var last=null;
+    	 
+//     	            api.column(groupColumn, {page:'current'} ).data().each( function ( group, i ) {
+//     	                if ( last !== group ) {
+//     	                	jQuery(rows).eq( i ).before(
+//     	                        '<tr class="group"><td colspan="13">'+group+'</td></tr>'
+//     	                    );
+    	 
+//     	                    last = group;
+//     	                }
+//     	            } );
+//     	        }
+//     	    } );
+    } );
+  </script>
+	  
 @endsection

@@ -14,6 +14,10 @@ class ReportsController extends Controller {
     public function humidity_temperature() {
         $samps = SintechsSampling::getLast100Sampling();
         
+//         echo '<pre>';
+//         print_r($samps);
+//         die();
+        
         return view("reports.humidity_temperature", array('samps' =>$samps));
     }
     
