@@ -2,16 +2,18 @@
 namespace App\Http\Controllers\Sintechs;
 
 use App\SintechsActuators;
+use App\SintechsAlerts;
 use App\SintechsModules;
 use App\SintechsSampling;
+use App\SintechsSamplingActuators;
+use App\SintechsSamplingSensors;
 use App\SintechsSensors;
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Exception;
-use App\SintechsSamplingSensors;
-use App\SintechsSamplingActuators;
 use Socket\Raw\Factory;
+use Exception;
 
 
 class APIController extends Controller {
@@ -74,32 +76,6 @@ class APIController extends Controller {
      * 
      */
     public function storeSampling(Request $request){
-//         $example = array(
-//             'module_name' => 'arduino_board#1',
-//             'data' => array(
-//                 'sensors' => array(
-//                     'uuid' => 'DHT11#1',
-//                     'value' => array(
-//                         'humidity' => 66.5,
-//                         'temperature' => 28.7,
-//                         'heat_index' => 32.5234
-//                     ),
-//                 ),
-//                 'actuators' => array(
-//                     'uuid' => 'solenoid#1',
-//                     'value' => array(
-//                         'status' => 'on',
-//                         'status_time' => 15,
-//                     ),
-//                 ),
-//             ),
-//             'status' => 'OK',
-//             'uptime' => 12,
-//             'error_code' => null,
-//             'error_msg' => null,
-//         );
-//         $data = json_encode($example);
-        
         $data = $request->all();
         
         try {
@@ -110,6 +86,14 @@ class APIController extends Controller {
         
         $module = SintechsModules::where('name', $data['module_name'])->first();
 
+        
+        $last_sampling = SintechsSampling::orderByDesc('created_at')->first();
+        $last_actuators = SintechsSamplingActuators::where('sampling_id', $last_sampling->id)->get();
+        $last_actuators_state = array();
+        foreach($last_actuators as $last_act){
+            $last_actuators_state[$last_act->actuator_id] = (bool) filter_var($last_act->active);
+        }
+        
         $sampling = new SintechsSampling();
         $sampling->module_id = $module->id;
         $sampling->status = $data['status'];
@@ -143,6 +127,18 @@ class APIController extends Controller {
             $sampling_actuator->active = (bool) filter_var($actuator_arr['value']['active'], FILTER_VALIDATE_BOOLEAN);
             $sampling_actuator->activated_time = $actuator_arr['value']['activated_time'];
             $sampling_actuator->save();
+            
+            if(array_key_exists($actuator->id, $last_actuators_state)){
+                if($last_actuators_state[$actuator->id] != $sampling_actuator->active){
+                    $alert = new SintechsAlerts();
+                    $alert->readed = false;
+                    $alert->module_id = $module->id;
+                    $alert->message = Carbon::parse($sampling->created_at)->format('d/m/Y H:i:s') .
+                        ": O estado do atuador: " .$actuator_arr['uuid']." modou para: ".$actuator_arr['value']['active'];
+                    $alert->created_by = "Armazenamento de Amostragem";
+                    $alert->save();
+                }
+            }
         }
         
         
