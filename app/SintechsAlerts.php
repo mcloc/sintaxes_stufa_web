@@ -15,7 +15,14 @@ class SintechsAlerts extends Model
     }
     
     public static function hasAlert(){
-        return SintechsAlerts::where('readed', false)->first();
+        $alerts = SintechsAlerts::where('readed', false)->get();
+        
+        return count($alerts);
+    }
+    
+    public static function getAllUnreaded(){
+        $alerts = SintechsAlerts::orderByDesc('created_time')->where('readed', false)->get();
+        return $alerts;
     }
     
     public static function getLastAlert(){
