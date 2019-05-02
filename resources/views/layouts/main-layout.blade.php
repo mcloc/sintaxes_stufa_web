@@ -183,15 +183,15 @@ use App\SintechsAlerts;
                         <div class="dropdown for-notification">
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="notification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fa fa-bell"></i>
-                                <span class="count bg-danger"><?php echo SintechsAlerts::hasAlert()?></span>
+                                <span class="count bg-danger" id="total-alerts"><?php echo SintechsAlerts::hasAlert()?></span>
                             </button>
-                            <div class="dropdown-menu" aria-labelledby="notification">
-                            <p class="red">Você tem <?php echo SintechsAlerts::hasAlert()?> notificações</p>
+                            <div class="dropdown-menu" aria-labelledby="notification" id="dropdown-alerts">
+                            <p class="red">Você tem <span id="dropdown-total-alerts"><?php echo SintechsAlerts::hasAlert()?></span> notificações</p>
                             <?php foreach(SintechsAlerts::getAllUnreaded() as $alert){?>
-                                <a class="dropdown-item media bg-flat-color-1" href="#">
+                                <a class="dropdown-item media bg-flat-color-3" href="#" onclick="closeAlert(<?php echo $alert->id;?>);" id="alert-<?php echo $alert->id;?>">
                                 <i class="fa fa-check"></i>
                                 <p><?php echo $alert->message;?></p>
-                            </a>
+                            	</a>
                             <?php }?>
                             </div>
                         </div>
@@ -297,7 +297,22 @@ use App\SintechsAlerts;
     </div><!-- /#right-panel -->
 	
     <!-- Right Panel -->
+	<script>
+	   function closeAlert(id){
+		   jQuery.ajaxSetup({
+		        headers: {
+		            'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+		        }
 
+		    });
+		   jQuery.post("/alerts/mark-as-readed/"+id, function( data ) {
+			   jQuery( "#total-alerts" ).html( data );
+			   jQuery( "#dropdown-total-alerts" ).html( data );
+			   
+		   });
+		   jQuery( "#alert-"+id ).remove();
+	   }
+	</script>
 	@yield('final-includes')
 </body>
 

@@ -132,15 +132,6 @@ use App\SintechsAlerts;
     <link rel="stylesheet" href="/vendors/datatables.net/css/rowGroup.bootstrap4.min.css">
     <script>
 
-   function closeAlert(id){
-	   jQuery.ajaxSetup({
-	        headers: {
-	            'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
-	        }
-
-	    });
-	   jQuery.post("/alerts/mark-as-readed/"+id);
-   }
 
     jQuery(document).ready(function() {
     	jQuery('#bootstrap-data-table-export').DataTable( {

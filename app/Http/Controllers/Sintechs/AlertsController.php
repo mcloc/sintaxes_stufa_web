@@ -25,7 +25,9 @@ class AlertsController extends Controller {
         $alert->readed = true;
         $alert->save();
         
-        return response('Mark as Readed OK', 200)->header('Content-Type', 'text/plain');
+        $alerts_count = SintechsAlerts::hasAlert();
+        
+        return response($alerts_count, 200)->header('Content-Type', 'text/plain');
     }
     
     public function types(){
