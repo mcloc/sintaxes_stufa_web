@@ -29,6 +29,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::prefix('dashboard')->group(function () {
     Route::get('/', "DashBoardController@home");
     });
+    
+    Route::post('/alerts/mark-as-readed/{id}', "Sintechs\AlertsController@markAsReaded");
 });
 
 

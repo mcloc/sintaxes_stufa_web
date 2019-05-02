@@ -1,3 +1,6 @@
+<?php
+use App\SintechsAlerts;
+?>
 @extends('layouts.main-layout')
 
 @section('title', 'Sintechs Admin - Relatórios')
@@ -15,14 +18,18 @@
       and do a yield with only the <span> message
  -->
 @section('alert-message')
+
  <div class="col-sm-12">
+ <?php if(SintechsAlerts::hasAlert()){?>
     <div class="alert  alert-success alert-dismissible fade show" role="alert">
-        <span class="badge badge-pill badge-success">Success</span> You successfully read this important alert message.ction('content')
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <?php $alert = SintechsAlerts::getLastAlert(); echo $alert->message;?>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="closeAlert(<?php echo $alert->id?>);">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
+    <?php }?>
 </div>		
+
 @endsection
 
 
@@ -125,6 +132,16 @@
     <link rel="stylesheet" href="/vendors/datatables.net/css/rowGroup.bootstrap4.min.css">
     <script>
 
+   function closeAlert(id){
+	   jQuery.ajaxSetup({
+	        headers: {
+	            'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+	        }
+
+	    });
+	   jQuery.post("/alerts/mark-as-readed/"+id);
+   }
+
     jQuery(document).ready(function() {
     	jQuery('#bootstrap-data-table-export').DataTable( {
             order: [[0, 'desc']],
@@ -133,30 +150,6 @@
                 dataSrc: 6
             }
         } );
-
-//     	 var groupColumn = 0;
-//     	    var table = jQuery('#bootstrap-data-table-export').DataTable({
-//     	        "columnDefs": [
-//     	            { "targets": groupColumn }
-//     	        ],
-//     	        "order": [[ groupColumn, 'desc' ]],
-//     	        "displayLength": 20,
-//     	        "drawCallback": function ( settings ) {
-//     	            var api = this.api();
-//     	            var rows = api.rows( {page:'current'} ).nodes();
-//     	            var last=null;
-    	 
-//     	            api.column(groupColumn, {page:'current'} ).data().each( function ( group, i ) {
-//     	                if ( last !== group ) {
-//     	                	jQuery(rows).eq( i ).before(
-//     	                        '<tr class="group"><td colspan="13">'+group+'</td></tr>'
-//     	                    );
-    	 
-//     	                    last = group;
-//     	                }
-//     	            } );
-//     	        }
-//     	    } );
     } );
   </script>
 	  

@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers\Sintechs;
 
+use App\SintechsAlerts;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
@@ -17,6 +18,14 @@ class AlertsController extends Controller {
             }
             return $next($request);
         });
+    }
+    
+    public function markAsReaded($id){
+        $alert = SintechsAlerts::find($id);
+        $alert->readed = true;
+        $alert->save();
+        
+        return response('Mark as Readed OK', 200)->header('Content-Type', 'text/plain');
     }
     
     public function types(){

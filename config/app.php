@@ -2,6 +2,9 @@
 
 return [
 
+    'domain' => env('SESSION_DOMAIN', 'admin.sintechs.com.br'),
+    
+    
     /*
     |--------------------------------------------------------------------------
     | Application Name
