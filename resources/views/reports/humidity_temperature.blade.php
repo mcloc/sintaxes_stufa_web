@@ -20,9 +20,9 @@ use App\SintechsAlerts;
 @section('alert-message')
 
  <div class="col-sm-12">
- <?php if(SintechsAlerts::hasAlert()){?>
-    <div class="alert  alert-success alert-dismissible fade show" role="alert">
-        <?php $alert = SintechsAlerts::getLastAlert(); echo $alert->message;?>
+ <?php if(SintechsAlerts::hasAlert()){ $alert = SintechsAlerts::getLastAlert(); ?>
+    <div class="alert  alert-success alert-dismissible fade show" role="alert" id="alert-div-<?php echo $alert->id;?>">
+        <?php echo $alert->message;?>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="closeAlert(<?php echo $alert->id?>);">
             <span aria-hidden="true">&times;</span>
         </button>

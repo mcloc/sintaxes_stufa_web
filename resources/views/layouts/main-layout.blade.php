@@ -311,6 +311,8 @@ use App\SintechsAlerts;
 			   
 		   });
 		   jQuery( "#alert-"+id ).remove();
+		   if(jQuery( "#alert-div-"+id ).length > 0)
+		   		jQuery( "#alert-div-"+id ).remove();
 	   }
 	</script>
 	@yield('final-includes')
