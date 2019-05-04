@@ -28,4 +28,8 @@ class SintechsAlerts extends Model
     public static function getLastAlert(){
         return SintechsAlerts::orderByDesc('created_at')->where('readed', false)->first();
     }
+    
+    public function getDates() {
+        return array();
+    }
 }
