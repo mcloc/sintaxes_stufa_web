@@ -41,6 +41,20 @@ class APIController extends Controller {
     }
     
     
+    public function getSampling($sampling_id){
+        
+        if($sampling_id == null){
+            return new JsonResponse(array('error' => 'no sampling_id'), 200);
+        }
+        
+        $sampling = SintechsSampling::with(array('module', 'samplingSensors', 'samplingActuators', 'samplingSensors.sensor','samplingActuators.actuator'))->find($sampling_id);
+        if($sampling == null){
+            return new JsonResponse(array('error' => 'sampling_id no found'), 200);
+        }
+        $json = json_encode($sampling);
+        
+        return new JsonResponse(json_decode($json), 200);
+    }
     
     
     /**
@@ -81,7 +95,7 @@ class APIController extends Controller {
         try {
             $this->checkData($data);
         } catch (Exception $e){
-            return new JsonResponse(['error' => $e->getMessage()], 200);
+            return new JsonResponse(array('error' => $e->getMessage()), 200);
         }
         
         $module = SintechsModules::where('name', $data['module_name'])->first();

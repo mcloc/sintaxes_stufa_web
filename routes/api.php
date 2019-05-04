@@ -22,4 +22,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::middleware('api')->group(function () {
     Route::post('storeSampling', "Sintechs\APIController@storeSampling");
     Route::get('testSockets', "Sintechs\APIController@testSockets");
+    Route::get('getSampling/{id}', "Sintechs\APIController@getSampling");
 });
