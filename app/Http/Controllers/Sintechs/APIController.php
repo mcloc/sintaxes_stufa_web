@@ -100,13 +100,15 @@ class APIController extends Controller {
         
         $module = SintechsModules::where('name', $data['module_name'])->first();
 
-        
-        $last_sampling = SintechsSampling::orderByDesc('created_at')->first();
-        $last_actuators = SintechsSamplingActuators::where('sampling_id', $last_sampling->id)->get();
         $last_actuators_state = array();
-        foreach($last_actuators as $last_act){
-            $last_actuators_state[$last_act->actuator_id] = (bool) filter_var($last_act->active);
+        $last_sampling = SintechsSampling::orderByDesc('created_at')->first();
+        if($last_sampling != null){
+            $last_actuators = SintechsSamplingActuators::where('sampling_id', $last_sampling->id)->get();
+            foreach($last_actuators as $last_act){
+                $last_actuators_state[$last_act->actuator_id] = (bool) filter_var($last_act->active);
+            }
         }
+        
         
         $sampling = new SintechsSampling();
         $sampling->module_id = $module->id;

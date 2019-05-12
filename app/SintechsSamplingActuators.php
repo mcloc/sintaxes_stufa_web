@@ -9,7 +9,7 @@ class SintechsSamplingActuators extends Model
     protected $table = 'sintechs_sampling_actuators';
     
     public function actuator() {
-        return $this->belongsToMany(SintechsActuators::class, 'id', 'actuator_id');
+        return $this->hasMany(SintechsActuators::class, 'id', 'actuator_id');
     }
     
     public function sample(){
