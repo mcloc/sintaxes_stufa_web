@@ -9,6 +9,10 @@ class SintechsSampling extends Model
     protected $table = 'sintechs_sampling';
     protected $guarded = [];
     
+    public function rules()
+    {
+        return $this->hasMany(SintechsRules::class, 'sampling_id', 'id');
+    }
     
     public function samplingSensors()
     {
@@ -27,11 +31,8 @@ class SintechsSampling extends Model
     
     
     public static function getAllSampling(){
-        $labels = array();
-        $sampling_sensors = array();
-        $sensors = array();
         $samplings = SintechsSampling::all()->sortByDesc('created_at');
-        $samps = array();
+        $samp = array();
         foreach($samplings as $key => $sp){
             $samp[$key]['sampling'] = $sp;
             $samp[$key]['module'] = $sp->module()->first();
@@ -49,11 +50,8 @@ class SintechsSampling extends Model
     }
     
     public static function getLast100Sampling(){
-        $labels = array();
-        $sampling_sensors = array();
-        $sensors = array();
         $samplings = SintechsSampling::orderByDesc('created_at')->limit(100)->get();
-        $samps = array();
+        $samp = array();
         foreach($samplings as $key => $sp){
             $samp[$key]['sampling'] = $sp;
             $samp[$key]['module'] = $sp->module()->first();

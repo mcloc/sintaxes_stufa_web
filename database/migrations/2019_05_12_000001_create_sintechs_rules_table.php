@@ -16,17 +16,20 @@ class CreateSintechsRulesTable extends Migration
         Schema::enableForeignKeyConstraints();
         Schema::create('sintechs_rules', function (Blueprint $table) {
             $table->bigIncrements('id');
-            //$table->enum('type', ['alert', 'sensors', 'actuators', 'sampling', 'software']);
-            
-            $table->unsignedBigInteger('type_id');
-            $table->foreign('type_id')->references('id')->on('sintechs_types');
-            
-            $table->string('name');
-            $table->string('description')->nullable();
+            $table->string('rule_title');
+            $table->string('description');
             $table->string('drl_file');
-            $table->boolean('active')->default(false);
+            $table->string('drl_package');
+            $table->boolean('active')->nullable()->default(false);
+            
+            $table->unsignedBigInteger('module_id')->index();
+            $table->foreign('module_id')->references('id')->on('sintechs_modules');
+            
             $table->timestamps();
         });
+        
+
+            
     }
 
     /**
@@ -36,6 +39,6 @@ class CreateSintechsRulesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sintechs_log');
+        Schema::dropIfExists('sintechs_rules');
     }
 }

@@ -5,7 +5,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class SintechsActuatorsTableSeeder extends Seeder
+class SintechsRulesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,16 +16,16 @@ class SintechsActuatorsTableSeeder extends Seeder
     {
         $arduino_module = SintechsModules::where('name', 'arduino_board#1')->first();
         if (! $arduino_module)
-            throw new Exception('Command MODULE arduino_sensors1 not found... Cannot seed COMMAND_IO');
+            throw new Exception('Command MODULE arduino_board#1 not found... Cannot seed RULE');
             
         
-        DB::table('sintechs_actuators')->insert([
+        DB::table('sintechs_rules')->insert([
             'id' => '1',
-            'uuid' => 'solenoid#1',
-            'type' => 'Solenoid',
-            'description' => 'Solenoid 12V for Refreshing and Cooling the ambient',
-            'model' => 'XXXXX',
+            'rule_title' => '001-max-heat_index-arduino_board_01',
+            'drl_file' => 'controlActuators_arduino_board_01.drl',
+            'drl_package' => 'resources.rules.sensors.arduino_board_01',
             'active' => true,
+            'description' => 'Rule to evalute max_heat_index from sensor DHT11#1@arduino_board#1',
             'module_id' => $arduino_module->id,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')

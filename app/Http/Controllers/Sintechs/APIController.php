@@ -212,4 +212,34 @@ class APIController extends Controller {
             }
         }
     }
+    
+    public function storeFiredRule(Request $request){
+        $data = $request->all();
+        
+        try {
+            $this->checkRuleData($data);
+        } catch (Exception $e){
+            return new JsonResponse(array('error' => $e->getMessage()), 200);
+        }
+        
+        $module = SintechsModules::where('name', $data['module_name'])->first();
+        
+    }
+    
+    public function checkRuleData($data){
+        if(!$data || $data == null || ! is_array($data)){
+            throw new Exception('no data posted');
+        }
+        
+        if(!array_key_exists('status', $data) || !array_key_exists('data', $data) || !is_array($data['data']) ){
+            throw new Exception('malformed json');
+        }
+        
+        if($data['status'] != 'OK'){
+            //TODO: Log ERROR
+            throw new Exception('status not OK');
+        }
+        
+        return true;
+    }
 }

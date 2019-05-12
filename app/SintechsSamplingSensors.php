@@ -17,6 +17,11 @@ class SintechsSamplingSensors extends Model
     public function sample(){
         return $this->belongsToMany(SintechsSampling::class, 'id', 'sampling_id');
     }
+    
+    public function rules()
+    {
+        return $this->hasMany(SintechsRulesFired::class, 'sampling_sensors_id', 'id');
+    }
 
     
     public function getDates() {

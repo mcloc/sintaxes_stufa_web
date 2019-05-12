@@ -1,6 +1,7 @@
 <?php
 
 use App\SintechsModules;
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -25,7 +26,9 @@ class SintechsSensorsTableSeeder extends Seeder
             'description' => 'Humidity and Temperature Sensors, 5Volts, on Serial wire',
             'model' => 'DHT11',
             'active' => true,
-            'module_id' => $arduino_module->id
+            'module_id' => $arduino_module->id,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
     }
 }

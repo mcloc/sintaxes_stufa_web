@@ -1,6 +1,7 @@
 <?php
 
 use App\SintechsModulesType;
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -25,6 +26,8 @@ class SintechsModulesTableSeeder extends Seeder
             'description' => 'PI Master Server',
             'enabled' => true,
             'type_id' => $pi_board->id,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         
         
@@ -38,6 +41,8 @@ class SintechsModulesTableSeeder extends Seeder
             'description' => 'Arduino Sensors and Actuators #1',
             'enabled' => true,
             'type_id' => $arduino_type->id,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         
         $software_type = SintechsModulesType::where('name', 'software')->first();
@@ -50,6 +55,8 @@ class SintechsModulesTableSeeder extends Seeder
             'description' => 'Java Serial Communication Handler',
             'enabled' => true,
             'type_id' => $software_type->id,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         
         DB::table('sintechs_modules')->insert([
@@ -58,6 +65,8 @@ class SintechsModulesTableSeeder extends Seeder
             'description' => 'PHP RESTfull API',
             'enabled' => true,
             'type_id' => $software_type->id,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         
         DB::table('sintechs_modules')->insert([
@@ -66,6 +75,8 @@ class SintechsModulesTableSeeder extends Seeder
             'description' => 'PHP Control and DashBoard WEB APP',
             'enabled' => true,
             'type_id' => $software_type->id,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
     }
 }

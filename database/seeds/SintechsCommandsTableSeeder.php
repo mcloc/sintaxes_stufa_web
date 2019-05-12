@@ -2,6 +2,7 @@
 
 use App\SintechsCommandsType;
 use App\SintechsModules;
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -29,7 +30,9 @@ class SintechsCommandsTableSeeder extends Seeder
             'module_id' => $arduino_module->id,
             'serialCommand' => 'SET_IO',
             'enabled' => true,
-            'description' => 'Send Commands to/from IO Ports.'
+            'description' => 'Send Commands to/from IO Ports.',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         
         $cmd_type = SintechsCommandsType::where('name', 'GET_STATUS')->first();
@@ -42,7 +45,9 @@ class SintechsCommandsTableSeeder extends Seeder
             'module_id' => $arduino_module->id,
             'serialCommand' => 'GET_IO',
             'enabled' => true,
-            'description' => 'GET Commands to/from IO Ports.'
+            'description' => 'GET Commands to/from IO Ports.',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         
     }

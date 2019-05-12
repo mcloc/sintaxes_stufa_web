@@ -1,5 +1,6 @@
 <?php
 
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -21,7 +22,9 @@ class SintechsTableSeeder extends Seeder
             'instalation_description' => 'Development Install',
             'instalation_missing_requirements' => 'More Sensors and development facility',
             'instalation_total_days' => '3',
-            'sintechs_last_update' => now()
+            'sintechs_last_update' => now(),
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
     }
 }

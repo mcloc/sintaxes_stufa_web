@@ -37,6 +37,6 @@ class CreateSintechsAlertsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sintechs_messages_queue');
+        Schema::dropIfExists('sintechs_alerts');
     }
 }
