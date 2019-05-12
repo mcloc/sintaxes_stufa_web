@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Sintechs;
 use App\SintechsActuators;
 use App\SintechsAlerts;
 use App\SintechsModules;
+use App\SintechsRules;
 use App\SintechsSampling;
 use App\SintechsSamplingActuators;
 use App\SintechsSamplingSensors;
@@ -14,6 +15,8 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Socket\Raw\Factory;
 use Exception;
+use App\SintechsRulesFired;
+use App\SintechsEvent;
 
 
 class APIController extends Controller {
@@ -52,6 +55,17 @@ class APIController extends Controller {
             return new JsonResponse(array('error' => 'sampling_id no found'), 200);
         }
         $json = json_encode($sampling);
+        
+        return new JsonResponse(json_decode($json), 200);
+    }
+    
+    public function getLastSensorEvent($sensor_uuid){
+        
+        $event = SintechsEvent::orderByDesc('created_at')->with(array('rule'))->where("sensor.uuid", $sensor_uuid)->first();
+        if($event == null){
+            return new JsonResponse(array('error' => '$event no found for sensor_uuid:'.$sensor_uuid), 200);
+        }
+        $json = json_encode($event);
         
         return new JsonResponse(json_decode($json), 200);
     }
@@ -215,7 +229,7 @@ class APIController extends Controller {
         }
     }
     
-    public function storeFiredRule(Request $request){
+    public function storeRuleEvent(Request $request){
         $data = $request->all();
         
         try {
@@ -225,6 +239,19 @@ class APIController extends Controller {
         }
         
         $module = SintechsModules::where('name', $data['module_name'])->first();
+        $rule = SintechsRules::where('name', $data['rule_name'])->first();
+        
+        $rule_fired = new SintechsRulesFired();
+        $rule_fired->rule_id = $rule->id;
+        $rule_fired->value = $data['value'];
+        $rule_fired->rule_condition = $data['rule_condition'];
+        $rule_fired->sampling_id = $data['sampling_id'];
+        $rule_fired->sampling_sensor_id = $data['sampling_sensor_id'];
+        $rule_fired->cause_description = $data['cause_description'];
+        $rule_fired->sensor_uuid = $data['sensor_uuid'];
+        $rule_fired->save();
+        
+        $event = new SintechsEvent();
         
     }
     

@@ -10,12 +10,8 @@ class SintechsEvent extends Model
     protected $guarded = [];
     
     
-    public function rule(){
-        return $this->belongsToMany(SintechsRules::class, 'id', 'rule_id');
-    }
-    
-    public function sample(){
-        return $this->hasMany(SintechsSampling::class, 'id', 'sampling_id');
+    public function ruleFired(){
+        return $this->belongsToMany(SintechsRulesFired::class, 'id', 'rule_fired_id');
     }
     
     public function events_actuators(){

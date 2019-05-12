@@ -9,9 +9,9 @@ class SintechsSampling extends Model
     protected $table = 'sintechs_sampling';
     protected $guarded = [];
     
-    public function rules()
+    public function rulesFired()
     {
-        return $this->hasMany(SintechsRules::class, 'sampling_id', 'id');
+        return $this->hasMany(SintechsRulesFired::class, 'sampling_id', 'id');
     }
     
     public function samplingSensors()

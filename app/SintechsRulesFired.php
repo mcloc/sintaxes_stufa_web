@@ -14,14 +14,9 @@ class SintechsRulesFired extends Model
         return $this->belongsToMany(SintechsRules::class, 'id', 'rule_id');
     }
     
-    public function sampling_sensor(){
-        return $this->hasMany(SintechsSamplingSensors::class, 'id', 'sampling_sensors_id');
+    public function events(){
+        return $this->hasMany(SintechsEvent::class, 'id', 'rule_fired_id');
     }
-    
-    public function sample(){
-        return $this->hasMany(SintechsSampling::class, 'id', 'sampling_id');
-    }
-
     
     public function getDates() {
         return array();

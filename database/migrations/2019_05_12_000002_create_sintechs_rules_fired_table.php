@@ -18,15 +18,11 @@ class CreateSintechsRulesFiredTable extends Migration
             $table->bigIncrements('id');
             $table->float('rule_value')->nullable();
             $table->float('rule_condition')->nullable();
+            
             $table->unsignedBigInteger('rule_id')->index();
             $table->foreign('rule_id')->references('id')->on('sintechs_rules');
-
-            $table->unsignedBigInteger('sampling_id')->index();
-            $table->foreign('sampling_id')->references('id')->on('sintechs_sampling');
             
-            $table->unsignedBigInteger('sampling_sensors_id')->index()->nullable();
-            $table->foreign('sampling_sensors_id')->references('id')->on('sintechs_sampling_sensors');
-            
+            $table->string('sensor_uuid')->nullable();
             $table->string('cause_description');
             $table->timestamps();
         });

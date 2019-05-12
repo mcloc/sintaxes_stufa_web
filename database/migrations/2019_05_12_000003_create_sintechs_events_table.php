@@ -16,16 +16,15 @@ class CreateSintechsEventsTable extends Migration
         Schema::enableForeignKeyConstraints();
         Schema::create('sintechs_events', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->boolean('event_status'); // 1 = DONE, 0 = PENDING TO CONCLUDE
             
-            $table->unsignedBigInteger('rule_id')->index();
-            $table->foreign('rule_id')->references('id')->on('sintechs_rules');
+            $table->unsignedBigInteger('rule_fired_id')->index();
+            $table->foreign('rule_fired_id')->references('id')->on('sintechs_rules_fired');
 
-            $table->unsignedBigInteger('sampling_id')->index();
-            $table->foreign('sampling_id')->references('id')->on('sintechs_sampling');
-            
+            $table->String('actuator_uuid');
+            $table->boolean('value');
             $table->float('duration_time'); // seconds // 0 (zero) just begun
             $table->string('cause_description');
+            $table->boolean('event_finished'); // 1 = DONE, 0 = PENDING TO CONCLUDE
             $table->timestamps();
         });
         

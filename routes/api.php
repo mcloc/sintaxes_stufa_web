@@ -21,7 +21,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::middleware('api')->group(function () {
     Route::post('storeSampling', "Sintechs\APIController@storeSampling");
-    Route::post('storeFiredRule', "Sintechs\APIController@storeFiredRule");
+    Route::post('storeRuleEvent', "Sintechs\APIController@storeRuleEvent");
     Route::get('testSockets', "Sintechs\APIController@testSockets");
     Route::get('getSampling/{id}', "Sintechs\APIController@getSampling");
+    Route::get('getLastSensorEvent/{sensor_uuid}', "Sintechs\APIController@getLastSensorEvent");
 });
