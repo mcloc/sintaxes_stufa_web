@@ -5,6 +5,8 @@ use App\SintechsActuators;
 use App\SintechsAlerts;
 use App\SintechsModules;
 use App\SintechsRules;
+use App\SintechsRulesActuatorEvents;
+use App\SintechsRulesFired;
 use App\SintechsSampling;
 use App\SintechsSamplingActuators;
 use App\SintechsSamplingSensors;
@@ -15,8 +17,6 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Socket\Raw\Factory;
 use Exception;
-use App\SintechsRulesFired;
-use App\SintechsEvent;
 
 
 class APIController extends Controller {
@@ -61,7 +61,7 @@ class APIController extends Controller {
     
     public function getLastSensorEvent($sensor_uuid){
         
-        $event = SintechsEvent::orderByDesc('created_at')->with(array('rule'))->where("sensor.uuid", $sensor_uuid)->first();
+        $event = SintechsRulesActuatorEvents::orderByDesc('created_at')->with(array('ruleFired'))->where("sensor.uuid", $sensor_uuid)->first();
         if($event == null){
             return new JsonResponse(array('error' => '$event no found for sensor_uuid:'.$sensor_uuid), 200);
         }
@@ -251,8 +251,26 @@ class APIController extends Controller {
         $rule_fired->sensor_uuid = $data['sensor_uuid'];
         $rule_fired->save();
         
-        $event = new SintechsEvent();
+        $event = new SintechsRulesActuatorEvents();
+        $event->rule_fired_id = $rule_fired->id;
+        $event->actuator_uuid = $data['actuator_uuid'];
+        $event->value = $data['command_value'];
+        $event->duration_time = $data['duration_time'];
+        $event->cause_description = $data['cause_description'];
+        $event->event_finished = $data['event_finished'];
+        $event->save();
         
+        
+        $status = array(
+            'data' => array(
+                'event_id' => $event->id,
+            ),
+            'status' => 'OK',
+            'error_code' => null,
+            'error_msg' => null,
+        );
+
+        return new JsonResponse($status, 201);
     }
     
     public function checkRuleData($data){

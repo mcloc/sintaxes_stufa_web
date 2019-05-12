@@ -14,8 +14,8 @@ class SintechsRulesFired extends Model
         return $this->belongsToMany(SintechsRules::class, 'id', 'rule_id');
     }
     
-    public function events(){
-        return $this->hasMany(SintechsEvent::class, 'id', 'rule_fired_id');
+    public function events_actuator(){
+        return $this->hasMany(SintechsRulesActuatorEvents::class, 'id', 'rule_fired_id');
     }
     
     public function getDates() {

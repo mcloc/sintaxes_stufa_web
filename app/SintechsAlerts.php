@@ -3,7 +3,6 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Http\Controllers\Sintechs\SamplingController;
 
 class SintechsAlerts extends Model
 {

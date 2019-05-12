@@ -16,8 +16,8 @@ class CreateSintechsRulesFiredTable extends Migration
         Schema::enableForeignKeyConstraints();
         Schema::create('sintechs_rules_fired', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->float('rule_value')->nullable();
-            $table->float('rule_condition')->nullable();
+            $table->string('rule_value')->nullable();
+            $table->string('rule_condition')->nullable();
             
             $table->unsignedBigInteger('rule_id')->index();
             $table->foreign('rule_id')->references('id')->on('sintechs_rules');
