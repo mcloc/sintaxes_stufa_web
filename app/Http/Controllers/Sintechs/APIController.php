@@ -70,7 +70,7 @@ class APIController extends Controller {
         return new JsonResponse(json_decode($json), 200);
     }
     
-    public function getModuleIdt($module_name){
+    public function getModuleId($module_name){
         $module_name = urldecode($module_name);
         $module = SintechsModules::where("name", $module_name)->first();
         if($module == null){
@@ -79,6 +79,48 @@ class APIController extends Controller {
         $status = array(
             'data' => array(
                 'module_id' => $module->id,
+            ),
+            'status' => 'OK',
+            'error_code' => null,
+            'error_msg' => null,
+        );
+        return new JsonResponse($status, 200);
+    }
+    
+    public function getSensorId($sensor_uuid){
+        $sensor_uuid = urldecode($sensor_uuid);
+        $sensor = SintechsSensors::where("uuid", $sensor_uuid)->first();
+        if($sensor == null){
+            return new JsonResponse(array('error' => 'sensor no found for uuid:'.$sensor_uuid), 200);
+        }
+        $status = array(
+            'data' => array(
+                'sensor_id' => $sensor->id,
+            ),
+            'status' => 'OK',
+            'error_code' => null,
+            'error_msg' => null,
+        );
+        return new JsonResponse($status, 200);
+    }
+    
+    public function getSensorByUUID($sensor_uuid){
+        $sensor_uuid = urldecode($sensor_uuid);
+        $sensor = SintechsSensors::where("uuid", $sensor_uuid)->first();
+        if($sensor == null){
+            return new JsonResponse(array('error' => 'sensor no found for uuid:'.$sensor_uuid), 200);
+        }
+        $status = array(
+            'data' => array(
+                'id' => $sensor->id,
+                'uuid' => $sensor->uuid,
+                'type' => $sensor->type,
+                'description' => $sensor->description,
+                'model' => $sensor->model,
+                'active' => $sensor->active,
+                'created_at' => $sensor->created_at,
+                'updated_at' => $sensor->updated_at,
+                
             ),
             'status' => 'OK',
             'error_code' => null,
