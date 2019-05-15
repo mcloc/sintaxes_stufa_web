@@ -70,6 +70,23 @@ class APIController extends Controller {
         return new JsonResponse(json_decode($json), 200);
     }
     
+    public function getModuleIdt($module_name){
+        $module_name = urldecode($module_name);
+        $module = SintechsModules::where("name", $module_name)->first();
+        if($module == null){
+            return new JsonResponse(array('error' => 'module no found for module_name:'.$module_name), 200);
+        }
+        $status = array(
+            'data' => array(
+                'module_id' => $module->id,
+            ),
+            'status' => 'OK',
+            'error_code' => null,
+            'error_msg' => null,
+        );
+        return new JsonResponse($status, 200);
+    }
+    
     
     /**
      * 

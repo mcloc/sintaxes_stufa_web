@@ -25,4 +25,5 @@ Route::middleware('api')->group(function () {
     Route::get('testSockets', "Sintechs\APIController@testSockets");
     Route::get('getSampling/{id}', "Sintechs\APIController@getSampling");
     Route::get('getLastSensorEvent/{sensor_uuid}', "Sintechs\APIController@getLastSensorEvent");
+    Route::get('getModuleId/{module_name}', "Sintechs\APIController@getModuleIdt");
 });
