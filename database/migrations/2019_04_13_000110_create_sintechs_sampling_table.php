@@ -16,7 +16,7 @@ class CreateSintechsSamplingTable extends Migration
         Schema::enableForeignKeyConstraints();
         Schema::create('sintechs_sampling', function (Blueprint $table) {
             $table->bigIncrements('id');
-            
+            $table->integer('hashCode');
             $table->unsignedBigInteger('module_id')->index();
             $table->foreign('module_id')->references('id')->on('sintechs_modules');
             
