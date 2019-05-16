@@ -118,8 +118,35 @@ class APIController extends Controller {
                 'description' => $sensor->description,
                 'model' => $sensor->model,
                 'active' => $sensor->active,
+                'module_id' => $sensor->module_id,
                 'created_at' => $sensor->created_at,
                 'updated_at' => $sensor->updated_at,
+                
+            ),
+            'status' => 'OK',
+            'error_code' => null,
+            'error_msg' => null,
+        );
+        return new JsonResponse($status, 200);
+    }
+    
+    public function getActuatorByUUID($actuator_uuid){
+        $actuator_uuid = urldecode($actuator_uuid);
+        $actuator = SintechsSensors::where("uuid", $actuator_uuid)->first();
+        if($actuator == null){
+            return new JsonResponse(array('error' => 'actuator no found for uuid:'.$actuator_uuid), 200);
+        }
+        $status = array(
+            'data' => array(
+                'id' => $actuator->id,
+                'uuid' => $actuator->uuid,
+                'type' => $actuator->type,
+                'description' => $actuator->description,
+                'model' => $actuator->model,
+                'active' => $actuator->active,
+                'module_id' => $actuator->module_id,
+                'created_at' => $actuator->created_at,
+                'updated_at' => $actuator->updated_at,
                 
             ),
             'status' => 'OK',

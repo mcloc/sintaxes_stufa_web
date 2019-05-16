@@ -25,8 +25,6 @@ class CreateSintechsSensorsTable extends Migration
             $table->unsignedBigInteger('module_id')->index();
             $table->foreign('module_id')->references('id')->on('sintechs_modules');
             
-            
-            
             $table->timestamps();
         });
     }
