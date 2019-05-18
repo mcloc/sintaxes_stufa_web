@@ -31,20 +31,6 @@ class SintechsModulesTableSeeder extends Seeder
         ]);
         
         
-        $arduino_type = SintechsModulesType::where('name', 'arduino')->first();
-        if (! $arduino_type)
-            throw new Exception('Module Type "arduino" not found... Cannot seed MODULES.');
-
-        DB::table('sintechs_modules')->insert([
-            'id' => 2,
-            'name' => 'arduino_board#1',
-            'description' => 'Arduino Sensors and Actuators #1',
-            'enabled' => true,
-            'type_id' => $arduino_type->id,
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
-        ]);
-        
         $software_type = SintechsModulesType::where('name', 'software')->first();
         if (! $software_type)
             throw new Exception('Module Type "arduino" not found... Cannot seed MODULES.');
@@ -78,5 +64,94 @@ class SintechsModulesTableSeeder extends Seeder
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
+        
+        
+        /************ arduino boards **************
+         * 
+         */
+        $arduino_type = SintechsModulesType::where('name', 'arduino')->first();
+        if (! $arduino_type)
+            throw new Exception('Module Type "arduino" not found... Cannot seed MODULES.');
+            
+            DB::table('sintechs_modules')->insert([
+                'id' => 6,
+                'name' => 'arduino_climatization_board#1',
+                'description' => 'Arduino Sensors and Actuators for climatization #1',
+                'enabled' => true,
+                'type_id' => $arduino_type->id,
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+            ]);
+            
+            DB::table('sintechs_modules')->insert([
+                'id' => 7,
+                'name' => 'arduino_climatization_board#2',
+                'description' => 'Arduino Sensors and Actuators for climatization #2',
+                'enabled' => true,
+                'type_id' => $arduino_type->id,
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+            ]);
+            
+            DB::table('sintechs_modules')->insert([
+                'id' => 8,
+                'name' => 'arduino_climatization_board#3',
+                'description' => 'Arduino Sensors and Actuators for climatization #3',
+                'enabled' => true,
+                'type_id' => $arduino_type->id,
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+            ]);
+            
+            DB::table('sintechs_modules')->insert([
+                'id' => 9,
+                'name' => 'arduino_soil_board#1',
+                'description' => 'Arduino Sensors and Actuators for Soil #1',
+                'enabled' => true,
+                'type_id' => $arduino_type->id,
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+            ]);
+            
+            DB::table('sintechs_modules')->insert([
+                'id' => 10,
+                'name' => 'arduino_soil_board#2',
+                'description' => 'Arduino Sensors and Actuators for soil #2',
+                'enabled' => true,
+                'type_id' => $arduino_type->id,
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+            ]);
+            
+            DB::table('sintechs_modules')->insert([
+                'id' => 11,
+                'name' => 'arduino_soil_board#3',
+                'description' => 'Arduino Sensors and Actuators for soil #3',
+                'enabled' => true,
+                'type_id' => $arduino_type->id,
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+            ]);
+            
+            DB::table('sintechs_modules')->insert([
+                'id' => 12,
+                'name' => 'arduino_soil_board#4',
+                'description' => 'Arduino Sensors and Actuators for soil #4',
+                'enabled' => true,
+                'type_id' => $arduino_type->id,
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+            ]);
+            
+            
+            DB::table('sintechs_modules')->insert([
+                'id' => 13,
+                'name' => 'arduino_external_climatization_board#1',
+                'description' => 'Arduino Sensors and Actuators external Climatization #1',
+                'enabled' => true,
+                'type_id' => $arduino_type->id,
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+            ]);
     }
 }

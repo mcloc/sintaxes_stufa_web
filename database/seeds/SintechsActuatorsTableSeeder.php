@@ -1,5 +1,4 @@
 <?php
-
 use App\SintechsModules;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
@@ -7,6 +6,7 @@ use Illuminate\Support\Facades\DB;
 
 class SintechsActuatorsTableSeeder extends Seeder
 {
+
     /**
      * Run the database seeds.
      *
@@ -14,16 +14,140 @@ class SintechsActuatorsTableSeeder extends Seeder
      */
     public function run()
     {
-        $arduino_module = SintechsModules::where('name', 'arduino_board#1')->first();
+        /**
+         * ************************** INSIDE AIR CLIMATIZATION BOARDS ACTUATORS ***************************
+         */
+
+        /**
+         * CLIMATIZATION BOARD #1
+         */
+        $arduino_module = SintechsModules::where('name', 'arduino_climatization_board#1')->first();
         if (! $arduino_module)
-            throw new Exception('Command MODULE arduino_sensors1 not found... Cannot seed COMMAND_IO');
-            
-        
+            throw new Exception('Command MODULE arduino_climatization_board#1 not found... Cannot seed ACTUATORS');
+
         DB::table('sintechs_actuators')->insert([
             'id' => '1',
-            'uuid' => 'solenoid#1',
+            'uuid' => 'DN20#1',
             'type' => 'Solenoid',
-            'description' => 'Solenoid 12V for Refreshing and Cooling the ambient',
+            'description' => 'DN20 Solenoid 12V for Refreshing and Cooling the ambient',
+            'model' => 'XXXXX',
+            'active' => true,
+            'module_id' => $arduino_module->id,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+        ]);
+
+        /**
+         * CLIMATIZATION BOARD #2
+         */
+        $arduino_module = SintechsModules::where('name', 'arduino_climatization_board#2')->first();
+        if (! $arduino_module)
+            throw new Exception('Command MODULE arduino_climatization_board#1 not found... Cannot seed ACTUATORS');
+
+        DB::table('sintechs_actuators')->insert([
+            'id' => '2',
+            'uuid' => 'DN20#2',
+            'type' => 'Solenoid',
+            'description' => 'DN20 Solenoid 12V for Refreshing and Cooling the ambient',
+            'model' => 'XXXXX',
+            'active' => true,
+            'module_id' => $arduino_module->id,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+        ]);
+
+        /**
+         * CLIMATIZATION BOARD #3
+         */
+        $arduino_module = SintechsModules::where('name', 'arduino_climatization_board#3')->first();
+        if (! $arduino_module)
+            throw new Exception('Command MODULE arduino_climatization_board#1 not found... Cannot seed ACTUATORS');
+
+        DB::table('sintechs_actuators')->insert([
+            'id' => '3',
+            'uuid' => 'DN20#3',
+            'type' => 'Solenoid',
+            'description' => 'DN20 Solenoid 12V for Refreshing and Cooling the ambient',
+            'model' => 'XXXXX',
+            'active' => true,
+            'module_id' => $arduino_module->id,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+        ]);
+
+        /**
+         * ***************************************** SOILD BOARDS ACTUATORS ********************************************
+         */
+
+        /**
+         * SOIL BOARD #1
+         */
+        $arduino_module = SintechsModules::where('name', 'arduino_soil_board#1')->first();
+        if (! $arduino_module)
+            throw new Exception('Command MODULE arduino_climatization_board#1 not found... Cannot seed ACTUATORS');
+
+        DB::table('sintechs_actuators')->insert([
+            'id' => '4',
+            'uuid' => '2W16015#1',
+            'type' => 'Solenoid',
+            'description' => 'DN20 Solenoid 12V for Refreshing and Cooling the ambient',
+            'model' => 'XXXXX',
+            'active' => true,
+            'module_id' => $arduino_module->id,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+        ]);
+
+        /**
+         * SOIL BOARD #2
+         */
+        $arduino_module = SintechsModules::where('name', 'arduino_soil_board#2')->first();
+        if (! $arduino_module)
+            throw new Exception('Command MODULE arduino_climatization_board#2 not found... Cannot seed ACTUATORS');
+
+        DB::table('sintechs_actuators')->insert([
+            'id' => '5',
+            'uuid' => '2W16015#2',
+            'type' => 'Solenoid',
+            'description' => 'DN20 Solenoid 12V for Refreshing and Cooling the ambient',
+            'model' => 'XXXXX',
+            'active' => true,
+            'module_id' => $arduino_module->id,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+        ]);
+
+        /**
+         * SOIL BOARD #3
+         */
+        $arduino_module = SintechsModules::where('name', 'arduino_soil_board#3')->first();
+        if (! $arduino_module)
+            throw new Exception('Command MODULE arduino_climatization_board#3 not found... Cannot seed ACTUATORS');
+
+        DB::table('sintechs_actuators')->insert([
+            'id' => '6',
+            'uuid' => '2W16015#3',
+            'type' => 'Solenoid',
+            'description' => 'DN20 Solenoid 12V for Refreshing and Cooling the ambient',
+            'model' => 'XXXXX',
+            'active' => true,
+            'module_id' => $arduino_module->id,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+        ]);
+
+        /**
+         * SOIL BOARD #4
+         */
+        $arduino_module = SintechsModules::where('name', 'arduino_soil_board#4')->first();
+        if (! $arduino_module)
+            throw new Exception('Command MODULE arduino_climatization_board#4 not found... Cannot seed ACTUATORS');
+
+        DB::table('sintechs_actuators')->insert([
+            'id' => '7',
+            'uuid' => '2W16015#4',
+            'type' => 'Solenoid',
+            'description' => 'DN20 Solenoid 12V for Refreshing and Cooling the ambient',
             'model' => 'XXXXX',
             'active' => true,
             'module_id' => $arduino_module->id,
