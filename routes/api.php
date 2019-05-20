@@ -29,4 +29,5 @@ Route::middleware('api')->group(function () {
     Route::get('getSensorId/{sensor_uuid}', "Sintechs\APIController@getSensorId");
     Route::get('getSensorByUUID/{sensor_uuid}', "Sintechs\APIController@getSensorByUUID");
     Route::get('getActuatorByUUID/{actuator_uuid}', "Sintechs\APIController@getActuatorByUUID");
+    Route::get('getMockData', "Sintechs\APIController@getMockData");
 });

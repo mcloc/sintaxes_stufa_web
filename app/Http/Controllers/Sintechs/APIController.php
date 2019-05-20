@@ -375,4 +375,138 @@ class APIController extends Controller {
         
         return true;
     }
+    
+    public function getMockData(){
+        $doc = array();
+        $doc['modules'] = array();
+        $board_climatization1 = array();
+        $board_climatization2 = array();
+        $board_climatization3 = array();
+        $board__external_climatization1 = array();
+        $board_soil1 = array();
+        $board_soil2 = array();
+        $board_soil3 = array();
+        
+        $sensors = array();
+        $sensors[] = 'DHT11#1';
+        $sensors[] = 'DHT11#2';
+        $sensors[] = 'DHT11#3';
+
+        $actuators = array();
+        $actuators[] = 'DN20#1';
+        
+        $board_climatization1 = $this->hidrateClimatizationBoard("arduino_climatization_board#1", $sensors, $actuators);
+        $board_climatization2 = $this->hidrateClimatizationBoard("arduino_climatization_board#2", $sensors, $actuators);
+        $board_climatization3 = $this->hidrateClimatizationBoard("arduino_climatization_board#3", $sensors, $actuators);
+        
+        $sensors = array();
+        $sensors[] = 'LM393#1';
+        $sensors[] = 'Ds18b20#1';
+        $actuators = array();
+        $actuators[] = '2W16015#1';
+        $board_soil1 = $this->hidrateSoilBoard('arduino_soil_board#1', $sensors, $actuators );
+
+        $sensors = array();
+        $sensors[] = 'LM393#2';
+        $sensors[] = 'Ds18b20#2';
+        $actuators = array();
+        $actuators[] = '2W16015#2';
+        $board_soil2 = $this->hidrateSoilBoard('arduino_soil_board#2', $sensors, $actuators );
+        
+        $sensors = array();
+        $sensors[] = 'LM393#3';
+        $sensors[] = 'Ds18b20#3';
+        $actuators = array();
+        $actuators[] = '2W16015#3';
+        $board_soil3 = $this->hidrateSoilBoard('arduino_soil_board#3', $sensors, $actuators );
+        
+        
+        $doc['modules'][] = $board_climatization1;
+        $doc['modules'][] = $board_climatization2;
+        $doc['modules'][] = $board_climatization3;
+        $doc['modules'][] = $board_soil1;
+        $doc['modules'][] = $board_soil2;
+        $doc['modules'][] = $board_soil3;
+        
+        
+//         $doc = json_encode($doc);
+        
+        return new JsonResponse($doc, 200);
+        
+    }
+    
+    private function hidrateClimatizationBoard($board_name, $sensors, $actuators){
+        $board_climatization1 = array();
+        $board_climatization1['module_name'] = $board_name;
+        $board_climatization1['status'] = 'OK';
+        $board_climatization1['uptime'] = 102;
+        $board_climatization1['error_code'] = '';
+        $board_climatization1['error_msg'] = '';
+        $board_climatization1['data'] = array();
+        $board_climatization1['data']['sensors'] = array();
+        $board_climatization1['data']['actuators'] = array();
+        
+        
+        foreach($sensors as $key => $sensor){
+            $board_climatization1['data']['sensors'][$key] = array();
+            $board_climatization1['data']['sensors'][$key]['uuid'] = $sensor;
+            $board_climatization1['data']['sensors'][$key]['value'] = array();
+            $board_climatization1['data']['sensors'][$key]['value'][0]['humidity'] = 80;
+            $board_climatization1['data']['sensors'][$key]['value'][0]['temperature'] = 26;
+            $board_climatization1['data']['sensors'][$key]['value'][0]['heat_index'] = 29;
+        }
+        
+        
+        foreach($actuators as $key => $actuator){
+            $board_climatization1['data']['actuators'][$key] = array();
+            $board_climatization1['data']['actuators'][$key]['uuid'] = $actuator;
+            $board_climatization1['data']['actuators'][$key]['value'] = array();
+            $board_climatization1['data']['actuators'][$key]['value'][0]['active'] = false;
+            $board_climatization1['data']['actuators'][$key]['value'][0]['activated_time'] = 0;
+        }
+        
+        
+        
+
+        
+        return $board_climatization1;
+    }
+    
+    private function hidrateSoilBoard($board_name, $sensors, $actuators){
+        $board_climatization1 = array();
+        $board_climatization1['module_name'] = $board_name;
+        $board_climatization1['status'] = 'OK';
+        $board_climatization1['uptime'] = 102;
+        $board_climatization1['error_code'] = '';
+        $board_climatization1['error_msg'] = '';
+        $board_climatization1['data'] = array();
+        $board_climatization1['data']['sensors'] = array();
+        $board_climatization1['data']['actuators'] = array();
+        
+        
+        $board_climatization1['data']['sensors'][0] = array();
+        $board_climatization1['data']['sensors'][0]['uuid'] = $sensors[0];
+        $board_climatization1['data']['sensors'][0]['value'] = array();
+        $board_climatization1['data']['sensors'][0]['value'][0]['humidity'] = 80;
+        
+        $board_climatization1['data']['sensors'][1] = array();
+        $board_climatization1['data']['sensors'][1]['uuid'] = $sensors[1];
+        $board_climatization1['data']['sensors'][1]['value'] = array();
+        $board_climatization1['data']['sensors'][1]['value'][0]['temperature'] = 22;
+        
+        
+        foreach($actuators as $key => $actuator){
+            $board_climatization1['data']['actuators'][$key] = array();
+            $board_climatization1['data']['actuators'][$key]['uuid'] = $actuator;
+            $board_climatization1['data']['actuators'][$key]['value'] = array();
+            $board_climatization1['data']['actuators'][$key]['value'][0]['active'] = false;
+            $board_climatization1['data']['actuators'][$key]['value'][0]['activated_time'] = 0;
+        }
+        
+        
+        
+        
+        
+        return $board_climatization1;
+    }
 }
