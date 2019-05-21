@@ -391,12 +391,24 @@ class APIController extends Controller {
         $sensors[] = 'DHT11#1';
         $sensors[] = 'DHT11#2';
         $sensors[] = 'DHT11#3';
-
         $actuators = array();
         $actuators[] = 'DN20#1';
-        
         $board_climatization1 = $this->hidrateClimatizationBoard("arduino_climatization_board#1", $sensors, $actuators);
+        
+        $sensors = array();
+        $sensors[] = 'DHT11#4';
+        $sensors[] = 'DHT11#5';
+        $sensors[] = 'DHT11#6';
+        $actuators = array();
+        $actuators[] = 'DN20#2';
         $board_climatization2 = $this->hidrateClimatizationBoard("arduino_climatization_board#2", $sensors, $actuators);
+        
+        $sensors = array();
+        $sensors[] = 'DHT11#7';
+        $sensors[] = 'DHT11#8';
+        $sensors[] = 'DHT11#9';
+        $actuators = array();
+        $actuators[] = 'DN20#3';
         $board_climatization3 = $this->hidrateClimatizationBoard("arduino_climatization_board#3", $sensors, $actuators);
         
         $sensors = array();

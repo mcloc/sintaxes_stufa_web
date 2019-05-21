@@ -17,8 +17,13 @@ class CreateSintechsModulesTable extends Migration
             $table->bigIncrements('id');
             $table->string('name')->unique();
             $table->string('description');
-            $table->boolean('enabled');
-            
+            $table->string('mac_address')->nullable();
+            $table->string('ip_address')->nullable();
+            $table->string('last_status_msg')->nullable();
+            $table->text('support_description')->nullable();
+            $table->boolean('enabled')->default(false);
+            $table->boolean('active')->default(false);
+            $table->float('uptime')->default(0);
             $table->unsignedBigInteger('type_id')->index();
             $table->foreign('type_id')->references('id')->on('sintechs_modules_type');
             $table->timestamps();

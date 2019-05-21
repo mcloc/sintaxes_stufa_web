@@ -21,6 +21,9 @@ class CreateSintechsActuatorsTable extends Migration
             $table->string('description')->nullable();
             $table->string('model');
             $table->boolean('active')->default(false);
+            $table->boolean('enabled')->default(false);
+            $table->string('last_status_msg')->nullable();
+            $table->text('support_description')->nullable();
             
             $table->unsignedBigInteger('module_id')->index();
             $table->foreign('module_id')->references('id')->on('sintechs_modules');

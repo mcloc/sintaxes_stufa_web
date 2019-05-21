@@ -142,5 +142,15 @@ class SintechsModulesTableSeeder extends Seeder
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ]);
+            
+            DB::table('sintechs_modules')->insert([
+                'id' => 13,
+                'name' => 'arduino_external_climatization_board#1',
+                'description' => 'Arduino Sensors and Actuators for external_climatization #1',
+                'enabled' => true,
+                'type_id' => $arduino_type->id,
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+            ]);
     }
 }
