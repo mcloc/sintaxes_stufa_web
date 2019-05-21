@@ -42,6 +42,24 @@ class SintechsCommandsTypeTableSeeder extends Seeder
         
         DB::table('sintechs_commands_type')->insert([
             'id' => 4,
+            'name' => 'GET_DATA',
+            'return_type' => 'value',
+            'description' => 'Request for data on sensors,actuators',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+        ]);
+        
+        DB::table('sintechs_commands_type')->insert([
+            'id' => 5,
+            'name' => 'GET_INFO',
+            'return_type' => 'value',
+            'description' => 'Request for information on config (which sensors, actuators and other variables)',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+        ]);
+        
+        DB::table('sintechs_commands_type')->insert([
+            'id' => 6,
             'name' => 'RESET_BOARD',
             'return_type' => 'status',
             'description' => 'Reset BOARD (no arguments)',
@@ -50,7 +68,7 @@ class SintechsCommandsTypeTableSeeder extends Seeder
         ]);
         
         DB::table('sintechs_commands_type')->insert([
-            'id' => 5,
+            'id' => 7,
             'name' => 'DEBUG',
             'return_type' => 'status',
             'description' => 'Set Unset DEBUG for board',

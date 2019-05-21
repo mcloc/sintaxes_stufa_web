@@ -16,17 +16,20 @@ class CreateSintechsCommandsTable extends Migration
         Schema::enableForeignKeyConstraints();
         Schema::create('sintechs_commands', function (Blueprint $table) {
 
-            $table->bigIncrements('id');
+            $table->unsignedBigInteger('module_id')->index();
+            $table->foreign('module_id')->references('id')->on('sintechs_modules');
+            $table->string('command')->index();
+            
             $table->unsignedBigInteger('type_id')->index();
             $table->foreign('type_id')->references('id')->on('sintechs_commands_type');
             
-            $table->unsignedBigInteger('module_id')->index();
-            $table->foreign('module_id')->references('id')->on('sintechs_modules');
+
             
             $table->boolean('enabled');
-            $table->string('serialCommand')->unique();
             $table->string('description');
             $table->timestamps();
+            
+            $table->primary(['module_id', 'command']);
         });
         
 
