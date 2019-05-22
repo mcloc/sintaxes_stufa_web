@@ -16,7 +16,7 @@ class CreateSintechsSamplingSensorsTable extends Migration
         Schema::enableForeignKeyConstraints();
         Schema::create('sintechs_sampling_sensors', function (Blueprint $table) {
             $table->unsignedBigInteger('sampling_id')->index();
-            $table->foreign('sampling_id')->references('id')->on('sintechs_sampling');
+            $table->foreign('sampling_id')->references('uuid')->on('sintechs_sampling');
             
             $table->unsignedBigInteger('sensor_id')->index();
             $table->foreign('sensor_id')->references('id')->on('sintechs_sensors');

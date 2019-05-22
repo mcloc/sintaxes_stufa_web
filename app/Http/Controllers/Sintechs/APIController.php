@@ -376,73 +376,72 @@ class APIController extends Controller {
         return true;
     }
     
-    public function getMockData(){
+    public function getMockData($module_id){
+        $module = SintechsModules::find($module_id);
+        
+        if($module == null){
+            return new JsonResponse(array('error' => 'module id:'.$module_id.' not found'), 200);
+        }
+        
+        $board = array();
+        switch($module->name){
+            case 'arduino_climatization_board#1':
+                $sensors = array();
+                $sensors[] = 'DHT11#1';
+                $sensors[] = 'DHT11#2';
+                $sensors[] = 'DHT11#3';
+                $actuators = array();
+                $actuators[] = 'DN20#1';
+                $board = $this->hidrateClimatizationBoard("arduino_climatization_board#1", $sensors, $actuators);
+                break;
+            case 'arduino_climatization_board#2':
+                $sensors = array();
+                $sensors[] = 'DHT11#4';
+                $sensors[] = 'DHT11#5';
+                $sensors[] = 'DHT11#6';
+                $actuators = array();
+                $actuators[] = 'DN20#2';
+                $board = $this->hidrateClimatizationBoard("arduino_climatization_board#2", $sensors, $actuators);
+                break;
+            case 'arduino_climatization_board#3':
+                $sensors = array();
+                $sensors[] = 'DHT11#7';
+                $sensors[] = 'DHT11#8';
+                $sensors[] = 'DHT11#9';
+                $actuators = array();
+                $actuators[] = 'DN20#3';
+                $board = $this->hidrateClimatizationBoard("arduino_climatization_board#3", $sensors, $actuators);
+                break;
+            case 'arduino_soil_board#1':
+                $sensors = array();
+                $sensors[] = 'LM393#1';
+                $sensors[] = 'Ds18b20#1';
+                $actuators = array();
+                $actuators[] = '2W16015#1';
+                $board = $this->hidrateSoilBoard('arduino_soil_board#1', $sensors, $actuators );
+                break;
+            case 'arduino_soil_board#2':
+                $sensors = array();
+                $sensors[] = 'LM393#2';
+                $sensors[] = 'Ds18b20#2';
+                $actuators = array();
+                $actuators[] = '2W16015#2';
+                $board = $this->hidrateSoilBoard('arduino_soil_board#2', $sensors, $actuators );
+                break;
+            case 'arduino_soil_board#3':
+                $sensors = array();
+                $sensors[] = 'LM393#3';
+                $sensors[] = 'Ds18b20#3';
+                $actuators = array();
+                $actuators[] = '2W16015#3';
+                $board = $this->hidrateSoilBoard('arduino_soil_board#3', $sensors, $actuators );
+        }
+        
+        
+        
         $doc = array();
-        $doc['modules'] = array();
-        $board_climatization1 = array();
-        $board_climatization2 = array();
-        $board_climatization3 = array();
-        $board__external_climatization1 = array();
-        $board_soil1 = array();
-        $board_soil2 = array();
-        $board_soil3 = array();
-        
-        $sensors = array();
-        $sensors[] = 'DHT11#1';
-        $sensors[] = 'DHT11#2';
-        $sensors[] = 'DHT11#3';
-        $actuators = array();
-        $actuators[] = 'DN20#1';
-        $board_climatization1 = $this->hidrateClimatizationBoard("arduino_climatization_board#1", $sensors, $actuators);
-        
-        $sensors = array();
-        $sensors[] = 'DHT11#4';
-        $sensors[] = 'DHT11#5';
-        $sensors[] = 'DHT11#6';
-        $actuators = array();
-        $actuators[] = 'DN20#2';
-        $board_climatization2 = $this->hidrateClimatizationBoard("arduino_climatization_board#2", $sensors, $actuators);
-        
-        $sensors = array();
-        $sensors[] = 'DHT11#7';
-        $sensors[] = 'DHT11#8';
-        $sensors[] = 'DHT11#9';
-        $actuators = array();
-        $actuators[] = 'DN20#3';
-        $board_climatization3 = $this->hidrateClimatizationBoard("arduino_climatization_board#3", $sensors, $actuators);
-        
-        $sensors = array();
-        $sensors[] = 'LM393#1';
-        $sensors[] = 'Ds18b20#1';
-        $actuators = array();
-        $actuators[] = '2W16015#1';
-        $board_soil1 = $this->hidrateSoilBoard('arduino_soil_board#1', $sensors, $actuators );
+        $doc['module'] = $board;
 
-        $sensors = array();
-        $sensors[] = 'LM393#2';
-        $sensors[] = 'Ds18b20#2';
-        $actuators = array();
-        $actuators[] = '2W16015#2';
-        $board_soil2 = $this->hidrateSoilBoard('arduino_soil_board#2', $sensors, $actuators );
-        
-        $sensors = array();
-        $sensors[] = 'LM393#3';
-        $sensors[] = 'Ds18b20#3';
-        $actuators = array();
-        $actuators[] = '2W16015#3';
-        $board_soil3 = $this->hidrateSoilBoard('arduino_soil_board#3', $sensors, $actuators );
-        
-        
-        $doc['modules'][] = $board_climatization1;
-        $doc['modules'][] = $board_climatization2;
-        $doc['modules'][] = $board_climatization3;
-        $doc['modules'][] = $board_soil1;
-        $doc['modules'][] = $board_soil2;
-        $doc['modules'][] = $board_soil3;
-        
-        
-//         $doc = json_encode($doc);
-        
         return new JsonResponse($doc, 200);
         
     }

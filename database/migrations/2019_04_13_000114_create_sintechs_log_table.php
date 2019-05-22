@@ -37,7 +37,7 @@ class CreateSintechsLogTable extends Migration
             $table->foreign('trigged_by_rule')->references('id')->on('sintechs_rules');
             
             $table->unsignedBigInteger('sampling_id')->nullable();
-            $table->foreign('sampling_id')->references('id')->on('sintechs_sampling');
+            $table->foreign('sampling_id')->references('uuid')->on('sintechs_sampling');
 
             $table->unsignedBigInteger('users_id')->nullable();
             $table->foreign('users_id')->references('id')->on('sintechs_users');
