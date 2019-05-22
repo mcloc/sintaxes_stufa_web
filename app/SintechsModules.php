@@ -19,4 +19,8 @@ class SintechsModules extends Model
     public function alerts(){
         return $this->hasMany(SintechsAlerts::class, 'module_id');
     }
+    
+    public function getDates() {
+        return array();
+    }
 }

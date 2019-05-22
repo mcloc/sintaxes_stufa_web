@@ -12,4 +12,8 @@ class SintechsModulesType extends Model
     public function modules(){
         return $this->hasMany(SintechsModules::class, 'type_id', 'id');
     }
+    
+    public function getDates() {
+        return array();
+    }
 }

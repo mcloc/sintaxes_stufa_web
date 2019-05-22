@@ -377,14 +377,17 @@ class APIController extends Controller {
     }
     
     public function getActiveModules(){
-        $modules = SintechsModules::whereHas('type', function ($query) {$query->where('name', '=', 'arduino');})->where('sintechs_modules.active', true)->get();
+        $modules = SintechsModules::with('type')->whereHas('type', function ($query) {$query->where('name', '=', 'arduino');})->where('sintechs_modules.active', true)->get();
         
         if($modules == null){
             return new JsonResponse(array('error' => 'no active modules found'), 200);
         }
         
+       
+        
         $data = array();
         foreach($modules as $module){
+            $module_type = $module->type;
             $data[] = array(
                 'id' => $module->id,
                 'name' => $module->name,
@@ -394,6 +397,13 @@ class APIController extends Controller {
                 'enabled' => $module->enabled,
                 'created_at' => $module->created_at,
                 'updated_at' => $module->updated_at,
+                'module_type' => array(
+                    'id' => $module_type->id,
+                    'name' => $module_type->name,
+                    'description' => $module_type->description,
+                    'created_at' => $module_type->created_at,
+                    'updated_at' => $module_type->updated_at,
+                ),
             );
         }
         
@@ -406,9 +416,9 @@ class APIController extends Controller {
         return new JsonResponse($status, 200);
     }
     
-    public function getMockData($module_name){
+    public function getMockModuleSampling($module_name){
         $module_name = urldecode($module_name);
-        $module = SintechsModules::where('name'. $module_name)->first();
+        $module = SintechsModules::where('name', $module_name)->first();
         
         if($module == null){
             return new JsonResponse(array('error' => 'module name:'.$module_name.' not found'), 200);
@@ -470,10 +480,10 @@ class APIController extends Controller {
         
         
         
-        $doc = array();
-        $doc['module'] = $board;
+//         $doc = array();
+//         $doc['module'] = $board;
 
-        return new JsonResponse($doc, 200);
+        return new JsonResponse($board, 200);
         
     }
     
