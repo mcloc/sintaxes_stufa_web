@@ -9,7 +9,7 @@ class SintechsModules extends Model
     protected $table = 'sintechs_modules';
     
     public function type(){
-        return $this->belongsToMany(SintechsModulesType::class, 'id', 'type_id');
+        return $this->hasOne(SintechsModulesType::class, 'id', 'type_id');
     }
     
     public function samplings(){

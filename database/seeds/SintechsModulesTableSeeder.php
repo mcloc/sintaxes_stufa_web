@@ -83,7 +83,6 @@ class SintechsModulesTableSeeder extends Seeder
                 'description' => 'Arduino Sensors and Actuators for climatization #1',
                 'active' => true,
                 'enabled' => true,'active' => true,
-                'active' => true,
                 'type_id' => $arduino_type->id,
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')

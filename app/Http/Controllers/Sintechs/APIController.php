@@ -376,15 +376,46 @@ class APIController extends Controller {
         return true;
     }
     
-    public function getMockData($module_id){
-        $module = SintechsModules::find($module_id);
+    public function getActiveModules(){
+        $modules = SintechsModules::whereHas('type', function ($query) {$query->where('name', '=', 'arduino');})->where('sintechs_modules.active', true)->get();
+        
+        if($modules == null){
+            return new JsonResponse(array('error' => 'no active modules found'), 200);
+        }
+        
+        $data = array();
+        foreach($modules as $module){
+            $data[] = array(
+                'id' => $module->id,
+                'name' => $module->name,
+                'description' => $module->description,
+                'type_id' => $module->type_id,
+                'active' => $module->active,
+                'enabled' => $module->enabled,
+                'created_at' => $module->created_at,
+                'updated_at' => $module->updated_at,
+            );
+        }
+        
+        $status = array(
+            'data' => $data,
+            'status' => 'OK',
+            'error_code' => null,
+            'error_msg' => null,
+        );
+        return new JsonResponse($status, 200);
+    }
+    
+    public function getMockData($module_name){
+        $module_name = urldecode($module_name);
+        $module = SintechsModules::where('name'. $module_name)->first();
         
         if($module == null){
-            return new JsonResponse(array('error' => 'module id:'.$module_id.' not found'), 200);
+            return new JsonResponse(array('error' => 'module name:'.$module_name.' not found'), 200);
         }
         
         $board = array();
-        switch($module->name){
+        switch($module_name){
             case 'arduino_climatization_board#1':
                 $sensors = array();
                 $sensors[] = 'DHT11#1';
@@ -414,8 +445,8 @@ class APIController extends Controller {
                 break;
             case 'arduino_soil_board#1':
                 $sensors = array();
-                $sensors[] = 'LM393#1';
-                $sensors[] = 'Ds18b20#1';
+                $sensors[] = 'LM393#1'; // humidity
+                $sensors[] = 'Ds18b20#1'; // temperature
                 $actuators = array();
                 $actuators[] = '2W16015#1';
                 $board = $this->hidrateSoilBoard('arduino_soil_board#1', $sensors, $actuators );
@@ -450,7 +481,7 @@ class APIController extends Controller {
         $board_climatization1 = array();
         $board_climatization1['module_name'] = $board_name;
         $board_climatization1['status'] = 'OK';
-        $board_climatization1['uptime'] = 102;
+        $board_climatization1['uptime'] = rand(50,150);
         $board_climatization1['error_code'] = '';
         $board_climatization1['error_msg'] = '';
         $board_climatization1['data'] = array();
@@ -462,9 +493,9 @@ class APIController extends Controller {
             $board_climatization1['data']['sensors'][$key] = array();
             $board_climatization1['data']['sensors'][$key]['uuid'] = $sensor;
             $board_climatization1['data']['sensors'][$key]['value'] = array();
-            $board_climatization1['data']['sensors'][$key]['value'][0]['humidity'] = 80;
-            $board_climatization1['data']['sensors'][$key]['value'][0]['temperature'] = 26;
-            $board_climatization1['data']['sensors'][$key]['value'][0]['heat_index'] = 29;
+            $board_climatization1['data']['sensors'][$key]['value'][0]['humidity'] = rand(65,88);
+            $board_climatization1['data']['sensors'][$key]['value'][0]['temperature'] = rand(22,29);
+            $board_climatization1['data']['sensors'][$key]['value'][0]['heat_index'] = rand(24,31);
         }
         
         
@@ -487,7 +518,7 @@ class APIController extends Controller {
         $board_climatization1 = array();
         $board_climatization1['module_name'] = $board_name;
         $board_climatization1['status'] = 'OK';
-        $board_climatization1['uptime'] = 102;
+        $board_climatization1['uptime'] = rand(50,150);;
         $board_climatization1['error_code'] = '';
         $board_climatization1['error_msg'] = '';
         $board_climatization1['data'] = array();
@@ -498,12 +529,12 @@ class APIController extends Controller {
         $board_climatization1['data']['sensors'][0] = array();
         $board_climatization1['data']['sensors'][0]['uuid'] = $sensors[0];
         $board_climatization1['data']['sensors'][0]['value'] = array();
-        $board_climatization1['data']['sensors'][0]['value'][0]['humidity'] = 80;
+        $board_climatization1['data']['sensors'][0]['value'][0]['humidity'] = rand(65,88);
         
         $board_climatization1['data']['sensors'][1] = array();
         $board_climatization1['data']['sensors'][1]['uuid'] = $sensors[1];
         $board_climatization1['data']['sensors'][1]['value'] = array();
-        $board_climatization1['data']['sensors'][1]['value'][0]['temperature'] = 22;
+        $board_climatization1['data']['sensors'][1]['value'][0]['temperature'] = rand(22,29);
         
         
         foreach($actuators as $key => $actuator){
