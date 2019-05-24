@@ -118,6 +118,7 @@ class APIController extends Controller {
                 'description' => $sensor->description,
                 'model' => $sensor->model,
                 'active' => $sensor->active,
+                'enabled' => $sensor->enabled,
                 'module_id' => $sensor->module_id,
                 'created_at' => $sensor->created_at,
                 'updated_at' => $sensor->updated_at,
@@ -132,7 +133,7 @@ class APIController extends Controller {
     
     public function getActuatorByUUID($actuator_uuid){
         $actuator_uuid = urldecode($actuator_uuid);
-        $actuator = SintechsSensors::where("uuid", $actuator_uuid)->first();
+        $actuator = SintechsActuators::where("uuid", $actuator_uuid)->first();
         if($actuator == null){
             return new JsonResponse(array('error' => 'actuator no found for uuid:'.$actuator_uuid), 200);
         }
@@ -144,6 +145,7 @@ class APIController extends Controller {
                 'description' => $actuator->description,
                 'model' => $actuator->model,
                 'active' => $actuator->active,
+                'enabled' => $actuator->enabled,
                 'module_id' => $actuator->module_id,
                 'created_at' => $actuator->created_at,
                 'updated_at' => $actuator->updated_at,
@@ -453,6 +455,12 @@ class APIController extends Controller {
                 $actuators[] = 'DN20#3';
                 $board = $this->hidrateClimatizationBoard("arduino_climatization_board#3", $sensors, $actuators);
                 break;
+            case 'arduino_external_climatization_board#1':
+                $sensors = array();
+                $sensors[] = 'DHT21#1';
+                $actuators = array();
+                $board = $this->hidrateClimatizationBoard("arduino_external_climatization_board#1", $sensors, $actuators);
+                break;
             case 'arduino_soil_board#1':
                 $sensors = array();
                 $sensors[] = 'LM393#1'; // humidity
@@ -476,6 +484,14 @@ class APIController extends Controller {
                 $actuators = array();
                 $actuators[] = '2W16015#3';
                 $board = $this->hidrateSoilBoard('arduino_soil_board#3', $sensors, $actuators );
+                break;
+            case 'arduino_soil_board#4':
+                $sensors = array();
+                $sensors[] = 'LM393#4';
+                $sensors[] = 'Ds18b20#4';
+                $actuators = array();
+                $actuators[] = '2W16015#4';
+                $board = $this->hidrateSoilBoard('arduino_soil_board#4', $sensors, $actuators );
         }
         
         
