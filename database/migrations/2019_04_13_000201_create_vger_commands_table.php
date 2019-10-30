@@ -15,7 +15,8 @@ class CreateVgerCommandsTable extends Migration
     {
         Schema::enableForeignKeyConstraints();
         Schema::create('vger_commands', function (Blueprint $table) {
-
+            $table->unsignedBigInteger('id')->primary();
+            
             $table->unsignedBigInteger('module_id')->index();
             $table->foreign('module_id')->references('id')->on('vger_modules');
             $table->string('command')->index();
@@ -29,7 +30,8 @@ class CreateVgerCommandsTable extends Migration
             $table->string('description');
             $table->timestamps();
             
-            $table->primary(['module_id', 'command']);
+            $table->unique(['module_id', 'command']);
+//             $table->primary(['module_id', 'command']);
         });
         
 

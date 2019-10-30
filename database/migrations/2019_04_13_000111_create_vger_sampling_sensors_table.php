@@ -15,7 +15,7 @@ class CreateVgerSamplingSensorsTable extends Migration
     {
         Schema::enableForeignKeyConstraints();
         Schema::create('vger_sampling_sensors', function (Blueprint $table) {
-            $table->unsignedBigInteger('sampling_id')->index();
+            $table->timestamp('sampling_id')->index();
             $table->foreign('sampling_id')->references('uuid')->on('vger_sampling');
             
             $table->unsignedBigInteger('sensor_id')->index();

@@ -1,4 +1,4 @@
-drop database vger_stufas;
-create database vger_stufas;
-grant all PRIVILEGES on vger_stufas.* to 'vger'@'localhost';
+drop database if exists vger;
+create database vger;
+grant all PRIVILEGES on vger.* to 'vger'@'localhost';
 FLUSH PRIVILEGES;

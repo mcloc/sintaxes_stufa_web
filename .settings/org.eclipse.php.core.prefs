@@ -1,2 +1,2 @@
 eclipse.preferences.version=1
-include_path=
+include_path=0;/sintaxes_stufa_web/app\u00050;/sintaxes_stufa_web/config\u00050;/sintaxes_stufa_web/routes\u00050;/sintaxes_stufa_web/tests\u00050;/sintaxes_stufa_web/database\u00050;/sintaxes_stufa_web/vendor\u00050;/sintaxes_stufa_web/public\u00050;/sintaxes_stufa_web/resources\u00050;/sintaxes_stufa_web/bootstrap

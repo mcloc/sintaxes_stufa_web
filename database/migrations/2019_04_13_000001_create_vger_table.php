@@ -13,12 +13,12 @@ class CreateVgerTable extends Migration
      */
     public function up()
     {
-        Schema::create('vger', function (Blueprint $table) {
+        Schema::create('vger_data', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('client_id');
             $table->timestamp('instalation_date');
             $table->string('vger_version');
-            $table->timestamp('vger_last_update');
+//             $table->timestamps('vger_last_update');
             $table->string('employee_id')->default('vger');
             $table->text('instalation_description');
             $table->text('instalation_missing_requirements');
@@ -38,6 +38,6 @@ class CreateVgerTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('vger');
+        Schema::dropIfExists('vger_data');
     }
 }

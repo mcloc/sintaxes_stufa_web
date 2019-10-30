@@ -15,6 +15,7 @@ class CreateVgerCommandsArgsTable extends Migration
     {
         Schema::enableForeignKeyConstraints();
         Schema::create('vger_commands_args', function (Blueprint $table) {
+            $table->unsignedBigInteger('id')->primary();
             $table->string('arg_name')->index();
             
             $table->unsignedBigInteger('command_id')->index();
@@ -23,7 +24,7 @@ class CreateVgerCommandsArgsTable extends Migration
             $table->string('description');
             $table->timestamps();
             
-            $table->primary(['arg_name', 'command_id']);
+            $table->unique(['arg_name', 'command_id']);
         });
         
 

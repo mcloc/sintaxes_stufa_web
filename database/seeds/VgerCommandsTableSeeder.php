@@ -41,8 +41,10 @@ class VgerCommandsTableSeeder extends Seeder
         if (! $cmd_type_get_status)
             throw new Exception('Command TYPE GET_STATUS not found... Cannot seed COMMAND');
 
+        $i = 1;
         foreach ($arduino_modules as $arduino_module) {
             DB::table('vger_commands')->insert([
+                'id' => $i,
                 'type_id' => $cmd_type_get_data->id,
                 'module_id' => $arduino_module->id,
                 'command' => 'GET_DATA',
@@ -51,8 +53,10 @@ class VgerCommandsTableSeeder extends Seeder
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ]);
+            $i++;
 
             DB::table('vger_commands')->insert([
+                'id' => $i,
                 'type_id' => $cmd_type_get_info->id,
                 'module_id' => $arduino_module->id,
                 'command' => 'GET_INFO',
@@ -61,8 +65,10 @@ class VgerCommandsTableSeeder extends Seeder
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ]);
+            $i++;
 
             DB::table('vger_commands')->insert([
+                'id' => $i,
                 'type_id' => $cmd_type_get_status->id,
                 'module_id' => $arduino_module->id,
                 'command' => 'GET_STATUS',
@@ -71,6 +77,7 @@ class VgerCommandsTableSeeder extends Seeder
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ]);
+            $i++;
         }
     }
 }

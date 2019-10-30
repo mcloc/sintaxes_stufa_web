@@ -36,11 +36,11 @@ class CreateVgerLogTable extends Migration
             $table->unsignedBigInteger('trigged_by_rule')->nullable();
             $table->foreign('trigged_by_rule')->references('id')->on('vger_rules');
             
-            $table->unsignedBigInteger('sampling_id')->nullable();
+            $table->timestamp('sampling_id')->nullable();
             $table->foreign('sampling_id')->references('uuid')->on('vger_sampling');
 
             $table->unsignedBigInteger('users_id')->nullable();
-            $table->foreign('users_id')->references('id')->on('vger_users');
+            $table->foreign('users_id')->references('id')->on('users');
             
             $table->timestamps();
         });

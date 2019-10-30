@@ -13,7 +13,7 @@ class VgerTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('vger')->insert([
+        DB::table('vger_data')->insert([
             'id' => 1,
             'client_id' => 'c0001',
             'instalation_date' => now(),
@@ -22,7 +22,6 @@ class VgerTableSeeder extends Seeder
             'instalation_description' => 'Development Install',
             'instalation_missing_requirements' => 'More Sensors and development facility',
             'instalation_total_days' => '3',
-            'vger_last_update' => now(),
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
