@@ -1,10 +1,10 @@
 <?php
-use App\SintechsModules;
+use App\VgerModules;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class SintechsActuatorsTableSeeder extends Seeder
+class VgerActuatorsTableSeeder extends Seeder
 {
 
     /**
@@ -21,11 +21,11 @@ class SintechsActuatorsTableSeeder extends Seeder
         /**
          * CLIMATIZATION BOARD #1
          */
-        $arduino_module = SintechsModules::where('name', 'arduino_climatization_board#1')->first();
+        $arduino_module = VgerModules::where('name', 'arduino_climatization_board#1')->first();
         if (! $arduino_module)
             throw new Exception('Command MODULE arduino_climatization_board#1 not found... Cannot seed ACTUATORS');
 
-        DB::table('sintechs_actuators')->insert([
+        DB::table('vger_actuators')->insert([
             'id' => '1',
             'uuid' => 'DN20#1',
             'type' => 'Solenoid',
@@ -41,11 +41,11 @@ class SintechsActuatorsTableSeeder extends Seeder
         /**
          * CLIMATIZATION BOARD #2
          */
-        $arduino_module = SintechsModules::where('name', 'arduino_climatization_board#2')->first();
+        $arduino_module = VgerModules::where('name', 'arduino_climatization_board#2')->first();
         if (! $arduino_module)
             throw new Exception('Command MODULE arduino_climatization_board#1 not found... Cannot seed ACTUATORS');
 
-        DB::table('sintechs_actuators')->insert([
+        DB::table('vger_actuators')->insert([
             'id' => '2',
             'uuid' => 'DN20#2',
             'type' => 'Solenoid',
@@ -61,11 +61,11 @@ class SintechsActuatorsTableSeeder extends Seeder
         /**
          * CLIMATIZATION BOARD #3
          */
-        $arduino_module = SintechsModules::where('name', 'arduino_climatization_board#3')->first();
+        $arduino_module = VgerModules::where('name', 'arduino_climatization_board#3')->first();
         if (! $arduino_module)
             throw new Exception('Command MODULE arduino_climatization_board#1 not found... Cannot seed ACTUATORS');
 
-        DB::table('sintechs_actuators')->insert([
+        DB::table('vger_actuators')->insert([
             'id' => '3',
             'uuid' => 'DN20#3',
             'type' => 'Solenoid',
@@ -85,11 +85,11 @@ class SintechsActuatorsTableSeeder extends Seeder
         /**
          * SOIL BOARD #1
          */
-        $arduino_module = SintechsModules::where('name', 'arduino_soil_board#1')->first();
+        $arduino_module = VgerModules::where('name', 'arduino_soil_board#1')->first();
         if (! $arduino_module)
             throw new Exception('Command MODULE arduino_climatization_board#1 not found... Cannot seed ACTUATORS');
 
-        DB::table('sintechs_actuators')->insert([
+        DB::table('vger_actuators')->insert([
             'id' => '4',
             'uuid' => '2W16015#1',
             'type' => 'Solenoid',
@@ -105,11 +105,11 @@ class SintechsActuatorsTableSeeder extends Seeder
         /**
          * SOIL BOARD #2
          */
-        $arduino_module = SintechsModules::where('name', 'arduino_soil_board#2')->first();
+        $arduino_module = VgerModules::where('name', 'arduino_soil_board#2')->first();
         if (! $arduino_module)
             throw new Exception('Command MODULE arduino_climatization_board#2 not found... Cannot seed ACTUATORS');
 
-        DB::table('sintechs_actuators')->insert([
+        DB::table('vger_actuators')->insert([
             'id' => '5',
             'uuid' => '2W16015#2',
             'type' => 'Solenoid',
@@ -125,11 +125,11 @@ class SintechsActuatorsTableSeeder extends Seeder
         /**
          * SOIL BOARD #3
          */
-        $arduino_module = SintechsModules::where('name', 'arduino_soil_board#3')->first();
+        $arduino_module = VgerModules::where('name', 'arduino_soil_board#3')->first();
         if (! $arduino_module)
             throw new Exception('Command MODULE arduino_climatization_board#3 not found... Cannot seed ACTUATORS');
 
-        DB::table('sintechs_actuators')->insert([
+        DB::table('vger_actuators')->insert([
             'id' => '6',
             'uuid' => '2W16015#3',
             'type' => 'Solenoid',
@@ -145,11 +145,11 @@ class SintechsActuatorsTableSeeder extends Seeder
         /**
          * SOIL BOARD #4
          */
-        $arduino_module = SintechsModules::where('name', 'arduino_soil_board#4')->first();
+        $arduino_module = VgerModules::where('name', 'arduino_soil_board#4')->first();
         if (! $arduino_module)
             throw new Exception('Command MODULE arduino_climatization_board#4 not found... Cannot seed ACTUATORS');
 
-        DB::table('sintechs_actuators')->insert([
+        DB::table('vger_actuators')->insert([
             'id' => '7',
             'uuid' => '2W16015#4',
             'type' => 'Solenoid',

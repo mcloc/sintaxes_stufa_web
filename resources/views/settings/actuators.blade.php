@@ -1,6 +1,6 @@
 @extends('layouts.main-layout')
 
-@section('title', 'Sintechs Admin - Configurações')
+@section('title', 'Vger Admin - Configurações')
 
 @section('page_name')
     <h1>Configurações</h1>

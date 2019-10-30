@@ -4,34 +4,34 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class SintechsSampling extends Model
+class VgerSampling extends Model
 {
-    protected $table = 'sintechs_sampling';
+    protected $table = 'vger_sampling';
     protected $guarded = [];
     
     public function rulesFired()
     {
-        return $this->hasMany(SintechsRulesFired::class, 'sampling_id', 'id');
+        return $this->hasMany(VgerRulesFired::class, 'sampling_id', 'id');
     }
     
     public function samplingSensors()
     {
-        return $this->hasMany(SintechsSamplingSensors::class, 'sampling_id', 'id');
+        return $this->hasMany(VgerSamplingSensors::class, 'sampling_id', 'id');
     }
     
     public function samplingActuators()
     {
-        return $this->hasMany(SintechsSamplingActuators::class, 'sampling_id', 'id');
+        return $this->hasMany(VgerSamplingActuators::class, 'sampling_id', 'id');
     }
     
     public function module()
     {
-        return $this->hasMany(SintechsModules::class, 'id', 'module_id');
+        return $this->hasMany(VgerModules::class, 'id', 'module_id');
     }
     
     
     public static function getAllSampling(){
-        $samplings = SintechsSampling::all()->sortByDesc('created_at');
+        $samplings = VgerSampling::all()->sortByDesc('created_at');
         $samp = array();
         foreach($samplings as $key => $sp){
             $samp[$key]['sampling'] = $sp;
@@ -50,7 +50,7 @@ class SintechsSampling extends Model
     }
     
     public static function getLast100Sampling(){
-        $samplings = SintechsSampling::orderByDesc('created_at')->limit(100)->get();
+        $samplings = VgerSampling::orderByDesc('created_at')->limit(100)->get();
         $samp = array();
         foreach($samplings as $key => $sp){
             $samp[$key]['sampling'] = $sp;

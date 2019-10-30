@@ -1,10 +1,10 @@
 <?php
-use App\SintechsModules;
+use App\VgerModules;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class SintechsSensorsTableSeeder extends Seeder
+class VgerSensorsTableSeeder extends Seeder
 {
 
     /**
@@ -22,11 +22,11 @@ class SintechsSensorsTableSeeder extends Seeder
         /**
          * CLIMATIZATION BOARD #1
          */
-        $arduino_module = SintechsModules::where('name', 'arduino_climatization_board#1')->first();
+        $arduino_module = VgerModules::where('name', 'arduino_climatization_board#1')->first();
         if (! $arduino_module)
             throw new Exception('Command MODULE arduino_climatization#1 not found... Cannot seed SENSORS');
 
-        DB::table('sintechs_sensors')->insert([
+        DB::table('vger_sensors')->insert([
             'id' => '1',
             'uuid' => 'DHT11#1',
             'type' => 'Humidity and Temperature',
@@ -39,7 +39,7 @@ class SintechsSensorsTableSeeder extends Seeder
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         
-        DB::table('sintechs_sensors')->insert([
+        DB::table('vger_sensors')->insert([
             'id' => '2',
             'uuid' => 'DHT11#2',
             'type' => 'Humidity and Temperature',
@@ -52,7 +52,7 @@ class SintechsSensorsTableSeeder extends Seeder
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         
-        DB::table('sintechs_sensors')->insert([
+        DB::table('vger_sensors')->insert([
             'id' => '3',
             'uuid' => 'DHT11#3',
             'type' => 'Humidity and Temperature',
@@ -68,11 +68,11 @@ class SintechsSensorsTableSeeder extends Seeder
         /**
          * CLIMATIZATION BOARD #2
          */
-        $arduino_module = SintechsModules::where('name', 'arduino_climatization_board#2')->first();
+        $arduino_module = VgerModules::where('name', 'arduino_climatization_board#2')->first();
         if (! $arduino_module)
             throw new Exception('Command MODULE arduino_climatization#1 not found... Cannot seed SENSORS');
 
-        DB::table('sintechs_sensors')->insert([
+        DB::table('vger_sensors')->insert([
             'id' => '4',
             'uuid' => 'DHT11#4',
             'type' => 'Humidity and Temperature',
@@ -85,7 +85,7 @@ class SintechsSensorsTableSeeder extends Seeder
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         
-        DB::table('sintechs_sensors')->insert([
+        DB::table('vger_sensors')->insert([
             'id' => '5',
             'uuid' => 'DHT11#5',
             'type' => 'Humidity and Temperature',
@@ -98,7 +98,7 @@ class SintechsSensorsTableSeeder extends Seeder
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         
-        DB::table('sintechs_sensors')->insert([
+        DB::table('vger_sensors')->insert([
             'id' => '6',
             'uuid' => 'DHT11#6',
             'type' => 'Humidity and Temperature',
@@ -114,11 +114,11 @@ class SintechsSensorsTableSeeder extends Seeder
         /**
          * CLIMATIZATION BOARD #3
          */
-        $arduino_module = SintechsModules::where('name', 'arduino_climatization_board#3')->first();
+        $arduino_module = VgerModules::where('name', 'arduino_climatization_board#3')->first();
         if (! $arduino_module)
             throw new Exception('Command MODULE arduino_climatization#1 not found... Cannot seed SENSORS');
 
-        DB::table('sintechs_sensors')->insert([
+        DB::table('vger_sensors')->insert([
             'id' => '7',
             'uuid' => 'DHT11#7',
             'type' => 'Humidity and Temperature',
@@ -131,7 +131,7 @@ class SintechsSensorsTableSeeder extends Seeder
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         
-        DB::table('sintechs_sensors')->insert([
+        DB::table('vger_sensors')->insert([
             'id' => '8',
             'uuid' => 'DHT11#8',
             'type' => 'Humidity and Temperature',
@@ -144,7 +144,7 @@ class SintechsSensorsTableSeeder extends Seeder
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         
-        DB::table('sintechs_sensors')->insert([
+        DB::table('vger_sensors')->insert([
             'id' => '9',
             'uuid' => 'DHT11#9',
             'type' => 'Humidity and Temperature',
@@ -164,11 +164,11 @@ class SintechsSensorsTableSeeder extends Seeder
         /**
          * SOIL BOARD #1
          */
-        $arduino_module = SintechsModules::where('name', 'arduino_soil_board#1')->first();
+        $arduino_module = VgerModules::where('name', 'arduino_soil_board#1')->first();
         if (! $arduino_module)
             throw new Exception('Command MODULE arduino_climatization#1 not found... Cannot seed SENSORS');
 
-        DB::table('sintechs_sensors')->insert([
+        DB::table('vger_sensors')->insert([
             'id' => '10',
             'uuid' => 'LM393#1',
             'type' => 'Humidity Soil Sensor',
@@ -181,7 +181,7 @@ class SintechsSensorsTableSeeder extends Seeder
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
-        DB::table('sintechs_sensors')->insert([
+        DB::table('vger_sensors')->insert([
             'id' => '11',
             'uuid' => 'Ds18b20#1',
             'type' => 'Temperature Soil Sensor',
@@ -194,7 +194,7 @@ class SintechsSensorsTableSeeder extends Seeder
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
-        DB::table('sintechs_sensors')->insert([
+        DB::table('vger_sensors')->insert([
             'id' => '12',
             'uuid' => 'LM393#2',
             'type' => 'Humidity Soil Sensor',
@@ -207,7 +207,7 @@ class SintechsSensorsTableSeeder extends Seeder
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
-        DB::table('sintechs_sensors')->insert([
+        DB::table('vger_sensors')->insert([
             'id' => '13',
             'uuid' => 'Ds18b20#2',
             'type' => 'Temperature Soil Sensor',
@@ -220,7 +220,7 @@ class SintechsSensorsTableSeeder extends Seeder
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
-        DB::table('sintechs_sensors')->insert([
+        DB::table('vger_sensors')->insert([
             'id' => '14',
             'uuid' => 'LM393#3',
             'type' => 'Humidity Soil Sensor',
@@ -233,7 +233,7 @@ class SintechsSensorsTableSeeder extends Seeder
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
-        DB::table('sintechs_sensors')->insert([
+        DB::table('vger_sensors')->insert([
             'id' => '15',
             'uuid' => 'Ds18b20#3',
             'type' => 'Temperature Soil Sensor',
@@ -249,11 +249,11 @@ class SintechsSensorsTableSeeder extends Seeder
         /**
          * SOIL BOARD #2
          */
-        $arduino_module = SintechsModules::where('name', 'arduino_soil_board#2')->first();
+        $arduino_module = VgerModules::where('name', 'arduino_soil_board#2')->first();
         if (! $arduino_module)
             throw new Exception('Command MODULE arduino_soil_board#2 not found... Cannot seed SENSORS');
 
-        DB::table('sintechs_sensors')->insert([
+        DB::table('vger_sensors')->insert([
             'id' => '16',
             'uuid' => 'LM393#4',
             'type' => 'Humidity Soil Sensor',
@@ -266,7 +266,7 @@ class SintechsSensorsTableSeeder extends Seeder
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
-        DB::table('sintechs_sensors')->insert([
+        DB::table('vger_sensors')->insert([
             'id' => '17',
             'uuid' => 'Ds18b20#4',
             'type' => 'Temperature Soil Sensor',
@@ -279,7 +279,7 @@ class SintechsSensorsTableSeeder extends Seeder
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
-        DB::table('sintechs_sensors')->insert([
+        DB::table('vger_sensors')->insert([
             'id' => '18',
             'uuid' => 'LM393#5',
             'type' => 'Humidity Soil Sensor',
@@ -292,7 +292,7 @@ class SintechsSensorsTableSeeder extends Seeder
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
-        DB::table('sintechs_sensors')->insert([
+        DB::table('vger_sensors')->insert([
             'id' => '19',
             'uuid' => 'Ds18b20#5',
             'type' => 'Temperature Soil Sensor',
@@ -305,7 +305,7 @@ class SintechsSensorsTableSeeder extends Seeder
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
-        DB::table('sintechs_sensors')->insert([
+        DB::table('vger_sensors')->insert([
             'id' => '20',
             'uuid' => 'LM393#6',
             'type' => 'Humidity Soil Sensor',
@@ -318,7 +318,7 @@ class SintechsSensorsTableSeeder extends Seeder
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
-        DB::table('sintechs_sensors')->insert([
+        DB::table('vger_sensors')->insert([
             'id' => '21',
             'uuid' => 'Ds18b20#6',
             'type' => 'Temperature Soil Sensor',
@@ -334,11 +334,11 @@ class SintechsSensorsTableSeeder extends Seeder
         /**
          * SOIL BOARD 3
          */
-        $arduino_module = SintechsModules::where('name', 'arduino_soil_board#3')->first();
+        $arduino_module = VgerModules::where('name', 'arduino_soil_board#3')->first();
         if (! $arduino_module)
             throw new Exception('Command MODULE arduino_soil_board#3 not found... Cannot seed SENSORS');
 
-        DB::table('sintechs_sensors')->insert([
+        DB::table('vger_sensors')->insert([
             'id' => '22',
             'uuid' => 'LM393#7',
             'type' => 'Humidity Soil Sensor',
@@ -351,7 +351,7 @@ class SintechsSensorsTableSeeder extends Seeder
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
-        DB::table('sintechs_sensors')->insert([
+        DB::table('vger_sensors')->insert([
             'id' => '23',
             'uuid' => 'Ds18b20#7',
             'type' => 'Temperature Soil Sensor',
@@ -364,7 +364,7 @@ class SintechsSensorsTableSeeder extends Seeder
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
-        DB::table('sintechs_sensors')->insert([
+        DB::table('vger_sensors')->insert([
             'id' => '24',
             'uuid' => 'LM393#8',
             'type' => 'Humidity Soil Sensor',
@@ -377,7 +377,7 @@ class SintechsSensorsTableSeeder extends Seeder
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
-        DB::table('sintechs_sensors')->insert([
+        DB::table('vger_sensors')->insert([
             'id' => '25',
             'uuid' => 'Ds18b20#8',
             'type' => 'Temperature Soil Sensor',
@@ -390,7 +390,7 @@ class SintechsSensorsTableSeeder extends Seeder
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
-        DB::table('sintechs_sensors')->insert([
+        DB::table('vger_sensors')->insert([
             'id' => '26',
             'uuid' => 'LM393#9',
             'type' => 'Humidity Soil Sensor',
@@ -403,7 +403,7 @@ class SintechsSensorsTableSeeder extends Seeder
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
-        DB::table('sintechs_sensors')->insert([
+        DB::table('vger_sensors')->insert([
             'id' => '27',
             'uuid' => 'Ds18b20#9',
             'type' => 'Temperature Soil Sensor',
@@ -419,11 +419,11 @@ class SintechsSensorsTableSeeder extends Seeder
         /**
          * SOIL BOARD #4
          */
-        $arduino_module = SintechsModules::where('name', 'arduino_soil_board#4')->first();
+        $arduino_module = VgerModules::where('name', 'arduino_soil_board#4')->first();
         if (! $arduino_module)
             throw new Exception('Command MODULE arduino_soil_board#4 not found... Cannot seed SENSORS');
 
-        DB::table('sintechs_sensors')->insert([
+        DB::table('vger_sensors')->insert([
             'id' => '28',
             'uuid' => 'LM393#10',
             'type' => 'Humidity Soil Sensor',
@@ -436,7 +436,7 @@ class SintechsSensorsTableSeeder extends Seeder
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
-        DB::table('sintechs_sensors')->insert([
+        DB::table('vger_sensors')->insert([
             'id' => '29',
             'uuid' => 'Ds18b20#10',
             'type' => 'Temperature Soil Sensor',
@@ -449,7 +449,7 @@ class SintechsSensorsTableSeeder extends Seeder
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
-        DB::table('sintechs_sensors')->insert([
+        DB::table('vger_sensors')->insert([
             'id' => '30',
             'uuid' => 'LM393#11',
             'type' => 'Humidity Soil Sensor',
@@ -462,7 +462,7 @@ class SintechsSensorsTableSeeder extends Seeder
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
-        DB::table('sintechs_sensors')->insert([
+        DB::table('vger_sensors')->insert([
             'id' => '31',
             'uuid' => 'Ds18b20#11',
             'type' => 'Temperature Soil Sensor',
@@ -475,7 +475,7 @@ class SintechsSensorsTableSeeder extends Seeder
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
-        DB::table('sintechs_sensors')->insert([
+        DB::table('vger_sensors')->insert([
             'id' => '32',
             'uuid' => 'LM393#12',
             'type' => 'Humidity Soil Sensor',
@@ -488,7 +488,7 @@ class SintechsSensorsTableSeeder extends Seeder
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
-        DB::table('sintechs_sensors')->insert([
+        DB::table('vger_sensors')->insert([
             'id' => '33',
             'uuid' => 'Ds18b20#12',
             'type' => 'Temperature Soil Sensor',
@@ -508,11 +508,11 @@ class SintechsSensorsTableSeeder extends Seeder
         /**
          * EXTERNAL CLIMATIZATION BOARD #1
          */
-        $arduino_module = SintechsModules::where('name', 'arduino_external_climatization_board#1')->first();
+        $arduino_module = VgerModules::where('name', 'arduino_external_climatization_board#1')->first();
         if (! $arduino_module)
             throw new Exception('Command MODULE arduino_external_climatization_board#1 not found... Cannot seed SENSORS');
 
-        DB::table('sintechs_sensors')->insert([
+        DB::table('vger_sensors')->insert([
             'id' => '34',
             'uuid' => 'DHT21#1',
             'type' => 'Humidity and Temperature',

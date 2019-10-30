@@ -4,12 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class SintechsActuators extends Model
+class VgerActuators extends Model
 {
-    protected $table = 'sintechs_actuators';
+    protected $table = 'vger_actuators';
 
     public function module(){
-        return $this->belongsToMany(SintechsModules::class, 'id', 'module_id');
+        return $this->belongsToMany(VgerModules::class, 'id', 'module_id');
     }
     
     public function getDates() {

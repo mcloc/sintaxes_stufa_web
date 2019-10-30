@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSintechsRulesTable extends Migration
+class CreateVgerRulesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class CreateSintechsRulesTable extends Migration
     public function up()
     {
         Schema::enableForeignKeyConstraints();
-        Schema::create('sintechs_rules', function (Blueprint $table) {
+        Schema::create('vger_rules', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('rule_title');
             $table->string('description');
@@ -23,7 +23,7 @@ class CreateSintechsRulesTable extends Migration
             $table->boolean('active')->nullable()->default(false);
             
             $table->unsignedBigInteger('module_id')->index();
-            $table->foreign('module_id')->references('id')->on('sintechs_modules');
+            $table->foreign('module_id')->references('id')->on('vger_modules');
             
             $table->timestamps();
         });
@@ -39,6 +39,6 @@ class CreateSintechsRulesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sintechs_rules');
+        Schema::dropIfExists('vger_rules');
     }
 }

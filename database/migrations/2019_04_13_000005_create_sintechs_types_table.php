@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSintechsTypesTable extends Migration
+class CreateVgerTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateSintechsTypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('sintechs_types', function (Blueprint $table) {
+        Schema::create('vger_types', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('description')->nullable();
@@ -29,6 +29,6 @@ class CreateSintechsTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sintechs_types');
+        Schema::dropIfExists('vger_types');
     }
 }

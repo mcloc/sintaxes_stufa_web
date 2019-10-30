@@ -1,7 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\SintechsSampling;
+use App\VgerSampling;
 
 
 class ReportsController extends Controller {
@@ -12,7 +12,7 @@ class ReportsController extends Controller {
     }
     
     public function humidity_temperature() {
-        $samps = SintechsSampling::getLast100Sampling();
+        $samps = VgerSampling::getLast100Sampling();
         
 //         echo '<pre>';
 //         print_r($samps);

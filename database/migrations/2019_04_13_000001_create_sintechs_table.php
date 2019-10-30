@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSintechsTable extends Migration
+class CreateVgerTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateSintechsTable extends Migration
      */
     public function up()
     {
-        Schema::create('sintechs', function (Blueprint $table) {
+        Schema::create('vger', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('client_id');
             $table->timestamp('instalation_date');
-            $table->string('sintechs_version');
-            $table->timestamp('sintechs_last_update');
-            $table->string('employee_id')->default('sintechs');
+            $table->string('vger_version');
+            $table->timestamp('vger_last_update');
+            $table->string('employee_id')->default('vger');
             $table->text('instalation_description');
             $table->text('instalation_missing_requirements');
             $table->integer('instalation_total_days');
@@ -38,6 +38,6 @@ class CreateSintechsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sintechs');
+        Schema::dropIfExists('vger');
     }
 }

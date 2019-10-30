@@ -1,5 +1,5 @@
 <?php
-use App\SintechsAlerts;
+use App\VgerAlerts;
 ?>
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -76,7 +76,7 @@ use App\SintechsAlerts;
                     
                     
                     
-                    @role('sintechsadmin')
+                    @role('vgeradmin')
                     <h3 class="menu-title">Extras</h3><!-- /.menu-title -->
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon ti-save"></i>Backup</a>
@@ -87,7 +87,7 @@ use App\SintechsAlerts;
                     </li>
                     
                     
-                    <h3 class="menu-title">Sintechs Admin</h3><!-- /.menu-title -->
+                    <h3 class="menu-title">Vger Admin</h3><!-- /.menu-title -->
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-user"></i>Admin Usuários</a>
                         <ul class="sub-menu children dropdown-menu">
@@ -183,11 +183,11 @@ use App\SintechsAlerts;
                         <div class="dropdown for-notification">
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="notification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fa fa-bell"></i>
-                                <span class="count bg-danger" id="total-alerts"><?php echo SintechsAlerts::hasAlert()?></span>
+                                <span class="count bg-danger" id="total-alerts"><?php echo VgerAlerts::hasAlert()?></span>
                             </button>
                             <div class="dropdown-menu" aria-labelledby="notification" id="dropdown-alerts">
-                            <p class="red">Você tem <span id="dropdown-total-alerts"><?php echo SintechsAlerts::hasAlert()?></span> notificações</p>
-                            <?php foreach(SintechsAlerts::getAllUnreaded() as $alert){?>
+                            <p class="red">Você tem <span id="dropdown-total-alerts"><?php echo VgerAlerts::hasAlert()?></span> notificações</p>
+                            <?php foreach(VgerAlerts::getAllUnreaded() as $alert){?>
                                 <a class="dropdown-item media bg-flat-color-3" href="#" onclick="closeAlert(<?php echo $alert->id;?>);" id="alert-<?php echo $alert->id;?>">
                                 <i class="fa fa-check"></i>
                                 <p><?php echo $alert->message;?></p>

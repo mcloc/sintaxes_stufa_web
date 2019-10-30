@@ -1,5 +1,5 @@
 <?php
-namespace App\Http\Controllers\Sintechs;
+namespace App\Http\Controllers\Vger;
 
 use App\Http\Controllers\Controller;
 use function Illuminate\Routing\Router\redirect;
@@ -13,7 +13,7 @@ class ExpertSystemController extends Controller {
         $this->middleware('auth');
         $this->middleware(function ($request, $next) {
             $user = Auth::user();
-            if (!$user->hasRole('sintechsadmin')) { // you can pass an id or slug
+            if (!$user->hasRole('vgeradmin')) { // you can pass an id or slug
                 return redirect('/');
             }
             return $next($request);
@@ -21,7 +21,7 @@ class ExpertSystemController extends Controller {
     }
     
     public function rules(){
-        return view("sintechs.expert_system_rules");
+        return view("vger.expert_system_rules");
     }
     
     

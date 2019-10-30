@@ -1,5 +1,6 @@
 echo Cleanning database...
-echo > database/admin_db.sqlite
+#echo > database/admin_db.sqlite
+mysql -u root -placuna < resetMysql.sql
 php artisan migrate
 echo Seeding Database...
 php artisan db:seed

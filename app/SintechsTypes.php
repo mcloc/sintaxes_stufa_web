@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class SintechsTypes extends Model
+class VgerTypes extends Model
 {
-    protected $table = 'sintechs_types';
+    protected $table = 'vger_types';
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSintechsCommandsTypeTable extends Migration
+class CreateVgerCommandsTypeTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateSintechsCommandsTypeTable extends Migration
      */
     public function up()
     {
-        Schema::create('sintechs_commands_type', function (Blueprint $table) {
+        Schema::create('vger_commands_type', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name')->unique();
             $table->string('return_type')->nullable();
@@ -29,6 +29,6 @@ class CreateSintechsCommandsTypeTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sintechs_commands_type');
+        Schema::dropIfExists('vger_commands_type');
     }
 }

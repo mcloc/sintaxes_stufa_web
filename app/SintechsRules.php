@@ -4,14 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class SintechsRules extends Model
+class VgerRules extends Model
 {
-    protected $table = 'sintechs_rules';
+    protected $table = 'vger_rules';
     protected $guarded = [];
     
     public function module()
     {
-        return $this->hasMany(SintechsModules::class, 'id', 'module_id');
+        return $this->hasMany(VgerModules::class, 'id', 'module_id');
     }
     
     public function getDates() {

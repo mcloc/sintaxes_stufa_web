@@ -4,22 +4,22 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class SintechsRulesActuatorEvents extends Model
+class VgerRulesActuatorEvents extends Model
 {
-    protected $table = 'sintechs_rules_events_actuators';
+    protected $table = 'vger_rules_events_actuators';
     protected $guarded = [];
     
     
     public function ruleFired(){
-        return $this->belongsToMany(SintechsRulesFired::class, 'id', 'rule_fired_id');
+        return $this->belongsToMany(VgerRulesFired::class, 'id', 'rule_fired_id');
     }
     
     public function module() {
-        return $this->hasMany(SintechsModules::class, 'id', 'module_id');
+        return $this->hasMany(VgerModules::class, 'id', 'module_id');
     }
     
     public function actuator() {
-        return $this->hasMany(SintechsActuators::class)->whereHas('sintechs_actuators', function ($query) {
+        return $this->hasMany(VgerActuators::class)->whereHas('vger_actuators', function ($query) {
             $query->where('actuator_uuid', $this->actuator_uuid);
         })->get();
     }

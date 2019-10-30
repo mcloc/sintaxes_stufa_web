@@ -4,28 +4,28 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class SintechsAlerts extends Model
+class VgerAlerts extends Model
 {
-    protected $table = 'sintechs_alerts';
+    protected $table = 'vger_alerts';
     
     public function module()
     {
-        return $this->hasMany(SintechsModules::class, 'id', 'module_id');
+        return $this->hasMany(VgerModules::class, 'id', 'module_id');
     }
     
     public static function hasAlert(){
-        $alerts = SintechsAlerts::where('readed', false)->get();
+        $alerts = VgerAlerts::where('readed', false)->get();
         
         return count($alerts);
     }
     
     public static function getAllUnreaded(){
-        $alerts = SintechsAlerts::orderByDesc('created_time')->where('readed', false)->get();
+        $alerts = VgerAlerts::orderByDesc('created_time')->where('readed', false)->get();
         return $alerts;
     }
     
     public static function getLastAlert(){
-        return SintechsAlerts::orderByDesc('created_at')->where('readed', false)->first();
+        return VgerAlerts::orderByDesc('created_at')->where('readed', false)->first();
     }
     
     public function getDates() {

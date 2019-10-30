@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSintechsSamplingSensorsTable extends Migration
+class CreateVgerSamplingSensorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,12 +14,12 @@ class CreateSintechsSamplingSensorsTable extends Migration
     public function up()
     {
         Schema::enableForeignKeyConstraints();
-        Schema::create('sintechs_sampling_sensors', function (Blueprint $table) {
+        Schema::create('vger_sampling_sensors', function (Blueprint $table) {
             $table->unsignedBigInteger('sampling_id')->index();
-            $table->foreign('sampling_id')->references('uuid')->on('sintechs_sampling');
+            $table->foreign('sampling_id')->references('uuid')->on('vger_sampling');
             
             $table->unsignedBigInteger('sensor_id')->index();
-            $table->foreign('sensor_id')->references('id')->on('sintechs_sensors');
+            $table->foreign('sensor_id')->references('id')->on('vger_sensors');
             
             $table->string('measure_type')->index();
             $table->string('value');
@@ -36,6 +36,6 @@ class CreateSintechsSamplingSensorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sintechs_sampling_sensors');
+        Schema::dropIfExists('vger_sampling_sensors');
     }
 }

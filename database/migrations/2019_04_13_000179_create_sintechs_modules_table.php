@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSintechsModulesTable extends Migration
+class CreateVgerModulesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateSintechsModulesTable extends Migration
      */
     public function up()
     {
-        Schema::create('sintechs_modules', function (Blueprint $table) {
+        Schema::create('vger_modules', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name')->unique();
             $table->string('description');
@@ -25,7 +25,7 @@ class CreateSintechsModulesTable extends Migration
             $table->boolean('active')->default(false);
             $table->float('uptime')->default(0);
             $table->unsignedBigInteger('type_id')->index();
-            $table->foreign('type_id')->references('id')->on('sintechs_modules_type');
+            $table->foreign('type_id')->references('id')->on('vger_modules_type');
             $table->timestamps();
         });
     }
@@ -37,6 +37,6 @@ class CreateSintechsModulesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sintechs_modules');
+        Schema::dropIfExists('vger_modules');
     }
 }

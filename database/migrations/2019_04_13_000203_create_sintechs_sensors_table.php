@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSintechsSensorsTable extends Migration
+class CreateVgerSensorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class CreateSintechsSensorsTable extends Migration
     public function up()
     {
         Schema::enableForeignKeyConstraints();
-        Schema::create('sintechs_sensors', function (Blueprint $table) {
+        Schema::create('vger_sensors', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('uuid')->unique();
             $table->string('type');
@@ -26,7 +26,7 @@ class CreateSintechsSensorsTable extends Migration
             $table->text('support_description')->nullable();
             
             $table->unsignedBigInteger('module_id')->index();
-            $table->foreign('module_id')->references('id')->on('sintechs_modules');
+            $table->foreign('module_id')->references('id')->on('vger_modules');
             
             $table->timestamps();
         });
@@ -39,6 +39,6 @@ class CreateSintechsSensorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sintechs_sensors');
+        Schema::dropIfExists('vger_sensors');
     }
 }

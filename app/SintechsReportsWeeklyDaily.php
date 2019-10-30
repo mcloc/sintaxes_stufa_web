@@ -4,12 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class SintechsReportsWeeklyDaily extends Model
+class VgerReportsWeeklyDaily extends Model
 {
-    protected $table = 'sintechs_reports_weekly_daily';
+    protected $table = 'vger_reports_weekly_daily';
     
     public function daily()
     {
-        return $this->belongsToMany(SintechsReportsDaily::class);
+        return $this->belongsToMany(VgerReportsDaily::class);
     }
 }

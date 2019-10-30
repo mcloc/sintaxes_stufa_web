@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSintechsEventsActuatorsTable extends Migration
+class CreateVgerEventsActuatorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,13 +14,13 @@ class CreateSintechsEventsActuatorsTable extends Migration
     public function up()
     {
         Schema::enableForeignKeyConstraints();
-        Schema::create('sintechs_events_actuators', function (Blueprint $table) {
+        Schema::create('vger_events_actuators', function (Blueprint $table) {
             
             $table->unsignedBigInteger('event_id')->index();
-            $table->foreign('event_id')->references('id')->on('sintechs_events');
+            $table->foreign('event_id')->references('id')->on('vger_events');
             
             $table->unsignedBigInteger('actuator_id')->index();
-            $table->foreign('actuator_id')->references('id')->on('sintechs_actuators');
+            $table->foreign('actuator_id')->references('id')->on('vger_actuators');
             
             $table->boolean('event_status'); // 1 = DONE, 0 = PENDING TO CONCLUDE
             $table->boolean('actuator_value');
@@ -42,6 +42,6 @@ class CreateSintechsEventsActuatorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sintechs_events_actuators');
+        Schema::dropIfExists('vger_events_actuators');
     }
 }

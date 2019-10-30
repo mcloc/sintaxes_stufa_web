@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSintechsCommandsArgsTable extends Migration
+class CreateVgerCommandsArgsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,11 +14,11 @@ class CreateSintechsCommandsArgsTable extends Migration
     public function up()
     {
         Schema::enableForeignKeyConstraints();
-        Schema::create('sintechs_commands_args', function (Blueprint $table) {
+        Schema::create('vger_commands_args', function (Blueprint $table) {
             $table->string('arg_name')->index();
             
             $table->unsignedBigInteger('command_id')->index();
-            $table->foreign('command_id')->references('id')->on('sintechs_commands');
+            $table->foreign('command_id')->references('id')->on('vger_commands');
             
             $table->string('description');
             $table->timestamps();
@@ -37,6 +37,6 @@ class CreateSintechsCommandsArgsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sintechs_commands_args');
+        Schema::dropIfExists('vger_commands_args');
     }
 }

@@ -1,16 +1,16 @@
 <?php
-namespace App\Http\Controllers\Sintechs;
+namespace App\Http\Controllers\Vger;
 
-use App\SintechsActuators;
-use App\SintechsAlerts;
-use App\SintechsModules;
-use App\SintechsRules;
-use App\SintechsRulesActuatorEvents;
-use App\SintechsRulesFired;
-use App\SintechsSampling;
-use App\SintechsSamplingActuators;
-use App\SintechsSamplingSensors;
-use App\SintechsSensors;
+use App\VgerActuators;
+use App\VgerAlerts;
+use App\VgerModules;
+use App\VgerRules;
+use App\VgerRulesActuatorEvents;
+use App\VgerRulesFired;
+use App\VgerSampling;
+use App\VgerSamplingActuators;
+use App\VgerSamplingSensors;
+use App\VgerSensors;
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
@@ -50,7 +50,7 @@ class APIController extends Controller {
             return new JsonResponse(array('error' => 'no sampling_id'), 200);
         }
         
-        $sampling = SintechsSampling::with(array('module', 'samplingSensors', 'samplingActuators', 'samplingSensors.sensor','samplingActuators.actuator'))->find($sampling_id);
+        $sampling = VgerSampling::with(array('module', 'samplingSensors', 'samplingActuators', 'samplingSensors.sensor','samplingActuators.actuator'))->find($sampling_id);
         if($sampling == null){
             return new JsonResponse(array('error' => 'sampling_id no found'), 200);
         }
@@ -61,7 +61,7 @@ class APIController extends Controller {
     
     public function getLastSensorEvent($sensor_uuid){
         
-        $event = SintechsRulesActuatorEvents::orderByDesc('created_at')->with(array('ruleFired'))->where("sensor.uuid", $sensor_uuid)->first();
+        $event = VgerRulesActuatorEvents::orderByDesc('created_at')->with(array('ruleFired'))->where("sensor.uuid", $sensor_uuid)->first();
         if($event == null){
             return new JsonResponse(array('error' => '$event no found for sensor_uuid:'.$sensor_uuid), 200);
         }
@@ -72,7 +72,7 @@ class APIController extends Controller {
     
     public function getModuleId($module_name){
         $module_name = urldecode($module_name);
-        $module = SintechsModules::where("name", $module_name)->first();
+        $module = VgerModules::where("name", $module_name)->first();
         if($module == null){
             return new JsonResponse(array('error' => 'module no found for module_name:'.$module_name), 200);
         }
@@ -89,7 +89,7 @@ class APIController extends Controller {
     
     public function getSensorId($sensor_uuid){
         $sensor_uuid = urldecode($sensor_uuid);
-        $sensor = SintechsSensors::where("uuid", $sensor_uuid)->first();
+        $sensor = VgerSensors::where("uuid", $sensor_uuid)->first();
         if($sensor == null){
             return new JsonResponse(array('error' => 'sensor no found for uuid:'.$sensor_uuid), 200);
         }
@@ -106,7 +106,7 @@ class APIController extends Controller {
     
     public function getSensorByUUID($sensor_uuid){
         $sensor_uuid = urldecode($sensor_uuid);
-        $sensor = SintechsSensors::where("uuid", $sensor_uuid)->first();
+        $sensor = VgerSensors::where("uuid", $sensor_uuid)->first();
         if($sensor == null){
             return new JsonResponse(array('error' => 'sensor no found for uuid:'.$sensor_uuid), 200);
         }
@@ -133,7 +133,7 @@ class APIController extends Controller {
     
     public function getActuatorByUUID($actuator_uuid){
         $actuator_uuid = urldecode($actuator_uuid);
-        $actuator = SintechsActuators::where("uuid", $actuator_uuid)->first();
+        $actuator = VgerActuators::where("uuid", $actuator_uuid)->first();
         if($actuator == null){
             return new JsonResponse(array('error' => 'actuator no found for uuid:'.$actuator_uuid), 200);
         }
@@ -200,19 +200,19 @@ class APIController extends Controller {
             return new JsonResponse(array('error' => $e->getMessage()), 200);
         }
         
-        $module = SintechsModules::where('name', $data['module_name'])->first();
+        $module = VgerModules::where('name', $data['module_name'])->first();
 
         $last_actuators_state = array();
-        $last_sampling = SintechsSampling::orderByDesc('created_at')->first();
+        $last_sampling = VgerSampling::orderByDesc('created_at')->first();
         if($last_sampling != null){
-            $last_actuators = SintechsSamplingActuators::where('sampling_id', $last_sampling->id)->get();
+            $last_actuators = VgerSamplingActuators::where('sampling_id', $last_sampling->id)->get();
             foreach($last_actuators as $last_act){
                 $last_actuators_state[$last_act->actuator_id] = (bool) filter_var($last_act->active);
             }
         }
         
         
-        $sampling = new SintechsSampling();
+        $sampling = new VgerSampling();
         $sampling->module_id = $module->id;
         $sampling->status = $data['status'];
         $sampling->uptime = $data['uptime'];
@@ -224,10 +224,10 @@ class APIController extends Controller {
         
         foreach($data['data']['sensors'] as $sensor_arr){
             
-            $sensor = SintechsSensors::where('uuid', $sensor_arr['uuid'])->first();
+            $sensor = VgerSensors::where('uuid', $sensor_arr['uuid'])->first();
             foreach($sensor_arr['value'] as $values) {
                 foreach($values as $key_value => $value){
-                    $sampling_sensor = new SintechsSamplingSensors();
+                    $sampling_sensor = new VgerSamplingSensors();
                     $sampling_sensor->sampling_id = $sampling->id;
                     $sampling_sensor->sensor_id = $sensor->id;
                     $sampling_sensor->measure_type = $key_value;
@@ -238,8 +238,8 @@ class APIController extends Controller {
         }
         
         foreach($data['data']['actuators'] as $actuator_arr){
-            $actuator = SintechsActuators::where('uuid', $actuator_arr['uuid'])->first();
-            $sampling_actuator = new SintechsSamplingActuators();
+            $actuator = VgerActuators::where('uuid', $actuator_arr['uuid'])->first();
+            $sampling_actuator = new VgerSamplingActuators();
             $sampling_actuator->sampling_id = $sampling->id;
             $sampling_actuator->actuator_id = $actuator->id;
             $sampling_actuator->active = (bool) filter_var($actuator_arr['value']['active'], FILTER_VALIDATE_BOOLEAN);
@@ -248,7 +248,7 @@ class APIController extends Controller {
             
             if(array_key_exists($actuator->id, $last_actuators_state)){
                 if($last_actuators_state[$actuator->id] != $sampling_actuator->active){
-                    $alert = new SintechsAlerts();
+                    $alert = new VgerAlerts();
                     $alert->readed = false;
                     $alert->module_id = $module->id;
                     $alert->message = Carbon::parse($sampling->created_at)->format('d/m/Y H:i:s') .
@@ -294,14 +294,14 @@ class APIController extends Controller {
             throw new Exception('no data on sensors or actuators');
         }
         
-        $module = SintechsModules::where('name', $data['module_name'])->first();
+        $module = VgerModules::where('name', $data['module_name'])->first();
         
         if(!$module || $module == null){
             //TODO: Log ERROR
             throw new Exception('status not OK');
         }
         foreach($data['data']['sensors'] as $sensor_arr){
-            $sensor = SintechsSensors::where('uuid', $sensor_arr['uuid'])->first();
+            $sensor = VgerSensors::where('uuid', $sensor_arr['uuid'])->first();
             if(!$sensor || $sensor == null){
                 //TODO: Log ERROR
                 throw new JsonResponse('sensor '.$sensor_arr['uuid'].' not exists');
@@ -309,7 +309,7 @@ class APIController extends Controller {
         }
        
         foreach($data['data']['actuators'] as $actuator_arr){
-            $actuator = SintechsActuators::where('uuid', $actuator_arr['uuid'])->first();
+            $actuator = VgerActuators::where('uuid', $actuator_arr['uuid'])->first();
             if(!$actuator || $actuator == null){
                 //TODO: Log ERROR
                 throw new Exception('actuator '.$actuator_arr['uuid'].' not exists');
@@ -326,10 +326,10 @@ class APIController extends Controller {
             return new JsonResponse(array('error' => $e->getMessage()), 200);
         }
         
-        $module = SintechsModules::where('name', $data['module_name'])->first();
-        $rule = SintechsRules::where('name', $data['rule_name'])->first();
+        $module = VgerModules::where('name', $data['module_name'])->first();
+        $rule = VgerRules::where('name', $data['rule_name'])->first();
         
-        $rule_fired = new SintechsRulesFired();
+        $rule_fired = new VgerRulesFired();
         $rule_fired->rule_id = $rule->id;
         $rule_fired->value = $data['value'];
         $rule_fired->rule_condition = $data['rule_condition'];
@@ -339,7 +339,7 @@ class APIController extends Controller {
         $rule_fired->sensor_uuid = $data['sensor_uuid'];
         $rule_fired->save();
         
-        $event = new SintechsRulesActuatorEvents();
+        $event = new VgerRulesActuatorEvents();
         $event->rule_fired_id = $rule_fired->id;
         $event->actuator_uuid = $data['actuator_uuid'];
         $event->value = $data['command_value'];
@@ -379,7 +379,7 @@ class APIController extends Controller {
     }
     
     public function getActiveModules(){
-        $modules = SintechsModules::with('type')->whereHas('type', function ($query) {$query->where('name', '=', 'arduino');})->where('sintechs_modules.active', true)->get();
+        $modules = VgerModules::with('type')->whereHas('type', function ($query) {$query->where('name', '=', 'arduino');})->where('vger_modules.active', true)->get();
         
         if($modules == null){
             return new JsonResponse(array('error' => 'no active modules found'), 200);
@@ -420,7 +420,7 @@ class APIController extends Controller {
     
     public function getMockModuleSampling($module_name){
         $module_name = urldecode($module_name);
-        $module = SintechsModules::where('name', $module_name)->first();
+        $module = VgerModules::where('name', $module_name)->first();
         
         if($module == null){
             return new JsonResponse(array('error' => 'module name:'.$module_name.' not found'), 200);

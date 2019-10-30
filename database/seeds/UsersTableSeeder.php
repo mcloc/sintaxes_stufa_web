@@ -14,9 +14,9 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'name' => 'sintechs',
-            'fullname' => 'Sintechs Development Company LTDA.',
-            'email' => 'support@sintechs.com.br',
+            'name' => 'vger',
+            'fullname' => 'Vger Development Company LTDA.',
+            'email' => 'support@vger.com.br',
             'email_verified_at' => now(),
             'cpf_cnpj' => '11111111111',
             'password' => bcrypt('123456'),

@@ -1,11 +1,11 @@
 <?php
 
-use App\SintechsModules;
+use App\VgerModules;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class SintechsRulesTableSeeder extends Seeder
+class VgerRulesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,12 +14,12 @@ class SintechsRulesTableSeeder extends Seeder
      */
     public function run()
     {
-        $arduino_module = SintechsModules::where('name', 'arduino_climatization_board#1')->first();
+        $arduino_module = VgerModules::where('name', 'arduino_climatization_board#1')->first();
         if (! $arduino_module)
             throw new Exception('Command MODULE arduino_climatization_board#1 not found... Cannot seed RULE');
             
         
-        DB::table('sintechs_rules')->insert([
+        DB::table('vger_rules')->insert([
             'id' => '1',
             'rule_title' => '001-DHT11#1',
             'drl_file' => 'actuator_001.drl',

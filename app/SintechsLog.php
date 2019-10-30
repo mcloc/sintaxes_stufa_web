@@ -4,20 +4,20 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class SintechsLog extends Model
+class VgerLog extends Model
 {
-    protected $table = 'sintechs_log';
+    protected $table = 'vger_log';
     
     public function type() {
-        return $this->hasMany('App\SintechsType');
+        return $this->hasMany('App\VgerType');
     }
     
     public function sensor() {
-        return $this->hasMany('App\SintechsSensors');
+        return $this->hasMany('App\VgerSensors');
     }
     
     public function actuator() {
-        return $this->hasMany('App\SintechsActuators');
+        return $this->hasMany('App\VgerActuators');
     }
     
     public function user() {
@@ -25,10 +25,10 @@ class SintechsLog extends Model
     }
     
     public function rule() {
-        return $this->hasMany('App\SintechsRules');
+        return $this->hasMany('App\VgerRules');
     }
     
     public function sampling() {
-        return $this->hasMany('App\SintechsSampling');
+        return $this->hasMany('App\VgerSampling');
     }
 }

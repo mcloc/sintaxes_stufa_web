@@ -4,19 +4,19 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class SintechsErrors extends Model
+class VgerErrors extends Model
 {
-    protected $table = 'sintechs_errors';
+    protected $table = 'vger_errors';
     
     public function sensor() {
-        return $this->hasMany('App\SintechsSensors');
+        return $this->hasMany('App\VgerSensors');
     }
     
     public function actuator() {
-        return $this->hasMany('App\SintechsActuators');
+        return $this->hasMany('App\VgerActuators');
     }
     
     public function rule() {
-        return $this->hasMany('App\SintechsRules');
+        return $this->hasMany('App\VgerRules');
     }
 }

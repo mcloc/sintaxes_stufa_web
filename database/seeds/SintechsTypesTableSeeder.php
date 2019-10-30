@@ -4,7 +4,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class SintechsTypesTableSeeder extends Seeder
+class VgerTypesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,7 +13,7 @@ class SintechsTypesTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('sintechs_types')->insert([
+        DB::table('vger_types')->insert([
             'id' => '1',
             'name' => 'module',
             'description' => 'References to one of the arduino modules',
@@ -22,7 +22,7 @@ class SintechsTypesTableSeeder extends Seeder
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         
-        DB::table('sintechs_types')->insert([
+        DB::table('vger_types')->insert([
             'id' => '2',
             'name' => 'sensors',
             'description' => 'References to sensors per si',
@@ -31,7 +31,7 @@ class SintechsTypesTableSeeder extends Seeder
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         
-        DB::table('sintechs_types')->insert([
+        DB::table('vger_types')->insert([
             'id' => '3',
             'name' => 'actuators',
             'description' => 'References to actuators per si (solenoids, relays, etc)',
@@ -40,7 +40,7 @@ class SintechsTypesTableSeeder extends Seeder
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         
-        DB::table('sintechs_types')->insert([
+        DB::table('vger_types')->insert([
             'id' => '4',
             'name' => 'sampling',
             'description' => 'References to Sampling Data from arduino boards',
@@ -49,7 +49,7 @@ class SintechsTypesTableSeeder extends Seeder
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         
-        DB::table('sintechs_types')->insert([
+        DB::table('vger_types')->insert([
             'id' => '5',
             'name' => 'software',
             'description' => 'References to Software, JavaSerialComm, REST_API, WEB_APP',
@@ -58,7 +58,7 @@ class SintechsTypesTableSeeder extends Seeder
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         
-        DB::table('sintechs_types')->insert([
+        DB::table('vger_types')->insert([
             'id' => '6',
             'name' => 'rules',
             'description' => 'References to one or more rules from Drools Expert System',
@@ -67,7 +67,7 @@ class SintechsTypesTableSeeder extends Seeder
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         
-        DB::table('sintechs_types')->insert([
+        DB::table('vger_types')->insert([
             'id' => '7',
             'name' => 'config',
             'description' => 'References to one or more config variable',

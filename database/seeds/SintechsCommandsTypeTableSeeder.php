@@ -4,7 +4,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class SintechsCommandsTypeTableSeeder extends Seeder
+class VgerCommandsTypeTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,7 +13,7 @@ class SintechsCommandsTypeTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('sintechs_commands_type')->insert([
+        DB::table('vger_commands_type')->insert([
             'id' => 1,
             'name' => 'IO_COMMAND',
             'return_type' => 'status',
@@ -22,7 +22,7 @@ class SintechsCommandsTypeTableSeeder extends Seeder
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         
-        DB::table('sintechs_commands_type')->insert([
+        DB::table('vger_commands_type')->insert([
             'id' => 2,
             'name' => 'ANALOG_COMMAND',
             'return_type' => 'status',
@@ -31,7 +31,7 @@ class SintechsCommandsTypeTableSeeder extends Seeder
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         
-        DB::table('sintechs_commands_type')->insert([
+        DB::table('vger_commands_type')->insert([
             'id' => 3,
             'name' => 'GET_STATUS',
             'return_type' => 'value',
@@ -40,7 +40,7 @@ class SintechsCommandsTypeTableSeeder extends Seeder
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         
-        DB::table('sintechs_commands_type')->insert([
+        DB::table('vger_commands_type')->insert([
             'id' => 4,
             'name' => 'GET_DATA',
             'return_type' => 'value',
@@ -49,7 +49,7 @@ class SintechsCommandsTypeTableSeeder extends Seeder
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         
-        DB::table('sintechs_commands_type')->insert([
+        DB::table('vger_commands_type')->insert([
             'id' => 5,
             'name' => 'GET_INFO',
             'return_type' => 'value',
@@ -58,7 +58,7 @@ class SintechsCommandsTypeTableSeeder extends Seeder
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         
-        DB::table('sintechs_commands_type')->insert([
+        DB::table('vger_commands_type')->insert([
             'id' => 6,
             'name' => 'RESET_BOARD',
             'return_type' => 'status',
@@ -67,7 +67,7 @@ class SintechsCommandsTypeTableSeeder extends Seeder
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         
-        DB::table('sintechs_commands_type')->insert([
+        DB::table('vger_commands_type')->insert([
             'id' => 7,
             'name' => 'DEBUG',
             'return_type' => 'status',

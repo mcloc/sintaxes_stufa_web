@@ -4,7 +4,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class SintechsModulesTypeTableSeeder extends Seeder
+class VgerModulesTypeTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,7 +13,7 @@ class SintechsModulesTypeTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('sintechs_modules_type')->insert([
+        DB::table('vger_modules_type')->insert([
             'id' => 1,
             'name' => 'arduino',
             'description' => 'Arduino Board',
@@ -21,7 +21,7 @@ class SintechsModulesTypeTableSeeder extends Seeder
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         
-        DB::table('sintechs_modules_type')->insert([
+        DB::table('vger_modules_type')->insert([
             'id' => 2,
             'name' => 'arduino_comm',
             'description' => 'Arduino Communication Board',
@@ -29,7 +29,7 @@ class SintechsModulesTypeTableSeeder extends Seeder
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         
-        DB::table('sintechs_modules_type')->insert([
+        DB::table('vger_modules_type')->insert([
             'id' => 3,
             'name' => 'pi_board',
             'description' => 'PI Board',
@@ -37,7 +37,7 @@ class SintechsModulesTypeTableSeeder extends Seeder
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         
-        DB::table('sintechs_modules_type')->insert([
+        DB::table('vger_modules_type')->insert([
             'id' => 4,
             'name' => 'software',
             'description' => 'Software Modules',

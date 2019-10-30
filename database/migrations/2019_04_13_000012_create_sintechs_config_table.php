@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSintechsConfigTable extends Migration
+class CreateVgerConfigTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class CreateSintechsConfigTable extends Migration
     public function up()
     {
         Schema::enableForeignKeyConstraints();
-        Schema::create('sintechs_config', function (Blueprint $table) {
+        Schema::create('vger_config', function (Blueprint $table) {
             $table->bigIncrements('id');
 //             $table->enum('type', ['module', 'sensors', 'actuators', 'sampling', 'software','rule']);
             $table->string('name');
@@ -23,16 +23,16 @@ class CreateSintechsConfigTable extends Migration
             $table->boolean('active')->default(false);
             
             $table->unsignedBigInteger('type_id');
-            $table->foreign('type_id')->references('id')->on('sintechs_types');
+            $table->foreign('type_id')->references('id')->on('vger_types');
             
             $table->unsignedBigInteger('sensor_id')->nullable();
-            $table->foreign('sensor_id')->references('id')->on('sintechs_sensors');
+            $table->foreign('sensor_id')->references('id')->on('vger_sensors');
             
             $table->unsignedBigInteger('actuator_id')->nullable();
-            $table->foreign('actuator_id')->references('id')->on('sintechs_actuators');
+            $table->foreign('actuator_id')->references('id')->on('vger_actuators');
             
             $table->unsignedBigInteger('rule_id')->nullable();
-            $table->foreign('rule_id')->references('id')->on('sintechs_rules');
+            $table->foreign('rule_id')->references('id')->on('vger_rules');
             
             $table->timestamps();
         });
@@ -45,6 +45,6 @@ class CreateSintechsConfigTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sintechs_config');
+        Schema::dropIfExists('vger_config');
     }
 }

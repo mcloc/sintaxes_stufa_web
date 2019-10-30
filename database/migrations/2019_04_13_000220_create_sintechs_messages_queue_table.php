@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSintechsMessagesQueueTable extends Migration
+class CreateVgerMessagesQueueTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,15 +14,15 @@ class CreateSintechsMessagesQueueTable extends Migration
     public function up()
     {
         Schema::enableForeignKeyConstraints();
-        Schema::create('sintechs_messages_queue', function (Blueprint $table) {
+        Schema::create('vger_messages_queue', function (Blueprint $table) {
             $table->bigIncrements('id');
 
             $table->unsignedBigInteger('module_id')->index();
-            $table->foreign('module_id')->references('id')->on('sintechs_modules');
+            $table->foreign('module_id')->references('id')->on('vger_modules');
             
             
             $table->unsignedBigInteger('command_queue_id')->index()->nullable();
-            $table->foreign('command_queue_id')->references('id')->on('sintechs_commands_queue');
+            $table->foreign('command_queue_id')->references('id')->on('vger_commands_queue');
 
             $table->char('status');
             $table->text('message_value');
@@ -41,6 +41,6 @@ class CreateSintechsMessagesQueueTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sintechs_messages_queue');
+        Schema::dropIfExists('vger_messages_queue');
     }
 }

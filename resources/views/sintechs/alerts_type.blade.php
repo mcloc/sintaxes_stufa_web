@@ -1,12 +1,12 @@
 @extends('layouts.main-layout')
 
-@section('title', 'Sintechs Admin - Home')
+@section('title', 'Vger Admin - Home')
 
 @section('page_name')
-    <h1>Sintechs Admin</h1>
+    <h1>Vger Admin</h1>
 @endsection
 @section('breadcrumbs')
-<li><a href="#">Sintechs Admin</a></li>
+<li><a href="#">Vger Admin</a></li>
 <li>Alerts</li>
 <li class="active">Type</li>
 @endsection

@@ -1,5 +1,5 @@
 <?php
-namespace App\Http\Controllers\Sintechs;
+namespace App\Http\Controllers\Vger;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -12,7 +12,7 @@ class LogsController extends Controller {
         $this->middleware('auth');
         $this->middleware(function ($request, $next) {
             $user = Auth::user();
-            if (!$user->hasRole('sintechsadmin')) { // you can pass an id or slug
+            if (!$user->hasRole('vgeradmin')) { // you can pass an id or slug
                 return redirect('/');
             }
             return $next($request);
@@ -20,15 +20,15 @@ class LogsController extends Controller {
     }
     
     public function audit(){
-        return view("sintechs.logs_audit");
+        return view("vger.logs_audit");
     }
     
     public function support(){
-        return view("sintechs.logs_support");
+        return view("vger.logs_support");
     }
     
     public function errors(){
-        return view("sintechs.logs_errors");
+        return view("vger.logs_errors");
     }
     
     

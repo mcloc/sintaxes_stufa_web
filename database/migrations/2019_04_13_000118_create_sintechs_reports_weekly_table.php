@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSintechsReportsWeeklyTable extends Migration
+class CreateVgerReportsWeeklyTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateSintechsReportsWeeklyTable extends Migration
      */
     public function up()
     {
-        Schema::create('sintechs_reports_weekly', function (Blueprint $table) {
+        Schema::create('vger_reports_weekly', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ class CreateSintechsReportsWeeklyTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sintechs_reports');
+        Schema::dropIfExists('vger_reports');
     }
 }

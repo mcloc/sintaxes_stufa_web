@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class SintechsCommandsType extends Model
+class VgerCommandsType extends Model
 {
-    protected $table = 'sintechs_commands_type';
+    protected $table = 'vger_commands_type';
 }

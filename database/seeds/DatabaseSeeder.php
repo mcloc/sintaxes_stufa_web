@@ -16,21 +16,21 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(UsersTableSeeder::class);
-        $this->call(SintechsTableSeeder::class);
-        $this->call(SintechsTypesTableSeeder::class);
-        $this->call(SintechsModulesTypeTableSeeder::class);
-        $this->call(SintechsModulesTableSeeder::class);
-        $this->call(SintechsSensorsTableSeeder::class);
-        $this->call(SintechsActuatorsTableSeeder::class);
-        $this->call(SintechsCommandsTypeTableSeeder::class);
-        $this->call(SintechsCommandsTableSeeder::class);
-        $this->call(SintechsRulesTableSeeder::class);
+        $this->call(VgerTableSeeder::class);
+        $this->call(VgerTypesTableSeeder::class);
+        $this->call(VgerModulesTypeTableSeeder::class);
+        $this->call(VgerModulesTableSeeder::class);
+        $this->call(VgerSensorsTableSeeder::class);
+        $this->call(VgerActuatorsTableSeeder::class);
+        $this->call(VgerCommandsTypeTableSeeder::class);
+        $this->call(VgerCommandsTableSeeder::class);
+        $this->call(VgerRulesTableSeeder::class);
         
         Model::unguard();
         $this->call(PermissionsTableSeeder::class);
         $this->call(RolesTableSeeder::class);
         $this->call(ConnectRelationshipsSeeder::class);
-        $this->call(SintechsRoleUserTableSeeder::class);
+        $this->call(VgerRoleUserTableSeeder::class);
         Model::reguard();
     }
 }

@@ -4,16 +4,16 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class SintechsSamplingActuators extends Model
+class VgerSamplingActuators extends Model
 {
-    protected $table = 'sintechs_sampling_actuators';
+    protected $table = 'vger_sampling_actuators';
     
     public function actuator() {
-        return $this->hasMany(SintechsActuators::class, 'id', 'actuator_id');
+        return $this->hasMany(VgerActuators::class, 'id', 'actuator_id');
     }
     
     public function sample(){
-        return $this->belongsToMany(SintechsSampling::class, 'id', 'sampling_id');
+        return $this->belongsToMany(VgerSampling::class, 'id', 'sampling_id');
     }
     
     public function getDates() {

@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class SintechsRoleUserTableSeeder extends Seeder
+class VgerRoleUserTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.

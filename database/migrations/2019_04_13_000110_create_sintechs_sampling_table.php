@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSintechsSamplingTable extends Migration
+class CreateVgerSamplingTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,11 +14,11 @@ class CreateSintechsSamplingTable extends Migration
     public function up()
     {
         Schema::enableForeignKeyConstraints();
-        Schema::create('sintechs_sampling', function (Blueprint $table) {
+        Schema::create('vger_sampling', function (Blueprint $table) {
             $table->timestamp('uuid')->index();
             $table->integer('hashCode');
             $table->unsignedBigInteger('module_id')->index();
-            $table->foreign('module_id')->references('id')->on('sintechs_modules');
+            $table->foreign('module_id')->references('id')->on('vger_modules');
             
             $table->string('status');
             $table->bigInteger('uptime');
@@ -37,6 +37,6 @@ class CreateSintechsSamplingTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sintechs_sampling');
+        Schema::dropIfExists('vger_sampling');
     }
 }

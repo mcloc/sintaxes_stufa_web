@@ -20,16 +20,16 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::middleware('api')->group(function () {
-    Route::post('storeSampling', "Sintechs\APIController@storeSampling");
-    Route::post('storeRuleEvent', "Sintechs\APIController@storeRuleEvent");
-    Route::get('testSockets', "Sintechs\APIController@testSockets");
-    Route::get('getSampling/{id}', "Sintechs\APIController@getSampling");
-    Route::get('getLastSensorEvent/{sensor_uuid}', "Sintechs\APIController@getLastSensorEvent");
-    Route::get('getModuleId/{module_name}', "Sintechs\APIController@getModuleId");
-    Route::get('getActiveModules', "Sintechs\APIController@getActiveModules");
-    Route::get('getSensorId/{sensor_uuid}', "Sintechs\APIController@getSensorId");
-    Route::get('getSensorByUUID/{sensor_uuid}', "Sintechs\APIController@getSensorByUUID");
-    Route::get('getActuatorByUUID/{actuator_uuid}', "Sintechs\APIController@getActuatorByUUID");
-    Route::get('getMockModuleSampling/{module_name}', "Sintechs\APIController@getMockModuleSampling");
+    Route::post('storeSampling', "Vger\APIController@storeSampling");
+    Route::post('storeRuleEvent', "Vger\APIController@storeRuleEvent");
+    Route::get('testSockets', "Vger\APIController@testSockets");
+    Route::get('getSampling/{id}', "Vger\APIController@getSampling");
+    Route::get('getLastSensorEvent/{sensor_uuid}', "Vger\APIController@getLastSensorEvent");
+    Route::get('getModuleId/{module_name}', "Vger\APIController@getModuleId");
+    Route::get('getActiveModules', "Vger\APIController@getActiveModules");
+    Route::get('getSensorId/{sensor_uuid}', "Vger\APIController@getSensorId");
+    Route::get('getSensorByUUID/{sensor_uuid}', "Vger\APIController@getSensorByUUID");
+    Route::get('getActuatorByUUID/{actuator_uuid}', "Vger\APIController@getActuatorByUUID");
+    Route::get('getMockModuleSampling/{module_name}', "Vger\APIController@getMockModuleSampling");
     
 });

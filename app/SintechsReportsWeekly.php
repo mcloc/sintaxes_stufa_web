@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class SintechsReportsWeekly extends Model
+class VgerReportsWeekly extends Model
 {
-    protected $table = 'sintechs_reports_weekly';
+    protected $table = 'vger_reports_weekly';
 }

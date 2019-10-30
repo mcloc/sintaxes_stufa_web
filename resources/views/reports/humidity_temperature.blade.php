@@ -1,9 +1,9 @@
 <?php
-use App\SintechsAlerts;
+use App\VgerAlerts;
 ?>
 @extends('layouts.main-layout')
 
-@section('title', 'Sintechs Admin - Relatórios')
+@section('title', 'Vger Admin - Relatórios')
 
 @section('page_name')
     <h1>Relatórios</h1>
@@ -20,7 +20,7 @@ use App\SintechsAlerts;
 @section('alert-message')
 
  <div class="col-sm-12">
- <?php if(SintechsAlerts::hasAlert()){ $alert = SintechsAlerts::getLastAlert(); ?>
+ <?php if(VgerAlerts::hasAlert()){ $alert = VgerAlerts::getLastAlert(); ?>
     <div class="alert  alert-success alert-dismissible fade show" role="alert" id="alert-div-<?php echo $alert->id;?>">
         <?php echo $alert->message;?>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="closeAlert(<?php echo $alert->id?>);">

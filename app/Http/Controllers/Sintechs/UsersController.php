@@ -1,5 +1,5 @@
 <?php
-namespace App\Http\Controllers\Sintechs;
+namespace App\Http\Controllers\Vger;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -14,7 +14,7 @@ class UsersController extends Controller {
         $this->middleware(function ($request, $next) {
             
             $user = Auth::user();
-            if (!$user->hasRole('sintechsadmin')) { // you can pass an id or slug
+            if (!$user->hasRole('vgeradmin')) { // you can pass an id or slug
                 return redirect('/');
             }
             return $next($request);
@@ -23,20 +23,20 @@ class UsersController extends Controller {
     }
     
     public function client_data(){
-        return view("sintechs.users_client_data");
+        return view("vger.users_client_data");
     }
     
     public function user_roles(){
-        return view("sintechs.users_roles");
+        return view("vger.users_roles");
     }
     
     public function user_permissions(){
-        return view("sintechs.users_permissions");
+        return view("vger.users_permissions");
     }
     
     public function create(){
         die('not implemented');
-        return view("sintechs.users_permissions");
+        return view("vger.users_permissions");
     }
     
     

@@ -4,12 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class SintechsReportsDailySampling extends Model
+class VgerReportsDailySampling extends Model
 {
-    protected $table = 'sintechs_reports_daily_sampling';
+    protected $table = 'vger_reports_daily_sampling';
     
     public function sampling()
     {
-        return $this->belongsToMany(SintechsSampling::class);
+        return $this->belongsToMany(VgerSampling::class);
     }
 }

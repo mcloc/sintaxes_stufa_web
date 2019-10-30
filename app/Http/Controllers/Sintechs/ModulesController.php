@@ -1,9 +1,9 @@
 <?php
-namespace App\Http\Controllers\Sintechs;
+namespace App\Http\Controllers\Vger;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use App\SintechsModules;
+use App\VgerModules;
 
 
 class ModulesController extends Controller {
@@ -13,7 +13,7 @@ class ModulesController extends Controller {
         $this->middleware('auth');
         $this->middleware(function ($request, $next) {
             $user = Auth::user();
-            if (!$user->hasRole('sintechsadmin')) { // you can pass an id or slug
+            if (!$user->hasRole('vgeradmin')) { // you can pass an id or slug
                 return redirect('/');
             }
             return $next($request);
@@ -21,28 +21,28 @@ class ModulesController extends Controller {
     }
     
     public function modules_type_list(){
-        $mods = SintechsModules::all();
-        return view("sintechs.modules_type_list", array('modules' => $mods ));
+        $mods = VgerModules::all();
+        return view("vger.modules_type_list", array('modules' => $mods ));
     }
     
     public function modules_type_form(){
-        return view("sintechs.modules_type_form");
+        return view("vger.modules_type_form");
     }
     
     public function modules_type(){
-        return view("sintechs.modules_type");
+        return view("vger.modules_type");
     }
     
     public function modules(){
-        return view("sintechs.modules_mod");
+        return view("vger.modules_mod");
     }
     
     public function sensors(){
-        return view("sintechs.modules_sensors");
+        return view("vger.modules_sensors");
     }
     
     public function actuators(){
-        return view("sintechs.modules_actuators");
+        return view("vger.modules_actuators");
     }
     
     

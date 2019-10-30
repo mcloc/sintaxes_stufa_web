@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSintechsRulesActuatorsEventsTable extends Migration
+class CreateVgerRulesActuatorsEventsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,14 +14,14 @@ class CreateSintechsRulesActuatorsEventsTable extends Migration
     public function up()
     {
         Schema::enableForeignKeyConstraints();
-        Schema::create('sintechs_rules_actuator_events', function (Blueprint $table) {
+        Schema::create('vger_rules_actuator_events', function (Blueprint $table) {
             $table->bigIncrements('id');
             
             $table->unsignedBigInteger('rule_fired_id')->index();
-            $table->foreign('rule_fired_id')->references('id')->on('sintechs_rules_fired');
+            $table->foreign('rule_fired_id')->references('id')->on('vger_rules_fired');
             
             $table->unsignedBigInteger('module_id')->index();
-            $table->foreign('module_id')->references('id')->on('sintechs_modules');
+            $table->foreign('module_id')->references('id')->on('vger_modules');
 
             $table->String('actuator_uuid');
             $table->boolean('value');
@@ -42,6 +42,6 @@ class CreateSintechsRulesActuatorsEventsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sintechs_events');
+        Schema::dropIfExists('vger_events');
     }
 }

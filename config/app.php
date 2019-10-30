@@ -2,7 +2,7 @@
 
 return [
 
-    'domain' => env('SESSION_DOMAIN', 'admin.sintechs.com.br'),
+    'domain' => env('SESSION_DOMAIN', 'admin.vger.com.br'),
     
     
     /*
@@ -16,7 +16,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Sintechs Web Admin'),
+    'name' => env('APP_NAME', 'Vger Stufas Admin'),
 
     /*
     |--------------------------------------------------------------------------
@@ -55,7 +55,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://admin.sintechs.com.br'),
+    'url' => env('APP_URL', 'http://admin.vger.com.br'),
 
     'asset_url' => env('ASSET_URL', null),
 
