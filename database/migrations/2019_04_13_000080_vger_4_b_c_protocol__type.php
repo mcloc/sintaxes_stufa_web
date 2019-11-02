@@ -16,8 +16,8 @@ class Vger4BCProtocolType extends Migration
         Schema::enableForeignKeyConstraints();
         Schema::create('vger_4bcprotocol_types', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('start_range');
-            $table->string('end_range');
+            $table->unsignedInteger('start_range');
+            $table->unsignedInteger('end_range');
             $table->string('type');
             $table->string('description')->nullable();
             $table->boolean('active')->default(false);

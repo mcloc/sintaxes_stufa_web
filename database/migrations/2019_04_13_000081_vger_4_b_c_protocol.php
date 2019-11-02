@@ -16,8 +16,8 @@ class Vger4BCProtocol extends Migration
         Schema::enableForeignKeyConstraints();
         Schema::create('vger_4bcprotocol', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('uuid_4BCP')->unique();
-            
+            $table->unsignedInteger('uuid_4BCP')->unique();
+            $table->string('constant_name');
             $table->string('description')->nullable();
             $table->boolean('active')->default(false);
             
