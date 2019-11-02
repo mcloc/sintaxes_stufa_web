@@ -20,7 +20,7 @@ class VgerAlerts extends Model
     }
     
     public static function getAllUnreaded(){
-        $alerts = VgerAlerts::orderByDesc('created_time')->where('readed', false)->get();
+        $alerts = VgerAlerts::orderByDesc('created_at')->where('readed', false)->get();
         return $alerts;
     }
     

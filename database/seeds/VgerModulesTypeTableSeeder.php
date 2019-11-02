@@ -15,7 +15,7 @@ class VgerModulesTypeTableSeeder extends Seeder
     {
         DB::table('vger_modules_type')->insert([
             'id' => 1,
-            'name' => 'arduino',
+            'name' => 'AVR',
             'description' => 'Arduino Board',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
@@ -23,7 +23,7 @@ class VgerModulesTypeTableSeeder extends Seeder
         
         DB::table('vger_modules_type')->insert([
             'id' => 2,
-            'name' => 'arduino_comm',
+            'name' => 'AVR_comm',
             'description' => 'Arduino Communication Board',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')

@@ -34,12 +34,12 @@ class VgerModulesTableSeeder extends Seeder
         
         $software_type = VgerModulesType::where('name', 'software')->first();
         if (! $software_type)
-            throw new Exception('Module Type "arduino" not found... Cannot seed MODULES.');
+            throw new Exception('Module Type "AVR" not found... Cannot seed MODULES.');
         
         DB::table('vger_modules')->insert([
             'id' => 3,
-            'name' => 'serial_communication',
-            'description' => 'Java Serial Communication Handler',
+            'name' => 'tcp_communication',
+            'description' => 'Java TCP 4BCProtocol Communication Handler',
             'active' => true,
             'enabled' => true,
             'type_id' => $software_type->id,
@@ -70,97 +70,97 @@ class VgerModulesTableSeeder extends Seeder
         ]);
         
         
-        /************ arduino boards **************
+        /************ AVR boards **************
          * 
          */
-        $arduino_type = VgerModulesType::where('name', 'arduino')->first();
-        if (! $arduino_type)
-            throw new Exception('Module Type "arduino" not found... Cannot seed MODULES.');
+        $AVR_type = VgerModulesType::where('name', 'AVR')->first();
+        if (! $AVR_type)
+            throw new Exception('Module Type "AVR" not found... Cannot seed MODULES.');
             
             DB::table('vger_modules')->insert([
                 'id' => 6,
-                'name' => 'arduino_climatization_board#1',
+                'name' => 'AVR_climatization_board#1',
                 'description' => 'Arduino Sensors and Actuators for climatization #1',
                 'active' => true,
                 'enabled' => true,'active' => true,
-                'type_id' => $arduino_type->id,
+                'type_id' => $AVR_type->id,
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ]);
             
             DB::table('vger_modules')->insert([
                 'id' => 7,
-                'name' => 'arduino_climatization_board#2',
+                'name' => 'AVR_climatization_board#2',
                 'description' => 'Arduino Sensors and Actuators for climatization #2',
                 'active' => true,
                 'enabled' => true,
-                'type_id' => $arduino_type->id,
+                'type_id' => $AVR_type->id,
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ]);
             
             DB::table('vger_modules')->insert([
                 'id' => 8,
-                'name' => 'arduino_climatization_board#3',
+                'name' => 'AVR_climatization_board#3',
                 'description' => 'Arduino Sensors and Actuators for climatization #3',
                 'active' => true,
                 'enabled' => true,
-                'type_id' => $arduino_type->id,
+                'type_id' => $AVR_type->id,
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ]);
             
             DB::table('vger_modules')->insert([
                 'id' => 9,
-                'name' => 'arduino_soil_board#1',
+                'name' => 'AVR_soil_board#1',
                 'description' => 'Arduino Sensors and Actuators for Soil #1',
                 'active' => true,
                 'enabled' => true,
-                'type_id' => $arduino_type->id,
+                'type_id' => $AVR_type->id,
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ]);
             
             DB::table('vger_modules')->insert([
                 'id' => 10,
-                'name' => 'arduino_soil_board#2',
+                'name' => 'AVR_soil_board#2',
                 'description' => 'Arduino Sensors and Actuators for soil #2',
                 'active' => true,
                 'enabled' => true,
-                'type_id' => $arduino_type->id,
+                'type_id' => $AVR_type->id,
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ]);
             
             DB::table('vger_modules')->insert([
                 'id' => 11,
-                'name' => 'arduino_soil_board#3',
+                'name' => 'AVR_soil_board#3',
                 'description' => 'Arduino Sensors and Actuators for soil #3',
                 'active' => true,
                 'enabled' => true,
-                'type_id' => $arduino_type->id,
+                'type_id' => $AVR_type->id,
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ]);
             
             DB::table('vger_modules')->insert([
                 'id' => 12,
-                'name' => 'arduino_soil_board#4',
+                'name' => 'AVR_soil_board#4',
                 'description' => 'Arduino Sensors and Actuators for soil #4',
                 'active' => true,
                 'enabled' => true,
-                'type_id' => $arduino_type->id,
+                'type_id' => $AVR_type->id,
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ]);
             
             DB::table('vger_modules')->insert([
                 'id' => 13,
-                'name' => 'arduino_external_climatization_board#1',
+                'name' => 'AVR_external_climatization_board#1',
                 'description' => 'Arduino Sensors and Actuators for external_climatization #1',
                 'active' => true,
                 'enabled' => true,
-                'type_id' => $arduino_type->id,
+                'type_id' => $AVR_type->id,
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ]);

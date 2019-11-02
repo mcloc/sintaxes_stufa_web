@@ -167,7 +167,7 @@ class APIController extends Controller {
      * JsonData should be like this example
      * 
         {
-            "module_name": "arduino_board#1",
+            "module_name": "AVR_board#1",
             "data": {
                 "sensors": [ {
         			"uuid": "DHT11#1",
@@ -379,7 +379,7 @@ class APIController extends Controller {
     }
     
     public function getActiveModules(){
-        $modules = VgerModules::with('type')->whereHas('type', function ($query) {$query->where('name', '=', 'arduino');})->where('vger_modules.active', true)->get();
+        $modules = VgerModules::with('type')->whereHas('type', function ($query) {$query->where('name', '=', 'AVR');})->where('vger_modules.active', true)->get();
         
         if($modules == null){
             return new JsonResponse(array('error' => 'no active modules found'), 200);
@@ -428,70 +428,70 @@ class APIController extends Controller {
         
         $board = array();
         switch($module_name){
-            case 'arduino_climatization_board#1':
+            case 'AVR_climatization_board#1':
                 $sensors = array();
                 $sensors[] = 'DHT11#1';
                 $sensors[] = 'DHT11#2';
                 $sensors[] = 'DHT11#3';
                 $actuators = array();
                 $actuators[] = 'DN20#1';
-                $board = $this->hidrateClimatizationBoard("arduino_climatization_board#1", $sensors, $actuators);
+                $board = $this->hidrateClimatizationBoard("AVR_climatization_board#1", $sensors, $actuators);
                 break;
-            case 'arduino_climatization_board#2':
+            case 'AVR_climatization_board#2':
                 $sensors = array();
                 $sensors[] = 'DHT11#4';
                 $sensors[] = 'DHT11#5';
                 $sensors[] = 'DHT11#6';
                 $actuators = array();
                 $actuators[] = 'DN20#2';
-                $board = $this->hidrateClimatizationBoard("arduino_climatization_board#2", $sensors, $actuators);
+                $board = $this->hidrateClimatizationBoard("AVR_climatization_board#2", $sensors, $actuators);
                 break;
-            case 'arduino_climatization_board#3':
+            case 'AVR_climatization_board#3':
                 $sensors = array();
                 $sensors[] = 'DHT11#7';
                 $sensors[] = 'DHT11#8';
                 $sensors[] = 'DHT11#9';
                 $actuators = array();
                 $actuators[] = 'DN20#3';
-                $board = $this->hidrateClimatizationBoard("arduino_climatization_board#3", $sensors, $actuators);
+                $board = $this->hidrateClimatizationBoard("AVR_climatization_board#3", $sensors, $actuators);
                 break;
-            case 'arduino_external_climatization_board#1':
+            case 'AVR_external_climatization_board#1':
                 $sensors = array();
                 $sensors[] = 'DHT21#1';
                 $actuators = array();
-                $board = $this->hidrateClimatizationBoard("arduino_external_climatization_board#1", $sensors, $actuators);
+                $board = $this->hidrateClimatizationBoard("AVR_external_climatization_board#1", $sensors, $actuators);
                 break;
-            case 'arduino_soil_board#1':
+            case 'AVR_soil_board#1':
                 $sensors = array();
                 $sensors[] = 'LM393#1'; // humidity
                 $sensors[] = 'Ds18b20#1'; // temperature
                 $actuators = array();
                 $actuators[] = '2W16015#1';
-                $board = $this->hidrateSoilBoard('arduino_soil_board#1', $sensors, $actuators );
+                $board = $this->hidrateSoilBoard('AVR_soil_board#1', $sensors, $actuators );
                 break;
-            case 'arduino_soil_board#2':
+            case 'AVR_soil_board#2':
                 $sensors = array();
                 $sensors[] = 'LM393#2';
                 $sensors[] = 'Ds18b20#2';
                 $actuators = array();
                 $actuators[] = '2W16015#2';
-                $board = $this->hidrateSoilBoard('arduino_soil_board#2', $sensors, $actuators );
+                $board = $this->hidrateSoilBoard('AVR_soil_board#2', $sensors, $actuators );
                 break;
-            case 'arduino_soil_board#3':
+            case 'AVR_soil_board#3':
                 $sensors = array();
                 $sensors[] = 'LM393#3';
                 $sensors[] = 'Ds18b20#3';
                 $actuators = array();
                 $actuators[] = '2W16015#3';
-                $board = $this->hidrateSoilBoard('arduino_soil_board#3', $sensors, $actuators );
+                $board = $this->hidrateSoilBoard('AVR_soil_board#3', $sensors, $actuators );
                 break;
-            case 'arduino_soil_board#4':
+            case 'AVR_soil_board#4':
                 $sensors = array();
                 $sensors[] = 'LM393#4';
                 $sensors[] = 'Ds18b20#4';
                 $actuators = array();
                 $actuators[] = '2W16015#4';
-                $board = $this->hidrateSoilBoard('arduino_soil_board#4', $sensors, $actuators );
+                $board = $this->hidrateSoilBoard('AVR_soil_board#4', $sensors, $actuators );
         }
         
         

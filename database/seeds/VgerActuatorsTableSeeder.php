@@ -21,9 +21,9 @@ class VgerActuatorsTableSeeder extends Seeder
         /**
          * CLIMATIZATION BOARD #1
          */
-        $arduino_module = VgerModules::where('name', 'arduino_climatization_board#1')->first();
-        if (! $arduino_module)
-            throw new Exception('Command MODULE arduino_climatization_board#1 not found... Cannot seed ACTUATORS');
+        $AVR_module = VgerModules::where('name', 'AVR_climatization_board#1')->first();
+        if (! $AVR_module)
+            throw new Exception('Command MODULE AVR_climatization_board#1 not found... Cannot seed ACTUATORS');
 
         DB::table('vger_actuators')->insert([
             'id' => '1',
@@ -33,7 +33,7 @@ class VgerActuatorsTableSeeder extends Seeder
             'model' => 'DN20',
             'active' => true,
             'enabled' => true,
-            'module_id' => $arduino_module->id,
+            'module_id' => $AVR_module->id,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
@@ -41,9 +41,9 @@ class VgerActuatorsTableSeeder extends Seeder
         /**
          * CLIMATIZATION BOARD #2
          */
-        $arduino_module = VgerModules::where('name', 'arduino_climatization_board#2')->first();
-        if (! $arduino_module)
-            throw new Exception('Command MODULE arduino_climatization_board#1 not found... Cannot seed ACTUATORS');
+        $AVR_module = VgerModules::where('name', 'AVR_climatization_board#2')->first();
+        if (! $AVR_module)
+            throw new Exception('Command MODULE AVR_climatization_board#1 not found... Cannot seed ACTUATORS');
 
         DB::table('vger_actuators')->insert([
             'id' => '2',
@@ -53,7 +53,7 @@ class VgerActuatorsTableSeeder extends Seeder
             'model' => 'DN20',
             'active' => true,
             'enabled' => true,
-            'module_id' => $arduino_module->id,
+            'module_id' => $AVR_module->id,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
@@ -61,9 +61,9 @@ class VgerActuatorsTableSeeder extends Seeder
         /**
          * CLIMATIZATION BOARD #3
          */
-        $arduino_module = VgerModules::where('name', 'arduino_climatization_board#3')->first();
-        if (! $arduino_module)
-            throw new Exception('Command MODULE arduino_climatization_board#1 not found... Cannot seed ACTUATORS');
+        $AVR_module = VgerModules::where('name', 'AVR_climatization_board#3')->first();
+        if (! $AVR_module)
+            throw new Exception('Command MODULE AVR_climatization_board#1 not found... Cannot seed ACTUATORS');
 
         DB::table('vger_actuators')->insert([
             'id' => '3',
@@ -73,7 +73,7 @@ class VgerActuatorsTableSeeder extends Seeder
             'model' => 'DN20',
             'active' => true,
             'enabled' => true,
-            'module_id' => $arduino_module->id,
+            'module_id' => $AVR_module->id,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
@@ -85,9 +85,9 @@ class VgerActuatorsTableSeeder extends Seeder
         /**
          * SOIL BOARD #1
          */
-        $arduino_module = VgerModules::where('name', 'arduino_soil_board#1')->first();
-        if (! $arduino_module)
-            throw new Exception('Command MODULE arduino_climatization_board#1 not found... Cannot seed ACTUATORS');
+        $AVR_module = VgerModules::where('name', 'AVR_soil_board#1')->first();
+        if (! $AVR_module)
+            throw new Exception('Command MODULE AVR_climatization_board#1 not found... Cannot seed ACTUATORS');
 
         DB::table('vger_actuators')->insert([
             'id' => '4',
@@ -97,7 +97,7 @@ class VgerActuatorsTableSeeder extends Seeder
             'model' => '2W16015',
             'active' => true,
             'enabled' => true,
-            'module_id' => $arduino_module->id,
+            'module_id' => $AVR_module->id,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
@@ -105,9 +105,9 @@ class VgerActuatorsTableSeeder extends Seeder
         /**
          * SOIL BOARD #2
          */
-        $arduino_module = VgerModules::where('name', 'arduino_soil_board#2')->first();
-        if (! $arduino_module)
-            throw new Exception('Command MODULE arduino_climatization_board#2 not found... Cannot seed ACTUATORS');
+        $AVR_module = VgerModules::where('name', 'AVR_soil_board#2')->first();
+        if (! $AVR_module)
+            throw new Exception('Command MODULE AVR_climatization_board#2 not found... Cannot seed ACTUATORS');
 
         DB::table('vger_actuators')->insert([
             'id' => '5',
@@ -117,7 +117,7 @@ class VgerActuatorsTableSeeder extends Seeder
             'model' => '2W16015',
             'active' => true,
             'enabled' => true,
-            'module_id' => $arduino_module->id,
+            'module_id' => $AVR_module->id,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
@@ -125,9 +125,9 @@ class VgerActuatorsTableSeeder extends Seeder
         /**
          * SOIL BOARD #3
          */
-        $arduino_module = VgerModules::where('name', 'arduino_soil_board#3')->first();
-        if (! $arduino_module)
-            throw new Exception('Command MODULE arduino_climatization_board#3 not found... Cannot seed ACTUATORS');
+        $AVR_module = VgerModules::where('name', 'AVR_soil_board#3')->first();
+        if (! $AVR_module)
+            throw new Exception('Command MODULE AVR_climatization_board#3 not found... Cannot seed ACTUATORS');
 
         DB::table('vger_actuators')->insert([
             'id' => '6',
@@ -137,7 +137,7 @@ class VgerActuatorsTableSeeder extends Seeder
             'model' => '2W16015',
             'active' => true,
             'enabled' => true,
-            'module_id' => $arduino_module->id,
+            'module_id' => $AVR_module->id,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
@@ -145,9 +145,9 @@ class VgerActuatorsTableSeeder extends Seeder
         /**
          * SOIL BOARD #4
          */
-        $arduino_module = VgerModules::where('name', 'arduino_soil_board#4')->first();
-        if (! $arduino_module)
-            throw new Exception('Command MODULE arduino_climatization_board#4 not found... Cannot seed ACTUATORS');
+        $AVR_module = VgerModules::where('name', 'AVR_soil_board#4')->first();
+        if (! $AVR_module)
+            throw new Exception('Command MODULE AVR_climatization_board#4 not found... Cannot seed ACTUATORS');
 
         DB::table('vger_actuators')->insert([
             'id' => '7',
@@ -157,7 +157,7 @@ class VgerActuatorsTableSeeder extends Seeder
             'model' => '2W16015',
             'active' => true,
             'enabled' => true,
-            'module_id' => $arduino_module->id,
+            'module_id' => $AVR_module->id,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);

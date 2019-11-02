@@ -16,7 +16,7 @@ class VgerTypesTableSeeder extends Seeder
         DB::table('vger_types')->insert([
             'id' => '1',
             'name' => 'module',
-            'description' => 'References to one of the arduino modules',
+            'description' => 'References to one of the AVR modules',
             'active' => true,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
@@ -43,7 +43,7 @@ class VgerTypesTableSeeder extends Seeder
         DB::table('vger_types')->insert([
             'id' => '4',
             'name' => 'sampling',
-            'description' => 'References to Sampling Data from arduino boards',
+            'description' => 'References to Sampling Data from AVR boards',
             'active' => true,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
@@ -74,6 +74,24 @@ class VgerTypesTableSeeder extends Seeder
             'active' => true,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')    
+        ]);
+        
+        DB::table('vger_types')->insert([
+            'id' => '8',
+            'name' => 'commands',
+            'description' => 'References to one or more 4BCP command variable',
+            'active' => true,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+        ]);
+        
+        DB::table('vger_types')->insert([
+            'id' => '9',
+            'name' => 'commands_args',
+            'description' => 'References to one or more 4BCP command arguments variable',
+            'active' => true,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
     }
 }
