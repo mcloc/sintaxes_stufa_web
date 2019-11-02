@@ -16,18 +16,18 @@ class VgerModulesTypeTableSeeder extends Seeder
         DB::table('vger_modules_type')->insert([
             'id' => 1,
             'name' => 'AVR',
-            'description' => 'Arduino Board',
+            'description' => 'AVR ATmega2560 Board',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         
-        DB::table('vger_modules_type')->insert([
-            'id' => 2,
-            'name' => 'AVR_comm',
-            'description' => 'Arduino Communication Board',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
-        ]);
+//         DB::table('vger_modules_type')->insert([
+//             'id' => 2,
+//             'name' => 'java_central',
+//             'description' => 'AVR Communication Board',
+//             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+//             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+//         ]);
         
         DB::table('vger_modules_type')->insert([
             'id' => 3,

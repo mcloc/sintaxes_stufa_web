@@ -17,6 +17,7 @@ class CreateVgerSensorsTable extends Migration
         Schema::create('vger_sensors', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('uuid')->unique();
+            
             $table->string('type');
             $table->string('description')->nullable();
             $table->string('model');

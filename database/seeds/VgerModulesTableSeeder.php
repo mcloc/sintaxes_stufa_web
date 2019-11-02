@@ -34,12 +34,12 @@ class VgerModulesTableSeeder extends Seeder
         
         $software_type = VgerModulesType::where('name', 'software')->first();
         if (! $software_type)
-            throw new Exception('Module Type "AVR" not found... Cannot seed MODULES.');
+            throw new Exception('Module Type "software" not found... Cannot seed MODULES.');
         
         DB::table('vger_modules')->insert([
             'id' => 3,
             'name' => 'tcp_communication',
-            'description' => 'Java TCP 4BCProtocol Communication Handler',
+            'description' => 'Java TCP 4BCProtocol Communication Handler and ExpertSystem',
             'active' => true,
             'enabled' => true,
             'type_id' => $software_type->id,
@@ -80,7 +80,7 @@ class VgerModulesTableSeeder extends Seeder
             DB::table('vger_modules')->insert([
                 'id' => 6,
                 'name' => 'AVR_climatization_board#1',
-                'description' => 'Arduino Sensors and Actuators for climatization #1',
+                'description' => 'AVR Sensors and Actuators for climatization #1',
                 'active' => true,
                 'enabled' => true,'active' => true,
                 'type_id' => $AVR_type->id,
@@ -91,7 +91,7 @@ class VgerModulesTableSeeder extends Seeder
             DB::table('vger_modules')->insert([
                 'id' => 7,
                 'name' => 'AVR_climatization_board#2',
-                'description' => 'Arduino Sensors and Actuators for climatization #2',
+                'description' => 'AVR Sensors and Actuators for climatization #2',
                 'active' => true,
                 'enabled' => true,
                 'type_id' => $AVR_type->id,
@@ -102,7 +102,7 @@ class VgerModulesTableSeeder extends Seeder
             DB::table('vger_modules')->insert([
                 'id' => 8,
                 'name' => 'AVR_climatization_board#3',
-                'description' => 'Arduino Sensors and Actuators for climatization #3',
+                'description' => 'AVR Sensors and Actuators for climatization #3',
                 'active' => true,
                 'enabled' => true,
                 'type_id' => $AVR_type->id,
@@ -113,7 +113,7 @@ class VgerModulesTableSeeder extends Seeder
             DB::table('vger_modules')->insert([
                 'id' => 9,
                 'name' => 'AVR_soil_board#1',
-                'description' => 'Arduino Sensors and Actuators for Soil #1',
+                'description' => 'AVR Sensors and Actuators for Soil #1',
                 'active' => true,
                 'enabled' => true,
                 'type_id' => $AVR_type->id,
@@ -124,7 +124,7 @@ class VgerModulesTableSeeder extends Seeder
             DB::table('vger_modules')->insert([
                 'id' => 10,
                 'name' => 'AVR_soil_board#2',
-                'description' => 'Arduino Sensors and Actuators for soil #2',
+                'description' => 'AVR Sensors and Actuators for soil #2',
                 'active' => true,
                 'enabled' => true,
                 'type_id' => $AVR_type->id,
@@ -135,7 +135,7 @@ class VgerModulesTableSeeder extends Seeder
             DB::table('vger_modules')->insert([
                 'id' => 11,
                 'name' => 'AVR_soil_board#3',
-                'description' => 'Arduino Sensors and Actuators for soil #3',
+                'description' => 'AVR Sensors and Actuators for soil #3',
                 'active' => true,
                 'enabled' => true,
                 'type_id' => $AVR_type->id,
@@ -146,7 +146,7 @@ class VgerModulesTableSeeder extends Seeder
             DB::table('vger_modules')->insert([
                 'id' => 12,
                 'name' => 'AVR_soil_board#4',
-                'description' => 'Arduino Sensors and Actuators for soil #4',
+                'description' => 'AVR Sensors and Actuators for soil #4',
                 'active' => true,
                 'enabled' => true,
                 'type_id' => $AVR_type->id,
@@ -157,7 +157,7 @@ class VgerModulesTableSeeder extends Seeder
             DB::table('vger_modules')->insert([
                 'id' => 13,
                 'name' => 'AVR_external_climatization_board#1',
-                'description' => 'Arduino Sensors and Actuators for external_climatization #1',
+                'description' => 'AVR Sensors and Actuators for external_climatization #1',
                 'active' => true,
                 'enabled' => true,
                 'type_id' => $AVR_type->id,
