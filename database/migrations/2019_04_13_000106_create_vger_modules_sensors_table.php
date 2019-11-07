@@ -21,6 +21,9 @@ class CreateVgerModulesSensorsTable extends Migration
             $table->unsignedBigInteger('sensor_id')->index();
             $table->foreign('sensor_id')->references('id')->on('vger_sensors');
             
+//             $table->unsignedBigInteger('id_4BCP')->index();
+//             $table->foreign('id_4BCP')->references('id')->on('vger_4bcprotocol');
+            
             $table->boolean('enabled')->default(false);
             $table->primary(['module_id', 'sensor_id']);
             $table->timestamps();

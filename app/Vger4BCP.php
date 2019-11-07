@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Vger4BCPType extends Model
+class Vger4BCP extends Model
 {
-    protected $table = 'vger_4bcprotocol_types';
+    protected $table = 'vger_4bcprotocol';
     
     
 //     public function modules(){

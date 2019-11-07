@@ -30,7 +30,7 @@ class VgerModulesTypeTableSeeder extends Seeder
 //         ]);
         
         DB::table('vger_modules_type')->insert([
-            'id' => 3,
+            'id' => 2,
             'name' => 'pi_board',
             'description' => 'PI Board',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
@@ -38,7 +38,7 @@ class VgerModulesTypeTableSeeder extends Seeder
         ]);
         
         DB::table('vger_modules_type')->insert([
-            'id' => 4,
+            'id' => 3,
             'name' => 'software',
             'description' => 'Software Modules',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),

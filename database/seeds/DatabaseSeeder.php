@@ -19,7 +19,6 @@ class DatabaseSeeder extends Seeder
         $this->call(VgerTableSeeder::class);
         $this->call(Vger4BCPTypeTableSeeder::class);
         $this->call(Vger4BCPTableSeeder::class);
-        $this->call(VgerModulesTypeTableSeeder::class);
         $this->call(VgerTypesTableSeeder::class);
         $this->call(VgerModulesTypeTableSeeder::class);
         $this->call(VgerModulesTableSeeder::class);
