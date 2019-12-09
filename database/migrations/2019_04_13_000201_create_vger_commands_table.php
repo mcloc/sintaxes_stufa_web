@@ -24,6 +24,9 @@ class CreateVgerCommandsTable extends Migration
             $table->unsignedBigInteger('type_id')->index();
             $table->foreign('type_id')->references('id')->on('vger_commands_type');
             
+            
+            $table->unsignedInteger('id_4BCP')->unique()->nullable();
+            $table->foreign('id_4BCP')->references('id')->on('vger_4bcprotocol');
 
             
             $table->boolean('enabled');

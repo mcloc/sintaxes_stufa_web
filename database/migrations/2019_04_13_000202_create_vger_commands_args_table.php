@@ -22,6 +22,10 @@ class CreateVgerCommandsArgsTable extends Migration
             $table->foreign('command_id')->references('id')->on('vger_commands');
             
             $table->string('description');
+            
+            $table->unsignedInteger('id_4BCP')->unique()->nullable();
+            $table->foreign('id_4BCP')->references('id')->on('vger_4bcprotocol');
+            
             $table->timestamps();
             
             $table->unique(['arg_name', 'command_id']);

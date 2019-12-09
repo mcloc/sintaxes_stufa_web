@@ -238,13 +238,46 @@ class Vger4BCPTableSeeder extends Seeder
         DB::table('vger_4bcprotocol')->insert([
             'id' => 20,
             'uuid_4BCP' => 0xFFFF3001,
-            'constant_name' => 'AVR-Sintaxes-module-1',
+            'constant_name' => 'MODULE_AVR_CLIMATIZATION_1',
             'description' => 'AVR Module 1',
             'active' => true,
             'type_4BCP' => $_4BCP_type->id,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
-                    ]);
+        ]);
+
+        DB::table('vger_4bcprotocol')->insert([
+            'id' => 21,
+            'uuid_4BCP' => 0xFFFF3002,
+            'constant_name' => 'MODULE_AVR_CLIMATIZATION_2',
+            'description' => 'AVR Module 2',
+            'active' => true,
+            'type_4BCP' => $_4BCP_type->id,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+        ]);
+        DB::table('vger_4bcprotocol')->insert([
+            'id' => 22,
+            'uuid_4BCP' => 0xFFFF3003,
+            'constant_name' => 'MODULE_AVR_CLIMATIZATION_3',
+            'description' => 'AVR Module 3',
+            'active' => true,
+            'type_4BCP' => $_4BCP_type->id,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+        ]);
+        
+        DB::table('vger_4bcprotocol')->insert([
+            'id' => 23,
+            'uuid_4BCP' => 0xFFFF3011,
+            'constant_name' => 'MODULE_AVR_SOIL_1',
+            'description' => 'AVR Module 4',
+            'active' => true,
+            'type_4BCP' => $_4BCP_type->id,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+        ]);
+        
                     
                 
     }

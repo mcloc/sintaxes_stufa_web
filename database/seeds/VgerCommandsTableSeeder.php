@@ -2,6 +2,7 @@
 use App\VgerCommandsType;
 use App\VgerModules;
 use App\VgerModulesType;
+use App\Vger4BCP;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -43,11 +44,16 @@ class VgerCommandsTableSeeder extends Seeder
 
         $i = 1;
         foreach ($AVR_modules as $AVR_module) {
+            
+            $_4BCP = Vger4BCP::where('uuid_4BCP', 0xFFFF0020)->first();
+            if (! $_4BCP)
+                throw new Exception('uuid_4BCP not found... Cannot seed COMMANDS');
             DB::table('vger_commands')->insert([
                 'id' => $i,
                 'type_id' => $cmd_type_get_data->id,
                 'module_id' => $AVR_module->id,
-                'command' => 'GET_DATA',
+                'command' => 'MODULE_COMMMAND_GET_STATE',
+                'id_4BCP'   => $_4BCP->id,
                 'enabled' => true,
                 'description' => 'Get all Sensors,actuators and valiable data',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
@@ -55,11 +61,15 @@ class VgerCommandsTableSeeder extends Seeder
             ]);
             $i++;
 
+            $_4BCP = Vger4BCP::where('uuid_4BCP', 0xFFFF0021)->first();
+            if (! $_4BCP)
+                throw new Exception('uuid_4BCP not found... Cannot seed COMMANDS');
             DB::table('vger_commands')->insert([
                 'id' => $i,
                 'type_id' => $cmd_type_get_info->id,
                 'module_id' => $AVR_module->id,
-                'command' => 'GET_INFO',
+                'command' => 'MODULE_COMMMAND_GET_DATA',
+                'id_4BCP'   => $_4BCP->id,
                 'enabled' => true,
                 'description' => 'GET INFO on configuration set',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
@@ -67,17 +77,25 @@ class VgerCommandsTableSeeder extends Seeder
             ]);
             $i++;
 
+            $_4BCP = Vger4BCP::where('uuid_4BCP', 0xFFFF0022)->first();
+            if (! $_4BCP)
+                throw new Exception('uuid_4BCP not found... Cannot seed COMMANDS');
             DB::table('vger_commands')->insert([
                 'id' => $i,
                 'type_id' => $cmd_type_get_status->id,
                 'module_id' => $AVR_module->id,
-                'command' => 'GET_STATUS',
+                'command' => 'MODULE_COMMAND_GET_PROCESS_FLOW',
+                'id_4BCP'   => $_4BCP->id,
                 'enabled' => true,
                 'description' => 'GET Running Status such as uptime and other running info',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ]);
             $i++;
+            
+            
+            //TODO:remove loop and set manually all commands for mapping 4BCP
+            break;
         }
     }
 }

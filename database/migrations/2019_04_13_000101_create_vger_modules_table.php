@@ -26,6 +26,10 @@ class CreateVgerModulesTable extends Migration
             $table->float('uptime')->default(0);
             $table->unsignedBigInteger('type_id')->index();
             $table->foreign('type_id')->references('id')->on('vger_modules_type');
+            
+            $table->unsignedInteger('id_4BCP')->unique()->nullable();
+            $table->foreign('id_4BCP')->references('id')->on('vger_4bcprotocol');
+            
             $table->timestamps();
         });
     }
