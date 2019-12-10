@@ -396,7 +396,7 @@ class APIController extends Controller {
                 'name' => $module->name,
                 'description' => $module->description,
                 'type_id' => $module->type_id,
-                'uuid_4BCP' => dechex($module_4BCP->uuid_4BCP),
+                'uuid_4BCP' => $module_4BCP->getHexUUID(),
                 'active' => $module->active,
                 'enabled' => $module->enabled,
                 'created_at' => $module->created_at,
