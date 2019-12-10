@@ -12,6 +12,7 @@ class Vger4BCP extends Model
 //     public function modules(){
 //         return $this->hasMany(VgerModules::class, 'type_id', 'id');
 //     }
+
     
     public function getDates() {
         return array();

@@ -379,7 +379,7 @@ class APIController extends Controller {
     }
     
     public function getActiveModules(){
-        $modules = VgerModules::with('type')->whereHas('type', function ($query) {$query->where('name', '=', 'AVR');})->where('vger_modules.active', true)->get();
+        $modules = VgerModules::with('_4BCP')->with('type')->whereHas('type', function ($query) {$query->where('name', '=', 'AVR');})->where('vger_modules.active', true)->get();
         
         if($modules == null){
             return new JsonResponse(array('error' => 'no active modules found'), 200);
@@ -390,11 +390,13 @@ class APIController extends Controller {
         $data = array();
         foreach($modules as $module){
             $module_type = $module->type;
+            $module_4BCP = $module->_4BCP;
             $data[] = array(
                 'id' => $module->id,
                 'name' => $module->name,
                 'description' => $module->description,
                 'type_id' => $module->type_id,
+                'uuid_4BCP' => dechex($module_4BCP->uuid_4BCP),
                 'active' => $module->active,
                 'enabled' => $module->enabled,
                 'created_at' => $module->created_at,

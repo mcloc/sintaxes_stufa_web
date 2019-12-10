@@ -8,6 +8,10 @@ class VgerModules extends Model
 {
     protected $table = 'vger_modules';
     
+    public function _4BCP(){
+        return $this->hasOne(Vger4BCP::class, 'id', 'id_4BCP');
+    }
+    
     public function type(){
         return $this->hasOne(VgerModulesType::class, 'id', 'type_id');
     }
