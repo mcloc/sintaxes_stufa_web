@@ -397,6 +397,7 @@ class APIController extends Controller {
                 'description' => $module->description,
                 'type_id' => $module->type_id,
                 'uuid_4BCP' => $module_4BCP->getHexUUID(),
+                'ip_address' => $module->ip_address,
                 'active' => $module->active,
                 'enabled' => $module->enabled,
                 'created_at' => $module->created_at,
